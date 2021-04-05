@@ -28,7 +28,7 @@ jobs:
       - name: Copying from core repo
         run: |
           rm -rf full_chainlink_repo
-          git clone https://.:${{ secrets.GITHUB_TOKEN }}@github.com/smartcontractkit full_chainlink_repo
+          git clone https://.:${{ secrets.GITHUB_TOKEN }}@github.com/smartcontractkit/chainlink full_chainlink_repo
           copy full_chainlink_repo\evm-contracts contracts
           git add contracts
           git commit -m "Automatic publish from github.com/smartcontractkit/chainlink"
