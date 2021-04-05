@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Pull in latest evm-contracts folder from the Chainlink core
+
+
+# Controls when the action will run. 
+on:
+  # Runs at 8AM everyday
+  schedule:
+    - cron: "0 8 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Copying from core repo
+        run: |
+          rm -rf full_chainlink_repo
+          git clone https://.:${{ secrets.GITHUB_TOKEN }}@github.com/smartcontractkit full_chainlink_repo
+          copy full_chainlink_repo\evm-contracts contracts
+          git add contracts
+          git commit -m "Automatic publish from github.com/smartcontractkit/chainlink"
+          git push contracts master
+
+
+
