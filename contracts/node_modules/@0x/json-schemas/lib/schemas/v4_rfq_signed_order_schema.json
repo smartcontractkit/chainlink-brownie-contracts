@@ -1,0 +1,12 @@
+{
+    "id": "/v4RfqSignedOrderSchema",
+    "allOf": [
+        { "$ref": "/v4RfqOrderSchema" },
+        {
+            "properties": {
+                "signature": { "$ref": "/v4SignatureSchema" }
+            },
+            "required": ["signature"]
+        }
+    ]
+}

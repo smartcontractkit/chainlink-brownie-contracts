@@ -1,0 +1,56 @@
+{
+    "id": "/v4RfqOrderSchema",
+    "properties": {
+        "maker": {
+            "$ref": "/addressSchema"
+        },
+        "taker": {
+            "$ref": "/addressSchema"
+        },
+        "txOrigin": {
+            "$ref": "/addressSchema"
+        },
+        "makerAmount": {
+            "$ref": "/wholeNumberSchema"
+        },
+        "takerAmount": {
+            "$ref": "/wholeNumberSchema"
+        },
+        "makerToken": {
+            "$ref": "/addressSchema"
+        },
+        "takerToken": {
+            "$ref": "/addressSchema"
+        },
+        "salt": {
+            "$ref": "/wholeNumberSchema"
+        },
+        "expiry": {
+            "$ref": "/wholeNumberSchema"
+        },
+        "chainId": {
+            "type": "number"
+        },
+        "verifyingContract": {
+            "$ref": "/addressSchema"
+        },
+        "pool": {
+            "$ref": "/hexSchema"
+        }
+    },
+    "required": [
+        "maker",
+        "taker",
+        "txOrigin",
+        "makerAmount",
+        "takerAmount",
+        "makerToken",
+        "takerToken",
+        "salt",
+        "expiry",
+        "chainId",
+        "verifyingContract",
+        "pool"
+    ],
+    "type": "object"
+}

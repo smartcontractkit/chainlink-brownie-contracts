@@ -1,0 +1,24 @@
+{
+    "id": "/v4SignatureSchema",
+    "properties": {
+        "signatureType": {
+            "enum": [2, 3]
+        },
+        "v": {
+            "enum": [27, 28]
+        },
+        "r": {
+            "$ref": "/hexSchema"
+        },
+        "s": {
+            "$ref": "/hexSchema"
+        }
+    },
+    "required": [
+        "signatureType",
+        "v",
+        "r",
+        "s"
+    ],
+    "type": "object"
+}
