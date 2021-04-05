@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+tmp/
+.pnp
+.pnp.js
+tools/bin/abigen
+
+/chainlink
+core/chainlink
+
+# GUI
+operator_ui/dist
+operator_ui/artifacts
+*-packr.go
+
+
+# SQLite
+tools/clroot/db.sqlite3-shm
+tools/clroot/db.sqlite3-wal
+
+# Tooling caches
+*.tsbuildinfo
+.eslintcache
+
+# Log files
+*.log
+
+# misc
+.DS_Store
+.envrc
+.env*
+
+# codeship
+*.aes
+dockercfg
+env
+credentials.env
+gcr_creds.env
