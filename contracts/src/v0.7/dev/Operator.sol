@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
+import "./AuthorizedReceiver.sol";
 import "./LinkTokenReceiver.sol";
 import "./ConfirmedOwner.sol";
-import "./OperatorForwarder.sol";
-import "../interfaces/ChainlinkRequestInterface.sol";
-import "../interfaces/OperatorInterface.sol";
 import "../interfaces/LinkTokenInterface.sol";
+import "../interfaces/OperatorInterface.sol";
+import "../interfaces/OwnableInterface.sol";
 import "../interfaces/WithdrawalInterface.sol";
 import "../vendor/SafeMathChainlink.sol";
 
@@ -15,9 +15,9 @@ import "../vendor/SafeMathChainlink.sol";
  * @notice Node operators can deploy this contract to fulfill requests sent to them
  */
 contract Operator is
-  LinkTokenReceiver,
+  AuthorizedReceiver,
   ConfirmedOwner,
-  ChainlinkRequestInterface,
+  LinkTokenReceiver,
   OperatorInterface,
   WithdrawalInterface
 {
@@ -28,25 +28,24 @@ contract Operator is
     uint8 dataVersion;
   }
 
-  uint256 constant public EXPIRY_TIME = 5 minutes;
+  uint256 constant public getExpiryTime = 5 minutes;
   uint256 constant private MAXIMUM_DATA_VERSION = 256;
   uint256 constant private MINIMUM_CONSUMER_GAS_LIMIT = 400000;
+  uint256 constant private SELECTOR_LENGTH = 4;
+  uint256 constant private EXPECTED_REQUEST_WORDS = 2;
+  uint256 constant private MINIMUM_REQUEST_LENGTH = SELECTOR_LENGTH + (32 * EXPECTED_REQUEST_WORDS);
   // We initialize fields to 1 instead of 0 so that the first invocation
   // does not cost more gas.
   uint256 constant private ONE_FOR_CONSISTENT_GAS_COST = 1;
+  // oracleRequest is version 1, enabling single word responses
+  bytes4 constant private ORACLE_REQUEST_SELECTOR = this.oracleRequest.selector;
+  // requestOracleData is version 2, enabling multi-word responses
+  bytes4 constant private OPERATOR_REQUEST_SELECTOR = this.requestOracleData.selector;
 
   LinkTokenInterface internal immutable linkToken;
   mapping(bytes32 => Commitment) private s_commitments;
-  mapping(address => bool) private s_authorizedSenders;
-  address[] private s_authorizedSenderList;
   // Tokens sent for requests that have not been fulfilled yet
   uint256 private s_tokensInEscrow = ONE_FOR_CONSISTENT_GAS_COST;
-  // Forwarders
-  address[] private s_forwardersList;
-
-  event AuthorizedSendersChanged(
-    address[] senders
-  );
 
   event OracleRequest(
     bytes32 indexed specId,
@@ -68,8 +67,14 @@ contract Operator is
     bytes32 indexed requestId
   );
 
-  event ForwarderCreated(
-    address indexed addr
+  event OwnableContractAccepted(
+    address indexed accpetedContract
+  );
+
+  event TargetsUpdatedAuthorizedSenders(
+    address[] targets,
+    address[] senders,
+    address changedBy
   );
 
   /**
@@ -87,7 +92,30 @@ contract Operator is
     linkToken = LinkTokenInterface(link); // external but already deployed and unalterable
   }
 
-  // EXTERNAL FUNCTIONS
+  function oracleRequest(
+    address sender,
+    uint256 payment,
+    bytes32 specId,
+    address callbackAddress,
+    bytes4 callbackFunctionId,
+    uint256 nonce,
+    uint256 dataVersion,
+    bytes calldata data
+  )
+    external
+    override
+  {
+    requestOracleData(
+      sender,
+      payment,
+      specId,
+      callbackAddress,
+      callbackFunctionId,
+      nonce,
+      dataVersion,
+      data
+    );
+  }
 
   /**
    * @notice Creates the Chainlink request
@@ -102,7 +130,7 @@ contract Operator is
    * @param dataVersion The specified data version
    * @param data The CBOR payload of the request
    */
-  function oracleRequest(
+  function requestOracleData(
     address sender,
     uint256 payment,
     bytes32 specId,
@@ -112,10 +140,10 @@ contract Operator is
     uint256 dataVersion,
     bytes calldata data
   )
-    external
+    public
     override
-    onlyLINK()
-    checkCallbackAddress(callbackAddress)
+    validateFromLINK()
+    validateNotToLINK(callbackAddress)
   {
     (bytes32 requestId, uint256 expiration) = _verifyOracleRequest(
       sender,
@@ -160,8 +188,8 @@ contract Operator is
   )
     external
     override
-    onlyAuthorizedSender()
-    isValidRequest(requestId)
+    validateAuthorizedSender()
+    validateRequestId(requestId)
     returns (
       bool
     )
@@ -206,9 +234,9 @@ contract Operator is
   )
     external
     override
-    onlyAuthorizedSender()
-    isValidRequest(requestId)
-    isValidMultiWord(requestId, data)
+    validateAuthorizedSender()
+    validateRequestId(requestId)
+    validateMultiWordResponseId(requestId, data)
     returns (
       bool
     )
@@ -231,75 +259,72 @@ contract Operator is
   }
 
   /**
-   * @notice Use this to check if a node is authorized for fulfilling requests
-   * @param sender The address of the Chainlink node
-   * @return The authorization status of the node
+   * @notice Transfer the ownership of ownable contracts
+   * @param ownable list of addresses to transfer
+   * @param newOwner address to transfer ownership to
    */
-  function isAuthorizedSender(
-    address sender
+  function transferOwnableContracts(
+    address[] calldata ownable,
+    address newOwner
   )
     external
-    view
-    override
-    returns (bool)
+    onlyOwner()
   {
-    return s_authorizedSenders[sender];
+    for (uint256 i = 0; i < ownable.length; i++) {
+      OwnableInterface(ownable[i]).transferOwnership(newOwner);
+    }
   }
 
   /**
-   * @notice Sets the fulfillment permission for a given node. Use `true` to allow, `false` to disallow.
-   * @param senders The addresses of the authorized Chainlink node
+   * @notice Accept the ownership of an ownable contract
+   * @dev Must be the pending owner on the contract
+   * @param ownable list of addresses of Ownable contracts to accept
    */
-  function setAuthorizedSenders(
+  function acceptOwnableContracts(
+    address[] calldata ownable
+  )
+    public
+    validateAuthorizedSenderSetter()
+  {
+    for (uint256 i = 0; i < ownable.length; i++) {
+      OwnableInterface(ownable[i]).acceptOwnership();
+      emit OwnableContractAccepted(ownable[i]);
+    }
+  }
+
+  /**
+   * @notice Sets the fulfillment permission for
+   * @param targets The addresses to set permissions on
+   * @param senders The addresses that are allowed to send updates
+   */
+  function setAuthorizedSendersOn(
+    address[] calldata targets,
+    address[] calldata senders
+  )
+    public
+    validateAuthorizedSenderSetter()
+  {
+    TargetsUpdatedAuthorizedSenders(targets, senders, msg.sender);
+
+    for (uint256 i = 0; i < targets.length; i++) {
+      AuthorizedReceiverInterface(targets[i]).setAuthorizedSenders(senders);
+    }
+  }
+
+  /**
+   * @notice Sets the fulfillment permission for
+   * @param targets The addresses to set permissions on
+   * @param senders The addresses that are allowed to send updates
+   */
+  function acceptAuthorizedReceivers(
+    address[] calldata targets,
     address[] calldata senders
   )
     external
-    override
-    onlyOwner()
+    validateAuthorizedSenderSetter()
   {
-    require(senders.length > 0, "Must have at least 1 authorized sender");
-    // Set previous authorized senders to false
-    uint256 authorizedSendersLength = s_authorizedSenderList.length;
-    for (uint256 i = 0; i < authorizedSendersLength; i++) {
-      s_authorizedSenders[s_authorizedSenderList[i]] = false;
-    }
-    // Set new to true
-    for (uint256 i = 0; i < senders.length; i++) {
-      s_authorizedSenders[senders[i]] = true;
-    }
-    // Replace list
-    s_authorizedSenderList = senders;
-    emit AuthorizedSendersChanged(senders);
-  }
-
-  /**
-   * @notice Retrieve a list of authorized senders
-   * @return array of addresses
-   */
-  function getAuthorizedSenders()
-    external
-    view
-    override
-    returns (
-      address[] memory
-    )
-  {
-    return s_authorizedSenderList;
-  }
-
-  /**
-   * @notice Retrive a list of forwarders
-   * @return array of addresses
-   */
-  function getForwarders()
-    external
-    view
-    override
-    returns (
-      address[] memory
-    )
-  {
-    return s_forwardersList;
+    acceptOwnableContracts(targets);
+    setAuthorizedSendersOn(targets, senders);
   }
 
   /**
@@ -315,7 +340,7 @@ contract Operator is
     external
     override(OracleInterface, WithdrawalInterface)
     onlyOwner()
-    hasAvailableFunds(amount)
+    validateAvailableFunds(amount)
   {
     assert(linkToken.transfer(recipient, amount));
   }
@@ -335,13 +360,31 @@ contract Operator is
   }
 
   /**
+   * @notice Forward a call to another contract
+   * @dev Only callable by the owner
+   * @param to address
+   * @param data to forward
+   */
+  function ownerForward(
+    address to,
+    bytes calldata data
+  )
+    external
+    onlyOwner()
+    validateNotToLINK(to)
+  {
+    (bool status,) = to.call(data);
+    require(status, "Forwarded call failed");
+  }
+
+  /**
    * @notice Interact with other LinkTokenReceiver contracts by calling transferAndCall
    * @param to The address to transfer to.
    * @param value The amount to be transferred.
    * @param data The extra data to be passed to the receiving contract.
    * @return success bool
    */
-  function operatorTransferAndCall(
+  function ownerTransferAndCall(
     address to,
     uint256 value,
     bytes calldata data
@@ -349,7 +392,7 @@ contract Operator is
     external
     override
     onlyOwner()
-    hasAvailableFunds(value)
+    validateAvailableFunds(value)
     returns (
       bool success
     )
@@ -369,7 +412,6 @@ contract Operator is
     uint[] calldata amounts
   )
     external
-    override
     payable
   {
     require(receivers.length > 0 && receivers.length == amounts.length, "Invalid array length(s)");
@@ -412,28 +454,6 @@ contract Operator is
     assert(linkToken.transfer(msg.sender, payment));
   }
 
-  // PUBLIC FUNCTIONS
-
-  /**
-   * @notice Create a new forwarder contract
-   * @dev This function uses create2 to deploy at a predetermined address.
-   * @return addr deployed address
-   */
-  function createForwarder()
-    public
-    onlyAuthorizedSender()
-    returns (
-      address addr
-    )
-  {
-    bytes32 salt = bytes32(s_forwardersList.length);
-    OperatorForwarder forwarder = new OperatorForwarder{salt: salt}(address(linkToken));
-    addr = address(forwarder);
-    require(addr != address(0), "Create2: Failed deployment");
-    s_forwardersList.push(addr);
-    emit ForwarderCreated(addr);
-  }
-
   /**
    * @notice Returns the address of the LINK token
    * @dev This is the public implementation for chainlinkTokenAddress, which is
@@ -443,12 +463,29 @@ contract Operator is
     public
     view
     override
-    returns (address)
+    returns (
+      address
+    )
   {
     return address(linkToken);
   }
 
-  // INTERNAL FUNCTIONS
+
+  /**
+   * @notice Require that the token transfer action is valid
+   * @dev OPERATOR_REQUEST_SELECTOR = multiword, ORACLE_REQUEST_SELECTOR = singleword
+   */
+  function _validateTokenTransferAction(
+    bytes4 funcSelector,
+    bytes memory data
+  )
+    internal
+    override
+    pure
+  {
+    require(data.length >= MINIMUM_REQUEST_LENGTH, "Invalid request length");
+    require(funcSelector == OPERATOR_REQUEST_SELECTOR || funcSelector == ORACLE_REQUEST_SELECTOR, "Must use whitelisted functions");
+  }
 
   /**
    * @notice Verify the Oracle Request
@@ -465,8 +502,8 @@ contract Operator is
     bytes4 callbackFunctionId,
     uint256 nonce,
     uint256 dataVersion
-  ) 
-    internal
+  )
+    private
     returns (
       bytes32 requestId,
       uint256 expiration
@@ -475,7 +512,7 @@ contract Operator is
     requestId = keccak256(abi.encodePacked(sender, nonce));
     require(s_commitments[requestId].paramsHash == 0, "Must use a unique ID");
     // solhint-disable-next-line not-rely-on-time
-    expiration = block.timestamp.add(EXPIRY_TIME);
+    expiration = block.timestamp.add(getExpiryTime);
     bytes31 paramsHash = _buildFunctionHash(payment, callbackAddress, callbackFunctionId, expiration);
     s_commitments[requestId] = Commitment(paramsHash, _safeCastToUint8(dataVersion));
     s_tokensInEscrow = s_tokensInEscrow.add(payment);
@@ -555,8 +592,6 @@ contract Operator is
     return uint8(number);
   }
 
-  // PRIVATE FUNCTIONS
-
   /**
    * @notice Returns the LINK available in this contract, not locked in escrow
    * @return uint256 LINK tokens available
@@ -572,6 +607,20 @@ contract Operator is
     return linkToken.balanceOf(address(this)).sub(inEscrow);
   }
 
+  /**
+   * @notice concrete implementation of AuthorizedReceiver
+   * @return bool of whether sender is authorized
+   */
+  function _canSetAuthorizedSenders()
+    internal
+    view
+    override
+    returns (bool)
+  {
+    return isAuthorizedSender(msg.sender) || owner() == msg.sender;
+  }
+
+
   // MODIFIERS
 
   /**
@@ -579,7 +628,7 @@ contract Operator is
    * @param requestId bytes32
    * @param data bytes
    */
-  modifier isValidMultiWord(
+  modifier validateMultiWordResponseId(
     bytes32 requestId,
     bytes memory data
   ) {
@@ -595,7 +644,7 @@ contract Operator is
    * @dev Reverts if amount requested is greater than withdrawable balance
    * @param amount The given amount to compare to `s_withdrawableTokens`
    */
-  modifier hasAvailableFunds(
+  modifier validateAvailableFunds(
     uint256 amount
   ) {
     require(_fundsAvailable() >= amount, "Amount requested is greater than withdrawable balance");
@@ -606,7 +655,7 @@ contract Operator is
    * @dev Reverts if request ID does not exist
    * @param requestId The given request ID to check in stored `commitments`
    */
-  modifier isValidRequest(
+  modifier validateRequestId(
     bytes32 requestId
   ) {
     require(s_commitments[requestId].paramsHash != 0, "Must have a valid requestId");
@@ -614,21 +663,13 @@ contract Operator is
   }
 
   /**
-   * @dev Reverts if `msg.sender` is not authorized to fulfill requests
-   */
-  modifier onlyAuthorizedSender() {
-    require(s_authorizedSenders[msg.sender], "Not an authorized node to fulfill requests");
-    _;
-  }
-
-  /**
    * @dev Reverts if the callback address is the LINK token
    * @param to The callback address
    */
-  modifier checkCallbackAddress(
+  modifier validateNotToLINK(
     address to
   ) {
-    require(to != address(linkToken), "Cannot callback to LINK");
+    require(to != address(linkToken), "Cannot call to LINK");
     _;
   }
 

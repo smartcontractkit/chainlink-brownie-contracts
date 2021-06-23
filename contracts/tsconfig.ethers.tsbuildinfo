@@ -2,8 +2,8 @@
   "program": {
     "fileInfos": {
       "./node_modules/typescript/lib/lib.es5.d.ts": {
-        "version": "9622e8bd7cc72a7dab819a8011ecbf81d443638082e5cb99ecf2e75ff56ffc9d",
-        "signature": "9622e8bd7cc72a7dab819a8011ecbf81d443638082e5cb99ecf2e75ff56ffc9d",
+        "version": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
+        "signature": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.d.ts": {
@@ -32,8 +32,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/typescript/lib/lib.dom.d.ts": {
-        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
-        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "version": "feeeb1dd8a80fb76be42b0426e8f3ffa9bdef3c2f3c12c147e7660b1c5ba8b3b",
+        "signature": "feeeb1dd8a80fb76be42b0426e8f3ffa9bdef3c2f3c12c147e7660b1c5ba8b3b",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.dom.iterable.d.ts": {
@@ -77,13 +77,13 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
-        "version": "7207e317a2cb07a177e7d963ab7b8c0e85dde7f9ddb50351f830239bf597569e",
-        "signature": "7207e317a2cb07a177e7d963ab7b8c0e85dde7f9ddb50351f830239bf597569e",
+        "version": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357",
+        "signature": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
-        "version": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
-        "signature": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "version": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6",
+        "signature": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
@@ -177,8 +177,8 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.esnext.intl.d.ts": {
-        "version": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
-        "signature": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
+        "version": "506b80b9951c9381dc5f11897b31fca5e2a65731d96ddefa19687fbc26b23c6e",
+        "signature": "506b80b9951c9381dc5f11897b31fca5e2a65731d96ddefa19687fbc26b23c6e",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2019.full.d.ts": {
@@ -1251,6 +1251,11 @@
         "signature": "fa2acef3db793eb85defd1c53de22d21952c908c135571af4a32ee7e84b7a7c3",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.6/keepercompatibleinterface.d.ts": {
+        "version": "594d69ad295a938f642fabd6a99b30818ba0b37d32d674c2616f3efcdd61d672",
+        "signature": "594d69ad295a938f642fabd6a99b30818ba0b37d32d674c2616f3efcdd61d672",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.6/linktokeninterface.d.ts": {
         "version": "a66f9061154af6f5350b729bdebd69a8f95f4484c2e80691d17ae17265c177fe",
         "signature": "a66f9061154af6f5350b729bdebd69a8f95f4484c2e80691d17ae17265c177fe",
@@ -1269,6 +1274,11 @@
       "./ethers/v0.6/mediantesthelper.d.ts": {
         "version": "10ffcd9617aa3b88fad4b7bc4e32d0a6b25612a62a43909969519c035ae42195",
         "signature": "10ffcd9617aa3b88fad4b7bc4e32d0a6b25612a62a43909969519c035ae42195",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.6/mockoracle.d.ts": {
+        "version": "568d72e6a924ac11be36603e56bada1606301e69523be055a0555071577dec08",
+        "signature": "568d72e6a924ac11be36603e56bada1606301e69523be055a0555071577dec08",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/mockv2aggregator.d.ts": {
@@ -1342,8 +1352,8 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfconsumer.d.ts": {
-        "version": "9eff60dfa3513e862cd529ccfc46bafda638fb961662bc12ff35971c20d84e6c",
-        "signature": "9eff60dfa3513e862cd529ccfc46bafda638fb961662bc12ff35971c20d84e6c",
+        "version": "67dc7edd15a19c626842873ac10d33c1d79dce0b79a75f9235e675a9be928b9e",
+        "signature": "67dc7edd15a19c626842873ac10d33c1d79dce0b79a75f9235e675a9be928b9e",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfconsumerbase.d.ts": {
@@ -1352,8 +1362,8 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfcoordinator.d.ts": {
-        "version": "61aee940f4bd6ad1485f8dd7e3d6f7dff08fa53a8109f1f4c9b43164503016c9",
-        "signature": "61aee940f4bd6ad1485f8dd7e3d6f7dff08fa53a8109f1f4c9b43164503016c9",
+        "version": "9bd952a7f9edb850bbdb4d3b865c43af96838270123eb3762fb55bea5cad55a1",
+        "signature": "9bd952a7f9edb850bbdb4d3b865c43af96838270123eb3762fb55bea5cad55a1",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfcoordinatormock.d.ts": {
@@ -1362,8 +1372,8 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfd20.d.ts": {
-        "version": "fa9d77ca018793bf3cf98e7826d43e0a078009c2ada2c459165e76d0c62249cc",
-        "signature": "fa9d77ca018793bf3cf98e7826d43e0a078009c2ada2c459165e76d0c62249cc",
+        "version": "9cc5193b94e6c48435fef5b34f49f2d1c6cb54a26710f4565a93ee40824cd217",
+        "signature": "9cc5193b94e6c48435fef5b34f49f2d1c6cb54a26710f4565a93ee40824cd217",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/vrfrequestidbasetesthelper.d.ts": {
@@ -1382,12 +1392,12 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/accesscontroltesthelper__factory.ts": {
-        "version": "14f2ebf8a794f21f8908a44b5b128c37534607a7329341225da52816cdbcc1a3",
+        "version": "d2592fb15c8d5e836b157f46afc4f77d4f3f77f7b29a5a78a4b19e3cf8607d0e",
         "signature": "fc503e2afc12979ba4bf2e9f6cba6a21e7907ff15bd564d87cbc09cf52fb54d1",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/accesscontrolledaggregator__factory.ts": {
-        "version": "c4be865e904544eae87ddeade9bc851d6aefbffc2bee40eacdb294cd8441537f",
+        "version": "6c3db65d19b90a74f237871ced1faa86cee0a044b55958df5194864b541619cf",
         "signature": "356dcce82348dbf719fc028341c9b4e4356b7f37c993060d426eccb0ce470f55",
         "affectsGlobalScope": false
       },
@@ -1397,7 +1407,7 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/aggregatorfacade__factory.ts": {
-        "version": "40f8c92eb9d5ccc00c54178975dd8d165b7006e2be37e236ec9fd9da70d5262d",
+        "version": "acd88309e49b35f5973bcfaf72889a53c30132547757d372988f69fec75d0d91",
         "signature": "62fa97a2a417d074b24b9132116c622093fd74d8f7f4c551e83b0f13ea148053",
         "affectsGlobalScope": false
       },
@@ -1407,7 +1417,7 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/aggregatorproxy__factory.ts": {
-        "version": "cb7811d6230c060aa97a1d3660c31989f4104d6d69e0381503a535886afed7f8",
+        "version": "f67cc4bc5b4a7c558ed7b43209e671e0bb108a8a1239098ed65f8ee19db04045",
         "signature": "0718ff4027216b70c112ca7104645db39a8fb2ab671480a75dd52ed2e1a8ddc7",
         "affectsGlobalScope": false
       },
@@ -1427,12 +1437,12 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/aggregatorvalidatormock__factory.ts": {
-        "version": "cd238fa033e026cbae69d98845da61f2e34d60d716e9758ae26593305ade8976",
+        "version": "04e0335a4e38b253f932973b22af7d49acbf391f821bc341b6435c9e0a29ed74",
         "signature": "b76d607fea4148f2c97772351f03907468ce5175800ccc2d1e843bddcd6d37df",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/basicconsumer__factory.ts": {
-        "version": "e6207632ce6509f5eaae69df8b225447e6fbadc8a4ade44dfbb11e2314e3de0a",
+        "version": "c76649d86d48f080a2f5eb6cd5761f330b763c73a62cd4d089b86d60377e11f1",
         "signature": "73d90c794073909658b72c9ec6c567deb9c2b1f05499de4052a42e8b94e1415e",
         "affectsGlobalScope": false
       },
@@ -1442,17 +1452,17 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/blockhashstoretesthelper__factory.ts": {
-        "version": "047b4c0e4e3b3c7016d6af8cd5c9a669589934adc62b87fb2dfb57a1707d6301",
+        "version": "959ea79452d29985bc853e93a5ca0805ca93aebd843f064662117ec1b8f5076c",
         "signature": "763a0696e226ce4db4b7df710c9c8a5955bb1d5f4070555dd3825508bbb61bae",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/blockhashstore__factory.ts": {
-        "version": "599889771d2ff349d676a78978c33e44a13d5c7d2f093fcf392b6ceeb75daedb",
+        "version": "83819296dd7a4d26e7e5bed6b1998965e7305e8c76fea631f444c11ae94237fa",
         "signature": "26b3f7e8e6c7bf4b5a2a0c94fffca4775548b68acf9911633abca25536ccf9cb",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/chainlinkclient__factory.ts": {
-        "version": "121fd31323e7f6d9c64322cbc6b79a7daf56330f371187b0c8eeeb1960d4f448",
+        "version": "04b9f2e970ae1ed8147e8d5cffd77c39e09a7785bf1059cc67c792c0c56e25e2",
         "signature": "8ad513996eefdfb6163e74d9e531bdd23ff784bd526b1aa1910d20ad9845c059",
         "affectsGlobalScope": false
       },
@@ -1462,27 +1472,27 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/checkedmathtesthelper__factory.ts": {
-        "version": "92c2c7d70405c4ecc197a6a6806aa3505bfa0a7ae3c490f673a5a7b51388a9d4",
+        "version": "ae68d0acdb7566cab7ae2d5411077748ae7609da5fb31dc06d5118ebff42feab",
         "signature": "67778b6224d9e5514bcf2685f057e146d8e152307cd5c7930b6c45fd186aaebe",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/concretesignedsafemath__factory.ts": {
-        "version": "299c701a2b367d17dbc1ff0635266fcdbe611861e9373a1e64464c805f03121e",
+        "version": "6b9736f7df34069ffc578f035890cc8b74357287ae9e16f7757e74851faa0e0f",
         "signature": "b03055fc177b9e365a319520ce8cf97f631c4aa0e877038043fca73191218fd1",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/consumer__factory.ts": {
-        "version": "e3543db402e63300486ae37b46889c4d008a86c9cc660e46f5ad66c21b64315a",
+        "version": "60216ca0c9e239199edb220a831440aee3a394b6b13321c427b8606451a42452",
         "signature": "51258a7e5aef72140bbf94cd2a0b255ee37253140470706a24fad0c1a8b7ac2a",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/deviationflaggingvalidator__factory.ts": {
-        "version": "58c8980e406bcc6662d835d1027fba12354b4e17a4adb736d378816b4dae3c50",
+        "version": "2408b1162aa461914dfe032362ace3b6c7d857d5c19264143dc4f0e89fab9424",
         "signature": "a9e171175ec0c43eccac3d2846cd27b778ccfdbee6770ee78327e9d2afadeef3",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/eacaggregatorproxy__factory.ts": {
-        "version": "367afc625a2db0e9efe3730f6e1e00e6521ba74572d536bb1dfb9fc6a23bdb8a",
+        "version": "b5b7cbbd35523454674308569c0f1dc89082facb7381e5d4ce29b19751e66d81",
         "signature": "28ef56fa702833a4ff76c020737840bc1254ad6902a31ab90513513bc207d30b",
         "affectsGlobalScope": false
       },
@@ -1502,33 +1512,38 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/flagstesthelper__factory.ts": {
-        "version": "5e5a1b3b70270dc8b0ae00660178e0627a81bd2a4c8c4e0c7f23cf693078353f",
+        "version": "231339aaec2986dad7645148e5c51e4548314acbe1c3598ece9f2669af4e95c2",
         "signature": "675da0dad475e2a7809eb1c2449f106c6df6d7bc6fafac34f6d36c911e20388d",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/flags__factory.ts": {
-        "version": "16bf8eb60f3b643907abc06d352b13ba6f22e2ff1962ddd5f23bdd5dda5e80fe",
+        "version": "06ade0a1a376d063e7637bc2272859b6afdc074833588e3a0f3ac82fbf749ad1",
         "signature": "d392b5089d8780adbff00137a2e1c906d751d8a74a0ae278e9466f06addc3334",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/fluxaggregatortesthelper__factory.ts": {
-        "version": "33308ad375a48e6c25fa3b51c730fd212358f1f2198014c27dd0e8f50cf0aa8d",
+        "version": "2374b6fbeffac7925f176a3cf5be3c8a45fd0f2cb7e0c03e385de25dd28ea0b2",
         "signature": "36abb04104706e24f9b4d924b2d900c5f4b6f886cb9f6fe622bcf1fc1a28901a",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/fluxaggregator__factory.ts": {
-        "version": "0ecc977ee498395da87f730b4117b70529c462cd93154972a302c8bd5d5a84e7",
+        "version": "b38def581f95f7b157a5c0a697aa0aebdca0e9979b80bf9fa9cc211c36188642",
         "signature": "435999ea2a874369233f034b412af3eff18c70fe8df7d4ebc32f5c96f487f974",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/gasguzzler__factory.ts": {
-        "version": "886fc86408da5579cbe411e51443eacf16fe40d53324bed4d25ecca660d197be",
+        "version": "6379057dfbeebd22b63944f3a5d24362dadb4fff2e34ea0235caefaa39dc99ee",
         "signature": "055f7304193651832b1f52de5a099ebc7f88542c064efab647572b404b04a2fb",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/gasguzzlingconsumer__factory.ts": {
-        "version": "306c9a29471307f15f10a34c2ce20290362cebbf90a1ba3c096b3eab6e2a1a8d",
+        "version": "bae6c2327d5575114dd035f2ad30eb20cb4f14f8436ef0541c1430f04c785041",
         "signature": "e4f63a2656fa0009b3944b48b46f35f976029826d639636098c34f6963ffa9d7",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.6/factories/keepercompatibleinterface__factory.ts": {
+        "version": "3a2069b5dfd64efe582002c74f1c157e79456ca32c0fb4873200170c8e79774a",
+        "signature": "0bb72b23959e58c6ea239c2ecf8e6c947f01474f08f58f6a15aa1df8f885f2d3",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/linktokeninterface__factory.ts": {
@@ -1542,27 +1557,32 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/maliciousmultiwordconsumer__factory.ts": {
-        "version": "a725e19c5ce2a00874bfaf8230caed1b7b2d885173c9f78040f2f0dca9ef8d34",
+        "version": "70c580c500caa55f968410b1e10aaa7bc7e53bd5ecb9e7e2b138f13b602522ca",
         "signature": "5a1558980978bd3d07187f5da16eda26a8548e02ade1e032f6dc7554fdca5f54",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/mediantesthelper__factory.ts": {
-        "version": "96e8986de4b0f75c675fb0ccd982cf157881ccc1b0af39b532f5a215125f327e",
+        "version": "f7521080c34325664af237d58738e5289b05a97dd9e138390f1b30df5a1a11e5",
         "signature": "a8883faea4cc7f020562d65b3fc89a76d8e519021544441706cecd15da916816",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.6/factories/mockoracle__factory.ts": {
+        "version": "490a1ee6a3f73f2d3855ab513b68fb3e5390896f3aa7f3a3213bc8b060d383c7",
+        "signature": "a08100e9541a08f5c29d6fa26ab028375da547586df7c042401ba05936074eae",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.6/factories/mockv2aggregator__factory.ts": {
-        "version": "7bc4add1d66e2dd6b203b67c7f128117392e354daf2f1d6a47528d3e3d58ec05",
+        "version": "09c2ae5d2ac93dcea6096523843a90381e157fceff96a0006d4e96bcb649399c",
         "signature": "343e2bf15af3c25aa8dd54f0cd7eed71d0d3045564aba28375b63809c4b31692",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/mockv3aggregator__factory.ts": {
-        "version": "03c8750629087d7f6dc829aa7268872c70392bbe9bc4ced99749ae0106306853",
+        "version": "807cae0afe0205cfaedfe3562ff8e4f88ef5465561c8fa21455ff0b71afd06ee",
         "signature": "45423a6ebc848901770ce8a0f04c0fd5dae02561782f50282df5a4230db8f71e",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/multiwordconsumer__factory.ts": {
-        "version": "2e0ddf1727951cdb8a7e22a3b21547e0356bb159b867434eeac0f9c9810180b6",
+        "version": "555c13aab38d6ebfab2ef19c4d0f0624fbbf26f603128f087c5c230f004f15b4",
         "signature": "460472dfde4288b70e2c6b9fe5ed8b8bc85e533d9c4e885e7d673a5baef5ee36",
         "affectsGlobalScope": false
       },
@@ -1572,7 +1592,7 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/oracle__factory.ts": {
-        "version": "caf2cab339624c2056df14779495518ced96295ede034fabbe6faa529fe6dff6",
+        "version": "b62eb629f4b6ffb7ead433f6ee01d967f1f0ff7b54d5723f20fa4cb8e8dca638",
         "signature": "bd0b614c480230c91e6fbae96b5dea0d59c49ee8871865b68a090da73f0f2df6",
         "affectsGlobalScope": false
       },
@@ -1582,12 +1602,12 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/ownedtesthelper__factory.ts": {
-        "version": "ebcd0d7d6b887ef75e65cffcb33a732766870072d5baa39101ebbe5971bb3887",
+        "version": "71ef39fad1c6987523caf09bec70567b4041b65057e104d0f14779d435257202",
         "signature": "17e9eec5e5fe6650d629a557b922e8bc0e0200e97334381f610b1e47fa82b526",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/owned__factory.ts": {
-        "version": "da1a610ed45d1bfe03cbfcdc94eb09347a261269519f365a43f5c9ceda1fac00",
+        "version": "0f6501f1c3fe5c6d881911e6f9be525f7bdeb4343d443262c4d7f2c509f3676a",
         "signature": "1d7a97c5133aed66e8398dfaa4443b9730d311822da42203dd2ea5bdb7113145",
         "affectsGlobalScope": false
       },
@@ -1597,22 +1617,22 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/precoordinator__factory.ts": {
-        "version": "d5fa220e12138b5e34ba309e8f7ebaae605b12f1429345c6d9468c35fabf94bc",
+        "version": "ea07d012c911c309341eac6f428b7737925ce882996db947fa757b1d8b55eda9",
         "signature": "9fe5f09c650267e716419caed4551e5a14deb8edd4c6dc5ea5d73e2ae82e4555",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/reverter__factory.ts": {
-        "version": "c18c060d87e1f4ecd037822250537557dbb2f3ea261406b269a31062e6038717",
+        "version": "e27d72f56c9984b836c4e631849be75009aeb5f88f41aef12d07b9b005dcb1ba",
         "signature": "dfd188e6608f43a1b91854022102188082a534cf00c72e3117edb8436b864367",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/simplereadaccesscontroller__factory.ts": {
-        "version": "0a1745c2a9ae7667ce4921c5feb9a2646671558b0686e0703773c241fbf83b27",
+        "version": "125dd9ee6f49166f955fb62b828351c1a37b81084f8aff63fd22d2ebb4bca0f6",
         "signature": "2ad7cbc4019d0aefb7bb30df0bd5da10645f019ed74b8c413ed28ef0ae18eb33",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/simplewriteaccesscontroller__factory.ts": {
-        "version": "08bb36b85d1b58c89269c817a8370941d5c73dec445b900c0c490f258a7ebc68",
+        "version": "616f1c2f73ec0f2a5fa480ab83a7928613c986ff6d5efc2e936c96659af76c23",
         "signature": "34c0607550d96bb3f029a3dc6e7202a29c95dea45b025a4da6f946dbe50d8db7",
         "affectsGlobalScope": false
       },
@@ -1622,37 +1642,37 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrfconsumer__factory.ts": {
-        "version": "9210d580300c75602962c0ba1c37c3c96be5015fb6973fd511a43c06eeb9d5b3",
+        "version": "5de597f5702504349f2cdb4e88a11753ecf804662fafa3034f2a1e4035dcb98b",
         "signature": "8d1dfa29b869133ed9b35266828587bf818f14e340956985773ae95d212b750a",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrfcoordinatormock__factory.ts": {
-        "version": "43093a8c2205c8e62b0416fa48e8d59f4e95e6b596bdbb2f02e900e2a9d833a7",
+        "version": "2cc3ef857b0f9800ce8c0ff0a8e4dff493c94549988dee6e1897b91aee6f959d",
         "signature": "ca215fa019cf6081ee28cb283e4a1c2b9f0afa110afabb3000faef6fff29abd6",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrfcoordinator__factory.ts": {
-        "version": "5c9b5f87fa7ec983d4432de3aa74360cf871f59d8739f48febe3a90df588b15a",
+        "version": "e93540a04f2090a1d0b1218fb82652c68663a4dbed995711bd17f1721372c94b",
         "signature": "3ed893abd56c204f009845ffef07bb129bbab415e117b23af40a1a4da15bb83b",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrfd20__factory.ts": {
-        "version": "a6ab38cd90dfa07a5e9bd5cfbd9f86777b185301530b424eb4e83bb53b377b42",
+        "version": "1a5ae916fb8f104e6bc5ef8c7486fd0cd33ebc9eaa8e819866041dc5aebdc869",
         "signature": "6012a2c9135b16e4711524add1a0ff625545b58a2274fa901adf8981bcc9ac03",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrfrequestidbasetesthelper__factory.ts": {
-        "version": "e2b142e5fc37b33ec3e9973d9ce4433f6b625a2d55802be7869100fc2171ec4f",
+        "version": "2cf60eb09f83df0fdd75e6eaf60337197becef9496a3375e6f9c2014d66167d2",
         "signature": "a9cd988b8dfd0383f0419191eeebe03593831674664b95d274c14e9869062f1d",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrftesthelper__factory.ts": {
-        "version": "184b3a117a9a56ffa53f5ffdc2ba1be726909653a2d8782cd7c362e8bdccb79c",
+        "version": "07f3a3d2667803d3777712ffd484cc11b50ce45910d36f9e71ed7420ac0e35eb",
         "signature": "e6510a897bb11cc6defc13e2fd55a87e0769a1b9ad2933c24691c8cb1bc6ff2c",
         "affectsGlobalScope": false
       },
       "./ethers/v0.6/factories/vrf__factory.ts": {
-        "version": "82fc32ef24acbef63fa759ef232f4c3630f48e8dddb7b7403a4548f137d55fee",
+        "version": "fada38c272f6881237894d9d47dbdb1c8a9a49a098a5e412e74fc1a9a74ad352",
         "signature": "78d8e4aaeb81efdbbe5f4803477055a347b9c36ce6f563dae8e5a019d70012d2",
         "affectsGlobalScope": false
       },
@@ -1701,6 +1721,11 @@
         "signature": "d0e3056062c3ec6eb9a637edba8e9127a9f45686b198c3a6d9cb810f50c08ce7",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts": {
+        "version": "56f5562ed00ec00bc48c192650c394da252dc538053e2712ce087d091ced4ebf",
+        "signature": "56f5562ed00ec00bc48c192650c394da252dc538053e2712ce087d091ced4ebf",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/confirmedowner.d.ts": {
         "version": "e447c16c9bf2259887cd0572503c2247c5fbfdcc2e156db245afa658a9b38220",
         "signature": "e447c16c9bf2259887cd0572503c2247c5fbfdcc2e156db245afa658a9b38220",
@@ -1731,14 +1756,24 @@
         "signature": "2ca2803919f97a83c35d5e43adc24aa6b227d0a0d2f856b448cfeffa441713c3",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/keepercompatibleinterface.d.ts": {
+        "version": "594d69ad295a938f642fabd6a99b30818ba0b37d32d674c2616f3efcdd61d672",
+        "signature": "594d69ad295a938f642fabd6a99b30818ba0b37d32d674c2616f3efcdd61d672",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/linktokeninterface.d.ts": {
         "version": "a66f9061154af6f5350b729bdebd69a8f95f4484c2e80691d17ae17265c177fe",
         "signature": "a66f9061154af6f5350b729bdebd69a8f95f4484c2e80691d17ae17265c177fe",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/linktokenreceiver.d.ts": {
-        "version": "f0e30506bc5aec49fc5e8ce5a568e76f133db0d1ea32e159b2a9d155ce16296b",
-        "signature": "f0e30506bc5aec49fc5e8ce5a568e76f133db0d1ea32e159b2a9d155ce16296b",
+        "version": "a2b281fce13f16210af34fb6ebaa4b2447f74b17514b94a3fca33c7e528a6a09",
+        "signature": "a2b281fce13f16210af34fb6ebaa4b2447f74b17514b94a3fca33c7e528a6a09",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.7/mockcompoundoracle.d.ts": {
+        "version": "34f2bed79b3d9c240626fbece9f324f1c8e99e65010f0049bbe89f462ebedde6",
+        "signature": "34f2bed79b3d9c240626fbece9f324f1c8e99e65010f0049bbe89f462ebedde6",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/mockv2aggregator.d.ts": {
@@ -1757,8 +1792,8 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/operator.d.ts": {
-        "version": "e863013107422095272bc150bee6e1aebdfefd8ead23bcb1715952ef13cbc314",
-        "signature": "e863013107422095272bc150bee6e1aebdfefd8ead23bcb1715952ef13cbc314",
+        "version": "b818f9460fe8149f601e49503c598391a8a80295bf38006ac2f51bdf916c017e",
+        "signature": "b818f9460fe8149f601e49503c598391a8a80295bf38006ac2f51bdf916c017e",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/operatorfactory.d.ts": {
@@ -1766,9 +1801,14 @@
         "signature": "f03eb8b89615042b30b42cba24c724c9dd6d851f5ab2d00ece271fd042fbb6bb",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/operatorforwarder.d.ts": {
+        "version": "b489a57d977bdbcb9b0adf1e45ef2f42d30ea5730601c9681b9df43dd3fae29d",
+        "signature": "b489a57d977bdbcb9b0adf1e45ef2f42d30ea5730601c9681b9df43dd3fae29d",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/operatorinterface.d.ts": {
-        "version": "8047ad0feee39f7b67450fc454b9b3a77d1b8a3c740a52a09a4884cdfb4a1061",
-        "signature": "8047ad0feee39f7b67450fc454b9b3a77d1b8a3c740a52a09a4884cdfb4a1061",
+        "version": "e8994d8e48cd2e8792ede2c0f5a3cbe6b46540271ae743c3869e2799e9cdc3db",
+        "signature": "e8994d8e48cd2e8792ede2c0f5a3cbe6b46540271ae743c3869e2799e9cdc3db",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/oracleinterface.d.ts": {
@@ -1782,18 +1822,28 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/stalenessflaggingvalidator.d.ts": {
-        "version": "12c5cc31483d65ac0ee244673dd8e853ff57c3c84a87bf3de8df868a95b691cc",
-        "signature": "12c5cc31483d65ac0ee244673dd8e853ff57c3c84a87bf3de8df868a95b691cc",
+        "version": "3967f263de505d12f7ed122cab48199b58d133c0c830e1e2aa6454ecdc664ea5",
+        "signature": "3967f263de505d12f7ed122cab48199b58d133c0c830e1e2aa6454ecdc664ea5",
         "affectsGlobalScope": false
       },
-      "./ethers/v0.7/upkeepcompatible.d.ts": {
-        "version": "0be7c605cd049452bec83869259d06bc14a32187c208ed0324d94f5294753a51",
-        "signature": "0be7c605cd049452bec83869259d06bc14a32187c208ed0324d94f5294753a51",
+      "./ethers/v0.7/typeandversioninterface.d.ts": {
+        "version": "ee4246e9dde150f4150dd38f6f4009182525b7f231a9699aed19c12194073e55",
+        "signature": "ee4246e9dde150f4150dd38f6f4009182525b7f231a9699aed19c12194073e55",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.7/uniswapanchoredview.d.ts": {
+        "version": "bd5e77365e0187c4d4f57cc93de2698960ece9b3b9ceab075fa5e3efd7ffc324",
+        "signature": "bd5e77365e0187c4d4f57cc93de2698960ece9b3b9ceab075fa5e3efd7ffc324",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/upkeepinterface.d.ts": {
-        "version": "1a26e90e68600fa8162d8e68a2c7cc28f0ff33df21be91d07785355b186566c7",
-        "signature": "1a26e90e68600fa8162d8e68a2c7cc28f0ff33df21be91d07785355b186566c7",
+        "version": "33002856f232363fa064af81e61563109aa79daf2e08746291bd2691c97d529b",
+        "signature": "33002856f232363fa064af81e61563109aa79daf2e08746291bd2691c97d529b",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.7/vrfconsumerbase.d.ts": {
+        "version": "4ad1470f10684da8f4328b96acc21897a8dae22a60ceddb7e36494a58e4a404d",
+        "signature": "4ad1470f10684da8f4328b96acc21897a8dae22a60ceddb7e36494a58e4a404d",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/withdrawalinterface.d.ts": {
@@ -1812,7 +1862,7 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/aggregatorproxy__factory.ts": {
-        "version": "7e44677b160a61942e9e1435ad36ef81580f0386258d5de99bffcdf30f4a40e6",
+        "version": "7eb5908c0242005653229cb6e1cb104c833e0a1933cf9df63290db842e2de6a4",
         "signature": "f03db3f5463a4c0bc6ad153782db035788e305c50a00006b4202766fed3b7322",
         "affectsGlobalScope": false
       },
@@ -1827,7 +1877,7 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/chainlinkclient__factory.ts": {
-        "version": "d2b395bfefca23aad7cb75b6d7607d4d38d5abd28871e5f73eee1024ce78f128",
+        "version": "32c2de8223b2fdf7e5ecbcf0e2bc2bbec3748205a80cc33079fc881cf64822ae",
         "signature": "8ad513996eefdfb6163e74d9e531bdd23ff784bd526b1aa1910d20ad9845c059",
         "affectsGlobalScope": false
       },
@@ -1836,18 +1886,23 @@
         "signature": "173b2c82ab83868d2b0d4a2a3ae2bed9e19f559d0a8cacc9b1a67e9ea2da802a",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/factories/compoundpriceflaggingvalidator__factory.ts": {
+        "version": "18b3ade2a6686cb51e06f3aea4d9c1b5da630e87fe80ae61cdeb75f47071ae3e",
+        "signature": "7859d3afe3570c41a5f5ba8712091abcc4d105d6931cb6a5c6e7cefc6688a5fe",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/factories/confirmedownertesthelper__factory.ts": {
-        "version": "f3f278d995e98916341633fb364fc75980817cbddc3c48fe969af53783f72050",
+        "version": "4079431dfb0bda53236a6607e4b5ab59e9ad9574c1dd32cc150a0e58778ed962",
         "signature": "68e24d6871e0b2a78d2123adcee1948750af1c8d021842d156d26e318e231baf",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/confirmedowner__factory.ts": {
-        "version": "543f4beeb38a49c2882daef65bea1f970b676fb47f933b8b212f2b8e9196b8ef",
+        "version": "e2fedf4bca146e7d6b8fca3acac14353c26405e88949aac771e580e027d9268e",
         "signature": "58793c0fa4b5d7af8b35e341814512f58b40f67ecdc80b382375754667dedca2",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/consumer__factory.ts": {
-        "version": "6ed82d833c0101f5ae217eafb2cda7d2df0f248199601f6139af6bad81a79e9a",
+        "version": "82da363f8ef1f05d0fa5ffd81d36ee336b8a724d73d527d407751703fd14cb24",
         "signature": "2886dfa0d859cad443ef2c688e9221174757a3f2698dec6c309f6ac8fd103a8c",
         "affectsGlobalScope": false
       },
@@ -1866,43 +1921,58 @@
         "signature": "c05b83de5102ce6bdfe308868fbb827c391ed6526aa3875fd2b41b962b651db8",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/factories/keepercompatibleinterface__factory.ts": {
+        "version": "3a2069b5dfd64efe582002c74f1c157e79456ca32c0fb4873200170c8e79774a",
+        "signature": "0bb72b23959e58c6ea239c2ecf8e6c947f01474f08f58f6a15aa1df8f885f2d3",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/factories/linktokeninterface__factory.ts": {
         "version": "8e2a06042cf18096cc16881abc07369906423a3f756dfa872b3c46439901234c",
         "signature": "8ec5ae5906959a4519324bd993df13904247faa96dd81a0e261ef3b1e2be6747",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/linktokenreceiver__factory.ts": {
-        "version": "f3c2d0558abb2b979da4767fbd653a026ab65240604c4a87e1806d4642ba1ca1",
+        "version": "53edda5d27e3116903a8ebf53f7803f577faf44cc19be80643a1e4924d0f5402",
         "signature": "41b9b665fdf0be94872a5fb6ff882f666d10d22b8ff23da72715184d7cd1228b",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/factories/mockcompoundoracle__factory.ts": {
+        "version": "ea13437062fe6b47731c3961dc762f65e0c38990ca4ac7c6561a850e6b4d86c0",
+        "signature": "6385db0047fc4c94be1a2d37f9d9a5d062ddadcd1b431f67b5b351fec9818a14",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/factories/mockv2aggregator__factory.ts": {
-        "version": "2dd66cff757835539c41156a74a5d345952d718ae7e28b97c8fa35143dfc3f6f",
+        "version": "f6b727c2f6c7d22f1af0686843bccd3a43b7e1e6b4b708eb5cce63153c28cb5e",
         "signature": "343e2bf15af3c25aa8dd54f0cd7eed71d0d3045564aba28375b63809c4b31692",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/mockv3aggregator__factory.ts": {
-        "version": "6134ac0da1a9eed96b07271f3353e66d8c44c946171f4709231f9489edb9803d",
+        "version": "c8432d5b439dc9ecc0772e4aa61d27e0ab15ec0fe10c4c99625597fbb77b1417",
         "signature": "45423a6ebc848901770ce8a0f04c0fd5dae02561782f50282df5a4230db8f71e",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/multiwordconsumer__factory.ts": {
-        "version": "96ad7ad121f84aef85e1d0b63745f1aab216aa6c73e93680ceb4ae32abb6a35d",
+        "version": "eef7125ffa371a2f3a5a2e5acff833af75942eade7982fb1ed3b3152eb3020a4",
         "signature": "460472dfde4288b70e2c6b9fe5ed8b8bc85e533d9c4e885e7d673a5baef5ee36",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/operatorfactory__factory.ts": {
-        "version": "3f2d74ca1e22730969d2fac883bb0003cd6e7e3659652409cd82d2fcd92b2e40",
+        "version": "a8f197acffe762a4e76489d1209e4bc9f8e7d2e78f178da0797c57b4fce0cf33",
         "signature": "263505b6258d27bef3da969096629bea210daf5122942757827ae68bf3114000",
         "affectsGlobalScope": false
       },
+      "./ethers/v0.7/factories/operatorforwarder__factory.ts": {
+        "version": "c1cc8b7934e39cc85d07929158f6c5c4c55c932a9880fadf7905de10040ecbad",
+        "signature": "f3f8607b7f4c5fea5700ebecb6d6d7bdffede002aca8bb7c4cb3ecb2a24926df",
+        "affectsGlobalScope": false
+      },
       "./ethers/v0.7/factories/operatorinterface__factory.ts": {
-        "version": "a16eddf11a94fc72fe338ad26b232b22fb6bbc363c70c55ae93aa84a2f4d01b4",
+        "version": "b1f8df21aa2ce6441497c68ee13c4e27527d3118156261f82bdd0de9faf172c9",
         "signature": "529412316f39c37ebfc012192310cd423fb37c030e1287cfc5aed327dc364ad8",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/operator__factory.ts": {
-        "version": "6fd9a23670f012b3cf2913ef16a70687453ac30543b0fd37ba243185c17cb884",
+        "version": "4ac863a7f0e6601d75344df3dcb092e7878fd971ab8b2288f9572a5718c65e03",
         "signature": "da9541648b6c3ffb14771647e26324b0bcf8e6b8efce88c85fcda0f81d1dbc59",
         "affectsGlobalScope": false
       },
@@ -1917,23 +1987,38 @@
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/stalenessflaggingvalidator__factory.ts": {
-        "version": "bddb14a85419ae7a9bec4ba5ec1e92be35a5ad20d6bf5984764eafbf92eabd0d",
+        "version": "8664e223d37fb16793869945b6192b1a90b69b4a0833d545399ccdebeeb0496d",
         "signature": "3410084040d53fbf400d8b09c8ad173565eac2dfd3e35bd473801d713d253ba8",
         "affectsGlobalScope": false
       },
-      "./ethers/v0.7/factories/upkeepcompatible__factory.ts": {
-        "version": "2a47f071ba3788ac1baa2a161151bb5064886337b18793b9e01ad8f01153c984",
-        "signature": "f3ca1f2bf78e33de2caa2f8f8f51ef5954d3e37452dcef15bead0b151732ad17",
+      "./ethers/v0.7/factories/typeandversioninterface__factory.ts": {
+        "version": "38ff89edb3228d8728c4e54bde02049e5180707b7e8627b14133a251c6a0d89e",
+        "signature": "4d679894513d7f6b1a8c5a45bb0f022e7a2957263029918e380a13e7a5109adb",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.7/factories/uniswapanchoredview__factory.ts": {
+        "version": "dbe1b9aa4ad24050f467971064f9136ee5503bbfc322c4234a72d7427c9203a9",
+        "signature": "51d3a290c499f2408c90b69199a442d994c33fc3c2592eff04c02341dbe339b6",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/upkeepinterface__factory.ts": {
-        "version": "6eec9fce96544c9f719b3ada8ec298420042e18e82c8e8027d5a11544da9431d",
+        "version": "8c2f889e3579ffd073d9d44dbfde2cf6e0f0cce9c21a0ffa6d754a54a17ccb0e",
         "signature": "5611cb87aa7072a610133a2991bfbf4c889d3ccdbba2b42524fe9c63db106100",
+        "affectsGlobalScope": false
+      },
+      "./ethers/v0.7/factories/vrfconsumerbase__factory.ts": {
+        "version": "603dcf57bd3daa227ca24aab8de5185403bc5c854d302cfaa6958836c8c7fc72",
+        "signature": "026857e73f8c35a326db1abd7b5424f8c81a487841dd727d81260f472bb331a9",
         "affectsGlobalScope": false
       },
       "./ethers/v0.7/factories/withdrawalinterface__factory.ts": {
         "version": "b57528f728196ebd575f1f450d71c8e41e59868355dc9b7c5f6183d6244df561",
         "signature": "96536784759e1c0600dfe77720488267aea276717efe30f89ab1e7c17dc69d1e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/abstract-leveldown/index.d.ts": {
+        "version": "b3a0ec8a0b4ad6e9416e7e8dba1c7d59a5aeabdf67312b12e8f8176f2c2c92f9",
+        "signature": "b3a0ec8a0b4ad6e9416e7e8dba1c7d59a5aeabdf67312b12e8f8176f2c2c92f9",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -2251,16 +2336,6 @@
         "signature": "8cb3e05991fdf5bd43a6b96878595ca210d20f4c9e65efe382add4023a4fc658",
         "affectsGlobalScope": true
       },
-      "../node_modules/@types/classnames/types.d.ts": {
-        "version": "dc688638e386342faae164e68ac0205274b6731e70ac1a45921f3ce3aa083795",
-        "signature": "dc688638e386342faae164e68ac0205274b6731e70ac1a45921f3ce3aa083795",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/classnames/index.d.ts": {
-        "version": "b16c6ab962274dc23b0c57aba4425c3265cc05ad84782b8db5a344df6ad0f8f1",
-        "signature": "b16c6ab962274dc23b0c57aba4425c3265cc05ad84782b8db5a344df6ad0f8f1",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@types/cookie/index.d.ts": {
         "version": "405ad6db8aa3d5618c3be21cde8125de28a3e40690eb05136c123f420c05c082",
         "signature": "405ad6db8aa3d5618c3be21cde8125de28a3e40690eb05136c123f420c05c082",
@@ -2466,6 +2541,36 @@
         "signature": "c9f092fa413eb709080f1494dcbb4a18757e84eb5d2b8bb0cc84f73d84a70dd7",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/eslint/helpers.d.ts": {
+        "version": "f345b0888d003fd69cb32bad3a0aa04c615ccafc572019e4bd86a52bd5e49e46",
+        "signature": "f345b0888d003fd69cb32bad3a0aa04c615ccafc572019e4bd86a52bd5e49e46",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/eslint/lib/rules/index.d.ts": {
+        "version": "0133ebdd17a823ae56861948870cde4dac18dd8818ab641039c85bbb720429e0",
+        "signature": "0133ebdd17a823ae56861948870cde4dac18dd8818ab641039c85bbb720429e0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts": {
+        "version": "3a1e165b22a1cb8df82c44c9a09502fd2b33f160cd277de2cd3a055d8e5c6b27",
+        "signature": "3a1e165b22a1cb8df82c44c9a09502fd2b33f160cd277de2cd3a055d8e5c6b27",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/estree/index.d.ts": {
+        "version": "f1e8ecd1d960d12e57316fd2889b0a57635f38f8c4c976d8deafa29650bbf320",
+        "signature": "f1e8ecd1d960d12e57316fd2889b0a57635f38f8c4c976d8deafa29650bbf320",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/eslint/index.d.ts": {
+        "version": "649fbcb16a4a7e1d9f32a49db7381150ef5b2e472a0c52a1543d4c35a2aefa3c",
+        "signature": "649fbcb16a4a7e1d9f32a49db7381150ef5b2e472a0c52a1543d4c35a2aefa3c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/eslint-scope/index.d.ts": {
+        "version": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
+        "signature": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": {
         "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
         "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
@@ -2582,9 +2687,9 @@
         "affectsGlobalScope": false
       },
       "../node_modules/rxjs/internal/types.d.ts": {
-        "version": "051451ceae7f29c8f17b810e6a6d8d270c67b401866f487cdc50c5c1a8b3f511",
-        "signature": "051451ceae7f29c8f17b810e6a6d8d270c67b401866f487cdc50c5c1a8b3f511",
-        "affectsGlobalScope": false
+        "version": "369dd7668d0e6c91550bce0c325f37ce6402e5dd40ecfca66fbb5283e23e559d",
+        "signature": "369dd7668d0e6c91550bce0c325f37ce6402e5dd40ecfca66fbb5283e23e559d",
+        "affectsGlobalScope": true
       },
       "../node_modules/rxjs/internal/subscriber.d.ts": {
         "version": "2632057d8b983ee33295566088c080384d7d69a492bc60b008d6a6dfd3508d6b",
@@ -2627,9 +2732,9 @@
         "affectsGlobalScope": false
       },
       "../node_modules/rxjs/internal/symbol/observable.d.ts": {
-        "version": "ed164267a8b206892d69768f51e6e7157ad0a6e89745fbd39f3e81c4700e9a9e",
-        "signature": "ed164267a8b206892d69768f51e6e7157ad0a6e89745fbd39f3e81c4700e9a9e",
-        "affectsGlobalScope": true
+        "version": "80da0f61195385d22b666408f6cccbc261c066d401611a286f07dfddf7764017",
+        "signature": "80da0f61195385d22b666408f6cccbc261c066d401611a286f07dfddf7764017",
+        "affectsGlobalScope": false
       },
       "../node_modules/rxjs/internal/behaviorsubject.d.ts": {
         "version": "06a20cc7d937074863861ea1159ac783ff97b13952b4b5d1811c7d8ab5c94776",
@@ -3072,8 +3177,8 @@
         "affectsGlobalScope": true
       },
       "../node_modules/@types/json-schema/index.d.ts": {
-        "version": "751b8d5b85eee82bd38964a6ff43e89e61a586c64f653e3d1eb8fa7eb372ed30",
-        "signature": "751b8d5b85eee82bd38964a6ff43e89e61a586c64f653e3d1eb8fa7eb372ed30",
+        "version": "b2be568d8ce95fcb26eebd04c035d94825655fdf689bf67d799f5ff8cbbb1024",
+        "signature": "b2be568d8ce95fcb26eebd04c035d94825655fdf689bf67d799f5ff8cbbb1024",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/json5/index.d.ts": {
@@ -3104,6 +3209,11 @@
       "../node_modules/@types/jss/index.d.ts": {
         "version": "e0accf016f4ff83e7da0c8dcf54d36b23575921f7c8ed699ffba6aa507a0ae84",
         "signature": "e0accf016f4ff83e7da0c8dcf54d36b23575921f7c8ed699ffba6aa507a0ae84",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/levelup/index.d.ts": {
+        "version": "7fda07b65794df0921716aa78f92edd33ce7486ca5a9b7e012c955a63927b501",
+        "signature": "7fda07b65794df0921716aa78f92edd33ce7486ca5a9b7e012c955a63927b501",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": {
@@ -3171,10 +3281,20 @@
         "signature": "bbf144d4354e2aaa6439f32761f3ee798cc68d1600adab6e2a596f25269f106d",
         "affectsGlobalScope": true
       },
+      "../node_modules/@types/lru-cache/index.d.ts": {
+        "version": "db80fcbd0c9693ac9964c31c11979a3d33550a612981021d99e935c0e3d9c36c",
+        "signature": "db80fcbd0c9693ac9964c31c11979a3d33550a612981021d99e935c0e3d9c36c",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/mkdirp/index.d.ts": {
         "version": "6396a7a06f3ef0fc31a7c89330e015146b78a2256b030c698b6d404594c37b8f",
         "signature": "6396a7a06f3ef0fc31a7c89330e015146b78a2256b030c698b6d404594c37b8f",
         "affectsGlobalScope": false
+      },
+      "../node_modules/@types/mocha/index.d.ts": {
+        "version": "0359800d3b440f8515001431cde1500944e156040577425eb3f7b80af0846612",
+        "signature": "0359800d3b440f8515001431cde1500944e156040577425eb3f7b80af0846612",
+        "affectsGlobalScope": true
       },
       "../node_modules/@types/mock-fs/lib/item.d.ts": {
         "version": "b95f2a78de34a873c6dd76dc538b7a5fec77da6a0e0e7efc7aa58f58ddfce270",
@@ -3206,6 +3326,21 @@
         "signature": "596621804f4963c3cd676a9d7f3ef7b0e08bc8ff695538e80a1f04361632080f",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts": {
+        "version": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
+        "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/node-fetch/externals.d.ts": {
+        "version": "8fe9135b86994075c4192f3358a4350389e80d3abec712db2a82061962d9d21c",
+        "signature": "8fe9135b86994075c4192f3358a4350389e80d3abec712db2a82061962d9d21c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/node-fetch/index.d.ts": {
+        "version": "e0014889f31fee76a572b6b15e74b2174cbcf6346ae8ab5c69eb553a10e5c944",
+        "signature": "e0014889f31fee76a572b6b15e74b2174cbcf6346ae8ab5c69eb553a10e5c944",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/normalize-package-data/index.d.ts": {
         "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
         "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
@@ -3231,15 +3366,10 @@
         "signature": "8483a29c17f7feb768a1f4333cf12ccf1e7341bd89dadcf407e012d5315228d0",
         "affectsGlobalScope": false
       },
-      "../node_modules/symbol-observable/index.d.ts": {
-        "version": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc",
-        "signature": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc",
-        "affectsGlobalScope": true
-      },
       "../node_modules/redux/index.d.ts": {
-        "version": "dc7b63bcdfaf08b68a9fabeab720173481db52014bbb40314f5a6757387b6516",
-        "signature": "dc7b63bcdfaf08b68a9fabeab720173481db52014bbb40314f5a6757387b6516",
-        "affectsGlobalScope": false
+        "version": "d530250769a14518ebd6edda5b5f94abaaf3b9f612363c0da32082fa6acd0da8",
+        "signature": "d530250769a14518ebd6edda5b5f94abaaf3b9f612363c0da32082fa6acd0da8",
+        "affectsGlobalScope": true
       },
       "../node_modules/@types/react-redux/index.d.ts": {
         "version": "985e8dafd1a03093d3ec2cf3bc3e75dfc556a1a8b507f896325ebd6aeab57b43",
@@ -3301,6 +3431,21 @@
         "signature": "71daca42a04d95330492cd961998ee208070524a7198859913d1e07dcdb849c8",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts": {
+        "version": "b79a450a5233f10fa43da81c35a17f8eec71fea394d0ff91620819e0af513fe9",
+        "signature": "b79a450a5233f10fa43da81c35a17f8eec71fea394d0ff91620819e0af513fe9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/sinon/index.d.ts": {
+        "version": "fc8a86547dc1da127bad3a5c71137b9e8bb9de3c91df12869dd52e3ff2346e61",
+        "signature": "fc8a86547dc1da127bad3a5c71137b9e8bb9de3c91df12869dd52e3ff2346e61",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/sinon-chai/index.d.ts": {
+        "version": "b98f6185455945922c7cfdad772ec1c46e5c169a2d71aca6530e041f77665f03",
+        "signature": "b98f6185455945922c7cfdad772ec1c46e5c169a2d71aca6530e041f77665f03",
+        "affectsGlobalScope": true
+      },
       "../node_modules/@types/sizzle/index.d.ts": {
         "version": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
         "signature": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
@@ -3336,14 +3481,79 @@
         "signature": "dbef1822091af2c0ee24d2be8222502dc1160473ea0b4709ba5f3856cec93537",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/underscore/index.d.ts": {
+        "version": "f519adad01f12a74ae8c24fb2a086b64c3865d190c6c1899ba656566098278b4",
+        "signature": "f519adad01f12a74ae8c24fb2a086b64c3865d190c6c1899ba656566098278b4",
+        "affectsGlobalScope": true
+      },
       "../node_modules/@types/uuid/index.d.ts": {
         "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/web3/providers.d.ts": {
+        "version": "0f9f94b7caca60b16c514a8bf49a57dcded0d6abc74a4d210ce9c65dc3e04359",
+        "signature": "0f9f94b7caca60b16c514a8bf49a57dcded0d6abc74a4d210ce9c65dc3e04359",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/types.d.ts": {
+        "version": "b3a0aa09f97a4f9716b424f2dc54b1680186defd8a8c08521fda12e47aa23c1d",
+        "signature": "b3a0aa09f97a4f9716b424f2dc54b1680186defd8a8c08521fda12e47aa23c1d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/promievent.d.ts": {
+        "version": "8f0104c65272dba2fb78eb38c7718cbd162a7eb095112fc9a5b3d9081653ceac",
+        "signature": "8f0104c65272dba2fb78eb38c7718cbd162a7eb095112fc9a5b3d9081653ceac",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/eth/abi.d.ts": {
+        "version": "52dbd8586a877a6269dd7082e6b4b792b8fc89c0a655cb82b85730969bc8b235",
+        "signature": "52dbd8586a877a6269dd7082e6b4b792b8fc89c0a655cb82b85730969bc8b235",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/eth/types.d.ts": {
+        "version": "06fab790131435efcd395e72db60da8fe24822c49a2bbd1ccac75d8404b9caec",
+        "signature": "06fab790131435efcd395e72db60da8fe24822c49a2bbd1ccac75d8404b9caec",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts": {
+        "version": "cdac7e46e615e1fdcca7c3a2aab2fbd19085443048733cf239a090f7a17efa27",
+        "signature": "cdac7e46e615e1fdcca7c3a2aab2fbd19085443048733cf239a090f7a17efa27",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/utils.d.ts": {
+        "version": "2fea9e03353d630c4644dc84b57cb36d666c725f3f37c1f60f8bc18bd9b38cdb",
+        "signature": "2fea9e03353d630c4644dc84b57cb36d666c725f3f37c1f60f8bc18bd9b38cdb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/eth/contract.d.ts": {
+        "version": "e3dc9302cbaba64212b443b0fea8f59454733a077f17528c13873dfe112752a5",
+        "signature": "e3dc9302cbaba64212b443b0fea8f59454733a077f17528c13873dfe112752a5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/eth/accounts.d.ts": {
+        "version": "2d5a33fcc690c375ede77d8c485f1a982f433be2bedf0bf43c172a710047d74d",
+        "signature": "2d5a33fcc690c375ede77d8c485f1a982f433be2bedf0bf43c172a710047d74d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/eth/index.d.ts": {
+        "version": "ac78c2de46d5c3b988a3da4d34bc47d4506b2fa0a278046f94e34b0ff7b2e4ef",
+        "signature": "ac78c2de46d5c3b988a3da4d34bc47d4506b2fa0a278046f94e34b0ff7b2e4ef",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/web3/index.d.ts": {
+        "version": "58c4efcc340056638dad7542333fc50d0109eb86e84b0618a9f20fe020e45e49",
+        "signature": "58c4efcc340056638dad7542333fc50d0109eb86e84b0618a9f20fe020e45e49",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/web3-provider-engine/index.d.ts": {
         "version": "76584afe904b75eae6e65d8d40f588cc0ab77cf350dc93f505566707842c535a",
         "signature": "76584afe904b75eae6e65d8d40f588cc0ab77cf350dc93f505566707842c535a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/tapable/tapable.d.ts": {
+        "version": "b395ec0779c66de885f97974534e95ee2c8bbf9acaf5857a6782ddc32972b6d8",
+        "signature": "b395ec0779c66de885f97974534e95ee2c8bbf9acaf5857a6782ddc32972b6d8",
         "affectsGlobalScope": false
       },
       "../node_modules/anymatch/index.d.ts": {
@@ -5417,6 +5627,16 @@
         "./ethers/v0.6/gasguzzlingconsumer.d.ts",
         "./ethers/v0.6/index.d.ts"
       ],
+      "./ethers/v0.6/factories/keepercompatibleinterface__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.6/keepercompatibleinterface.d.ts"
+      ],
       "./ethers/v0.6/factories/linktokeninterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -5460,6 +5680,18 @@
         "../node_modules/tslib/tslib.d.ts",
         "./ethers/v0.6/index.d.ts",
         "./ethers/v0.6/mediantesthelper.d.ts"
+      ],
+      "./ethers/v0.6/factories/mockoracle__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.6/index.d.ts",
+        "./ethers/v0.6/mockoracle.d.ts"
       ],
       "./ethers/v0.6/factories/mockv2aggregator__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -5796,6 +6028,16 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/ethers/utils/index.d.ts"
       ],
+      "./ethers/v0.6/keepercompatibleinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.6/index.d.ts"
+      ],
       "./ethers/v0.6/linktokeninterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -5827,6 +6069,16 @@
         "./ethers/v0.6/index.d.ts"
       ],
       "./ethers/v0.6/mediantesthelper.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.6/index.d.ts"
+      ],
+      "./ethers/v0.6/mockoracle.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -6126,6 +6378,16 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
+      "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/confirmedowner.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6250,6 +6512,18 @@
         "../node_modules/tslib/tslib.d.ts",
         "./ethers/v0.7/chainlinkrequestinterface.d.ts"
       ],
+      "./ethers/v0.7/factories/compoundpriceflaggingvalidator__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/factories/confirmedowner__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6317,6 +6591,16 @@
         "../node_modules/tslib/tslib.d.ts",
         "./ethers/v0.7/flagsinterface.d.ts"
       ],
+      "./ethers/v0.7/factories/keepercompatibleinterface__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/keepercompatibleinterface.d.ts"
+      ],
       "./ethers/v0.7/factories/linktokeninterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6336,6 +6620,18 @@
         "../node_modules/ethers/providers/index.d.ts",
         "../node_modules/tslib/tslib.d.ts",
         "./ethers/v0.7/linktokenreceiver.d.ts"
+      ],
+      "./ethers/v0.7/factories/mockcompoundoracle__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/index.d.ts",
+        "./ethers/v0.7/mockcompoundoracle.d.ts"
       ],
       "./ethers/v0.7/factories/mockv2aggregator__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -6400,6 +6696,18 @@
         "./ethers/v0.7/index.d.ts",
         "./ethers/v0.7/operatorfactory.d.ts"
       ],
+      "./ethers/v0.7/factories/operatorforwarder__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/index.d.ts",
+        "./ethers/v0.7/operatorforwarder.d.ts"
+      ],
       "./ethers/v0.7/factories/operatorinterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6442,7 +6750,7 @@
         "./ethers/v0.7/index.d.ts",
         "./ethers/v0.7/stalenessflaggingvalidator.d.ts"
       ],
-      "./ethers/v0.7/factories/upkeepcompatible__factory.ts": [
+      "./ethers/v0.7/factories/typeandversioninterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -6450,7 +6758,17 @@
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
         "../node_modules/tslib/tslib.d.ts",
-        "./ethers/v0.7/upkeepcompatible.d.ts"
+        "./ethers/v0.7/typeandversioninterface.d.ts"
+      ],
+      "./ethers/v0.7/factories/uniswapanchoredview__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/uniswapanchoredview.d.ts"
       ],
       "./ethers/v0.7/factories/upkeepinterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -6461,6 +6779,16 @@
         "../node_modules/ethers/providers/index.d.ts",
         "../node_modules/tslib/tslib.d.ts",
         "./ethers/v0.7/upkeepinterface.d.ts"
+      ],
+      "./ethers/v0.7/factories/vrfconsumerbase__factory.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/tslib/tslib.d.ts",
+        "./ethers/v0.7/vrfconsumerbase.d.ts"
       ],
       "./ethers/v0.7/factories/withdrawalinterface__factory.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -6489,6 +6817,16 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/ethers/utils/index.d.ts"
       ],
+      "./ethers/v0.7/keepercompatibleinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/linktokeninterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6500,6 +6838,16 @@
         "./ethers/v0.7/index.d.ts"
       ],
       "./ethers/v0.7/linktokenreceiver.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/mockcompoundoracle.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -6559,6 +6907,16 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
+      "./ethers/v0.7/operatorforwarder.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/operatorinterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6599,7 +6957,17 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
-      "./ethers/v0.7/upkeepcompatible.d.ts": [
+      "./ethers/v0.7/typeandversioninterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/uniswapanchoredview.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -6610,6 +6978,16 @@
         "./ethers/v0.7/index.d.ts"
       ],
       "./ethers/v0.7/upkeepinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/vrfconsumerbase.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -6864,6 +7242,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/abstract-leveldown/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/anymatch/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -6961,19 +7345,6 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/classnames/index.d.ts": [
-        "../node_modules/@types/classnames/types.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/classnames/types.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -7249,7 +7620,50 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
+      "../node_modules/@types/eslint-scope/index.d.ts": [
+        "../node_modules/@types/eslint/index.d.ts",
+        "../node_modules/@types/estree/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/helpers.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/index.d.ts": [
+        "../node_modules/@types/eslint/helpers.d.ts",
+        "../node_modules/@types/eslint/lib/rules/index.d.ts",
+        "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts",
+        "../node_modules/@types/estree/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/lib/rules/index.d.ts": [
+        "../node_modules/@types/eslint/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/estree/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -7683,6 +8097,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/levelup/index.d.ts": [
+        "../node_modules/@types/abstract-leveldown/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/lodash/ts3.1/common/array.d.ts": [
         "../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
         "../node_modules/@types/lodash/ts3.1/common/common.d.ts",
@@ -7917,6 +8340,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/lru-cache/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/mime/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -7933,6 +8362,12 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/mocha/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -7981,6 +8416,32 @@
         "../node_modules/@types/mock-fs/lib/item.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/externals.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/index.d.ts": [
+        "../node_modules/@types/node-fetch/externals.d.ts",
+        "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -8506,6 +8967,27 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/sinon-chai/index.d.ts": [
+        "../node_modules/@types/chai/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/sinon/index.d.ts"
+      ],
+      "../node_modules/@types/sinon/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts"
+      ],
+      "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/sizzle/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -8551,6 +9033,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/source-map/source-map.d.ts"
       ],
+      "../node_modules/@types/underscore/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/uuid/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -8563,6 +9051,97 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/abi.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/accounts.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/contract.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/eth/accounts.d.ts",
+        "../node_modules/@types/web3/eth/contract.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts",
+        "../node_modules/@types/web3/promievent.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/promievent.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/index.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts",
+        "../node_modules/@types/web3/utils.d.ts"
+      ],
+      "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/promievent.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/providers.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/utils.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/underscore/index.d.ts",
+        "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts"
       ],
       "../node_modules/@types/webpack-sources/index.d.ts": [
         "../node_modules/@types/node/crypto.d.ts",
@@ -8587,11 +9166,11 @@
         "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/tapable/index.d.ts",
         "../node_modules/@types/uglify-js/index.d.ts",
         "../node_modules/@types/webpack-sources/index.d.ts",
         "../node_modules/anymatch/index.d.ts",
-        "../node_modules/source-map/source-map.d.ts"
+        "../node_modules/source-map/source-map.d.ts",
+        "../node_modules/tapable/tapable.d.ts"
       ],
       "../node_modules/@types/yargs-parser/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -9065,8 +9644,7 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/symbol-observable/index.d.ts"
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/rxjs/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -9645,7 +10223,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../node_modules/symbol-observable/index.d.ts": [
+      "../node_modules/tapable/tapable.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -11186,6 +11764,11 @@
         "./ethers/v0.6/gasguzzlingconsumer.d.ts",
         "./ethers/v0.6/index.d.ts"
       ],
+      "./ethers/v0.6/factories/keepercompatibleinterface__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "./ethers/v0.6/keepercompatibleinterface.d.ts"
+      ],
       "./ethers/v0.6/factories/linktokeninterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
@@ -11209,6 +11792,13 @@
         "../node_modules/ethers/utils/transaction.d.ts",
         "./ethers/v0.6/index.d.ts",
         "./ethers/v0.6/mediantesthelper.d.ts"
+      ],
+      "./ethers/v0.6/factories/mockoracle__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "./ethers/v0.6/index.d.ts",
+        "./ethers/v0.6/mockoracle.d.ts"
       ],
       "./ethers/v0.6/factories/mockv2aggregator__factory.ts": [
         "../node_modules/ethers/index.d.ts",
@@ -11435,6 +12025,16 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/ethers/utils/index.d.ts"
       ],
+      "./ethers/v0.6/keepercompatibleinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.6/index.d.ts"
+      ],
       "./ethers/v0.6/linktokeninterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -11466,6 +12066,16 @@
         "./ethers/v0.6/index.d.ts"
       ],
       "./ethers/v0.6/mediantesthelper.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.6/index.d.ts"
+      ],
+      "./ethers/v0.6/mockoracle.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -11765,6 +12375,16 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
+      "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/confirmedowner.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -11854,6 +12474,13 @@
         "../node_modules/ethers/providers/index.d.ts",
         "./ethers/v0.7/chainlinkrequestinterface.d.ts"
       ],
+      "./ethers/v0.7/factories/compoundpriceflaggingvalidator__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/factories/confirmedowner__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
@@ -11891,6 +12518,11 @@
         "../node_modules/ethers/providers/index.d.ts",
         "./ethers/v0.7/flagsinterface.d.ts"
       ],
+      "./ethers/v0.7/factories/keepercompatibleinterface__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "./ethers/v0.7/keepercompatibleinterface.d.ts"
+      ],
       "./ethers/v0.7/factories/linktokeninterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
@@ -11900,6 +12532,13 @@
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
         "./ethers/v0.7/linktokenreceiver.d.ts"
+      ],
+      "./ethers/v0.7/factories/mockcompoundoracle__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "./ethers/v0.7/index.d.ts",
+        "./ethers/v0.7/mockcompoundoracle.d.ts"
       ],
       "./ethers/v0.7/factories/mockv2aggregator__factory.ts": [
         "../node_modules/ethers/index.d.ts",
@@ -11939,6 +12578,13 @@
         "./ethers/v0.7/index.d.ts",
         "./ethers/v0.7/operatorfactory.d.ts"
       ],
+      "./ethers/v0.7/factories/operatorforwarder__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/transaction.d.ts",
+        "./ethers/v0.7/index.d.ts",
+        "./ethers/v0.7/operatorforwarder.d.ts"
+      ],
       "./ethers/v0.7/factories/operatorinterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
@@ -11961,15 +12607,25 @@
         "./ethers/v0.7/index.d.ts",
         "./ethers/v0.7/stalenessflaggingvalidator.d.ts"
       ],
-      "./ethers/v0.7/factories/upkeepcompatible__factory.ts": [
+      "./ethers/v0.7/factories/typeandversioninterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
-        "./ethers/v0.7/upkeepcompatible.d.ts"
+        "./ethers/v0.7/typeandversioninterface.d.ts"
+      ],
+      "./ethers/v0.7/factories/uniswapanchoredview__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "./ethers/v0.7/uniswapanchoredview.d.ts"
       ],
       "./ethers/v0.7/factories/upkeepinterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
         "../node_modules/ethers/providers/index.d.ts",
         "./ethers/v0.7/upkeepinterface.d.ts"
+      ],
+      "./ethers/v0.7/factories/vrfconsumerbase__factory.ts": [
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "./ethers/v0.7/vrfconsumerbase.d.ts"
       ],
       "./ethers/v0.7/factories/withdrawalinterface__factory.ts": [
         "../node_modules/ethers/index.d.ts",
@@ -11993,6 +12649,16 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/ethers/utils/index.d.ts"
       ],
+      "./ethers/v0.7/keepercompatibleinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/linktokeninterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -12004,6 +12670,16 @@
         "./ethers/v0.7/index.d.ts"
       ],
       "./ethers/v0.7/linktokenreceiver.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/mockcompoundoracle.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -12063,6 +12739,16 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
+      "./ethers/v0.7/operatorforwarder.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
       "./ethers/v0.7/operatorinterface.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -12103,7 +12789,17 @@
         "../node_modules/ethers/utils/index.d.ts",
         "./ethers/v0.7/index.d.ts"
       ],
-      "./ethers/v0.7/upkeepcompatible.d.ts": [
+      "./ethers/v0.7/typeandversioninterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/uniswapanchoredview.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -12114,6 +12810,16 @@
         "./ethers/v0.7/index.d.ts"
       ],
       "./ethers/v0.7/upkeepinterface.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/ethers/index.d.ts",
+        "../node_modules/ethers/providers/index.d.ts",
+        "../node_modules/ethers/utils/index.d.ts",
+        "./ethers/v0.7/index.d.ts"
+      ],
+      "./ethers/v0.7/vrfconsumerbase.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -12368,6 +13074,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/abstract-leveldown/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/anymatch/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -12465,19 +13177,6 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/classnames/index.d.ts": [
-        "../node_modules/@types/classnames/types.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/classnames/types.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -12753,7 +13452,50 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
+      "../node_modules/@types/eslint-scope/index.d.ts": [
+        "../node_modules/@types/eslint/index.d.ts",
+        "../node_modules/@types/estree/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/helpers.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/index.d.ts": [
+        "../node_modules/@types/eslint/helpers.d.ts",
+        "../node_modules/@types/eslint/lib/rules/index.d.ts",
+        "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts",
+        "../node_modules/@types/estree/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/lib/rules/index.d.ts": [
+        "../node_modules/@types/eslint/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/estree/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -13187,6 +13929,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/levelup/index.d.ts": [
+        "../node_modules/@types/abstract-leveldown/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/lodash/ts3.1/common/array.d.ts": [
         "../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
         "../node_modules/@types/lodash/ts3.1/common/common.d.ts",
@@ -13421,6 +14172,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/lru-cache/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/mime/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -13437,6 +14194,12 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/mocha/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -13485,6 +14248,32 @@
         "../node_modules/@types/mock-fs/lib/item.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/externals.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/index.d.ts": [
+        "../node_modules/@types/node-fetch/externals.d.ts",
+        "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
@@ -14010,6 +14799,27 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/sinon-chai/index.d.ts": [
+        "../node_modules/@types/chai/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/sinon/index.d.ts"
+      ],
+      "../node_modules/@types/sinon/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts"
+      ],
+      "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/sizzle/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -14055,6 +14865,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/source-map/source-map.d.ts"
       ],
+      "../node_modules/@types/underscore/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/uuid/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -14067,6 +14883,97 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/abi.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/accounts.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/contract.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/eth/accounts.d.ts",
+        "../node_modules/@types/web3/eth/contract.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts",
+        "../node_modules/@types/web3/promievent.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/eth/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/abi.d.ts",
+        "../node_modules/@types/web3/promievent.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/eth/index.d.ts",
+        "../node_modules/@types/web3/eth/types.d.ts",
+        "../node_modules/@types/web3/providers.d.ts",
+        "../node_modules/@types/web3/types.d.ts",
+        "../node_modules/@types/web3/utils.d.ts"
+      ],
+      "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/promievent.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/web3/types.d.ts"
+      ],
+      "../node_modules/@types/web3/providers.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/web3/utils.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/underscore/index.d.ts",
+        "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts"
       ],
       "../node_modules/@types/webpack-sources/index.d.ts": [
         "../node_modules/@types/node/crypto.d.ts",
@@ -14091,11 +14998,11 @@
         "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/tapable/index.d.ts",
         "../node_modules/@types/uglify-js/index.d.ts",
         "../node_modules/@types/webpack-sources/index.d.ts",
         "../node_modules/anymatch/index.d.ts",
-        "../node_modules/source-map/source-map.d.ts"
+        "../node_modules/source-map/source-map.d.ts",
+        "../node_modules/tapable/tapable.d.ts"
       ],
       "../node_modules/@types/yargs-parser/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -14569,8 +15476,7 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/symbol-observable/index.d.ts"
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/rxjs/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -15149,7 +16055,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../node_modules/symbol-observable/index.d.ts": [
+      "../node_modules/tapable/tapable.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -15352,10 +16258,12 @@
       "./ethers/v0.6/factories/fluxaggregatortesthelper__factory.ts",
       "./ethers/v0.6/factories/gasguzzler__factory.ts",
       "./ethers/v0.6/factories/gasguzzlingconsumer__factory.ts",
+      "./ethers/v0.6/factories/keepercompatibleinterface__factory.ts",
       "./ethers/v0.6/factories/linktokeninterface__factory.ts",
       "./ethers/v0.6/factories/linktokenreceiver__factory.ts",
       "./ethers/v0.6/factories/maliciousmultiwordconsumer__factory.ts",
       "./ethers/v0.6/factories/mediantesthelper__factory.ts",
+      "./ethers/v0.6/factories/mockoracle__factory.ts",
       "./ethers/v0.6/factories/mockv2aggregator__factory.ts",
       "./ethers/v0.6/factories/mockv3aggregator__factory.ts",
       "./ethers/v0.6/factories/multiwordconsumer__factory.ts",
@@ -15386,10 +16294,12 @@
       "./ethers/v0.6/gasguzzler.d.ts",
       "./ethers/v0.6/gasguzzlingconsumer.d.ts",
       "./ethers/v0.6/index.d.ts",
+      "./ethers/v0.6/keepercompatibleinterface.d.ts",
       "./ethers/v0.6/linktokeninterface.d.ts",
       "./ethers/v0.6/linktokenreceiver.d.ts",
       "./ethers/v0.6/maliciousmultiwordconsumer.d.ts",
       "./ethers/v0.6/mediantesthelper.d.ts",
+      "./ethers/v0.6/mockoracle.d.ts",
       "./ethers/v0.6/mockv2aggregator.d.ts",
       "./ethers/v0.6/mockv3aggregator.d.ts",
       "./ethers/v0.6/multiwordconsumer.d.ts",
@@ -15419,6 +16329,7 @@
       "./ethers/v0.7/aggregatorv3interface.d.ts",
       "./ethers/v0.7/chainlinkclient.d.ts",
       "./ethers/v0.7/chainlinkrequestinterface.d.ts",
+      "./ethers/v0.7/compoundpriceflaggingvalidator.d.ts",
       "./ethers/v0.7/confirmedowner.d.ts",
       "./ethers/v0.7/confirmedownertesthelper.d.ts",
       "./ethers/v0.7/consumer.d.ts",
@@ -15431,41 +16342,52 @@
       "./ethers/v0.7/factories/aggregatorv3interface__factory.ts",
       "./ethers/v0.7/factories/chainlinkclient__factory.ts",
       "./ethers/v0.7/factories/chainlinkrequestinterface__factory.ts",
+      "./ethers/v0.7/factories/compoundpriceflaggingvalidator__factory.ts",
       "./ethers/v0.7/factories/confirmedowner__factory.ts",
       "./ethers/v0.7/factories/confirmedownertesthelper__factory.ts",
       "./ethers/v0.7/factories/consumer__factory.ts",
       "./ethers/v0.7/factories/ensinterface__factory.ts",
       "./ethers/v0.7/factories/ensresolver__factory.ts",
       "./ethers/v0.7/factories/flagsinterface__factory.ts",
+      "./ethers/v0.7/factories/keepercompatibleinterface__factory.ts",
       "./ethers/v0.7/factories/linktokeninterface__factory.ts",
       "./ethers/v0.7/factories/linktokenreceiver__factory.ts",
+      "./ethers/v0.7/factories/mockcompoundoracle__factory.ts",
       "./ethers/v0.7/factories/mockv2aggregator__factory.ts",
       "./ethers/v0.7/factories/mockv3aggregator__factory.ts",
       "./ethers/v0.7/factories/multiwordconsumer__factory.ts",
       "./ethers/v0.7/factories/operator__factory.ts",
       "./ethers/v0.7/factories/operatorfactory__factory.ts",
+      "./ethers/v0.7/factories/operatorforwarder__factory.ts",
       "./ethers/v0.7/factories/operatorinterface__factory.ts",
       "./ethers/v0.7/factories/oracleinterface__factory.ts",
       "./ethers/v0.7/factories/pointerinterface__factory.ts",
       "./ethers/v0.7/factories/stalenessflaggingvalidator__factory.ts",
-      "./ethers/v0.7/factories/upkeepcompatible__factory.ts",
+      "./ethers/v0.7/factories/typeandversioninterface__factory.ts",
+      "./ethers/v0.7/factories/uniswapanchoredview__factory.ts",
       "./ethers/v0.7/factories/upkeepinterface__factory.ts",
+      "./ethers/v0.7/factories/vrfconsumerbase__factory.ts",
       "./ethers/v0.7/factories/withdrawalinterface__factory.ts",
       "./ethers/v0.7/flagsinterface.d.ts",
       "./ethers/v0.7/index.d.ts",
+      "./ethers/v0.7/keepercompatibleinterface.d.ts",
       "./ethers/v0.7/linktokeninterface.d.ts",
       "./ethers/v0.7/linktokenreceiver.d.ts",
+      "./ethers/v0.7/mockcompoundoracle.d.ts",
       "./ethers/v0.7/mockv2aggregator.d.ts",
       "./ethers/v0.7/mockv3aggregator.d.ts",
       "./ethers/v0.7/multiwordconsumer.d.ts",
       "./ethers/v0.7/operator.d.ts",
       "./ethers/v0.7/operatorfactory.d.ts",
+      "./ethers/v0.7/operatorforwarder.d.ts",
       "./ethers/v0.7/operatorinterface.d.ts",
       "./ethers/v0.7/oracleinterface.d.ts",
       "./ethers/v0.7/pointerinterface.d.ts",
       "./ethers/v0.7/stalenessflaggingvalidator.d.ts",
-      "./ethers/v0.7/upkeepcompatible.d.ts",
+      "./ethers/v0.7/typeandversioninterface.d.ts",
+      "./ethers/v0.7/uniswapanchoredview.d.ts",
       "./ethers/v0.7/upkeepinterface.d.ts",
+      "./ethers/v0.7/vrfconsumerbase.d.ts",
       "./ethers/v0.7/withdrawalinterface.d.ts",
       "./node_modules/typescript/lib/lib.dom.d.ts",
       "./node_modules/typescript/lib/lib.dom.iterable.d.ts",
@@ -15506,6 +16428,7 @@
       "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
       "../node_modules/@babel/parser/typings/babel-parser.d.ts",
       "../node_modules/@babel/types/lib/index.d.ts",
+      "../node_modules/@types/abstract-leveldown/index.d.ts",
       "../node_modules/@types/anymatch/index.d.ts",
       "../node_modules/@types/babel__core/index.d.ts",
       "../node_modules/@types/babel__core/node_modules/@babel/types/lib/index.d.ts",
@@ -15520,8 +16443,6 @@
       "../node_modules/@types/cbor/index.d.ts",
       "../node_modules/@types/chai/index.d.ts",
       "../node_modules/@types/cheerio/index.d.ts",
-      "../node_modules/@types/classnames/index.d.ts",
-      "../node_modules/@types/classnames/types.d.ts",
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/cookie/index.d.ts",
       "../node_modules/@types/d3-array/index.d.ts",
@@ -15559,7 +16480,13 @@
       "../node_modules/@types/debug/index.d.ts",
       "../node_modules/@types/dockerode/index.d.ts",
       "../node_modules/@types/enzyme/index.d.ts",
+      "../node_modules/@types/eslint-scope/index.d.ts",
       "../node_modules/@types/eslint-visitor-keys/index.d.ts",
+      "../node_modules/@types/eslint/helpers.d.ts",
+      "../node_modules/@types/eslint/index.d.ts",
+      "../node_modules/@types/eslint/lib/rules/index.d.ts",
+      "../node_modules/@types/eslint/node_modules/@types/json-schema/index.d.ts",
+      "../node_modules/@types/estree/index.d.ts",
       "../node_modules/@types/ethereum-protocol/index.d.ts",
       "../node_modules/@types/ethereum-protocol/node_modules/bignumber.js/bignumber.d.ts",
       "../node_modules/@types/events/index.d.ts",
@@ -15612,6 +16539,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/jss/css.d.ts",
       "../node_modules/@types/jss/index.d.ts",
+      "../node_modules/@types/levelup/index.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/array.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts",
@@ -15625,15 +16553,20 @@
       "../node_modules/@types/lodash/ts3.1/common/string.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/util.d.ts",
       "../node_modules/@types/lodash/ts3.1/index.d.ts",
+      "../node_modules/@types/lru-cache/index.d.ts",
       "../node_modules/@types/mime/index.d.ts",
       "../node_modules/@types/minimatch/index.d.ts",
       "../node_modules/@types/mkdirp/index.d.ts",
+      "../node_modules/@types/mocha/index.d.ts",
       "../node_modules/@types/mock-fs/index.d.ts",
       "../node_modules/@types/mock-fs/lib/directory.d.ts",
       "../node_modules/@types/mock-fs/lib/file.d.ts",
       "../node_modules/@types/mock-fs/lib/filesystem.d.ts",
       "../node_modules/@types/mock-fs/lib/item.d.ts",
       "../node_modules/@types/mock-fs/lib/symlink.d.ts",
+      "../node_modules/@types/node-fetch/externals.d.ts",
+      "../node_modules/@types/node-fetch/index.d.ts",
+      "../node_modules/@types/node-fetch/node_modules/form-data/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
       "../node_modules/@types/node/base.d.ts",
@@ -15701,6 +16634,9 @@
       "../node_modules/@types/secp256k1/index.d.ts",
       "../node_modules/@types/serve-static/index.d.ts",
       "../node_modules/@types/shelljs/index.d.ts",
+      "../node_modules/@types/sinon-chai/index.d.ts",
+      "../node_modules/@types/sinon/index.d.ts",
+      "../node_modules/@types/sinon/node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts",
       "../node_modules/@types/sizzle/index.d.ts",
       "../node_modules/@types/solidity-parser-antlr/index.d.ts",
       "../node_modules/@types/source-list-map/index.d.ts",
@@ -15708,8 +16644,20 @@
       "../node_modules/@types/tapable/index.d.ts",
       "../node_modules/@types/through/index.d.ts",
       "../node_modules/@types/uglify-js/index.d.ts",
+      "../node_modules/@types/underscore/index.d.ts",
       "../node_modules/@types/uuid/index.d.ts",
       "../node_modules/@types/web3-provider-engine/index.d.ts",
+      "../node_modules/@types/web3/eth/abi.d.ts",
+      "../node_modules/@types/web3/eth/accounts.d.ts",
+      "../node_modules/@types/web3/eth/contract.d.ts",
+      "../node_modules/@types/web3/eth/index.d.ts",
+      "../node_modules/@types/web3/eth/types.d.ts",
+      "../node_modules/@types/web3/index.d.ts",
+      "../node_modules/@types/web3/node_modules/@types/bn.js/index.d.ts",
+      "../node_modules/@types/web3/promievent.d.ts",
+      "../node_modules/@types/web3/providers.d.ts",
+      "../node_modules/@types/web3/types.d.ts",
+      "../node_modules/@types/web3/utils.d.ts",
       "../node_modules/@types/webpack-sources/index.d.ts",
       "../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../node_modules/@types/webpack/index.d.ts",
@@ -15836,9 +16784,9 @@
       "../node_modules/rxjs/internal/util/timeouterror.d.ts",
       "../node_modules/rxjs/internal/util/unsubscriptionerror.d.ts",
       "../node_modules/source-map/source-map.d.ts",
-      "../node_modules/symbol-observable/index.d.ts",
+      "../node_modules/tapable/tapable.d.ts",
       "../node_modules/tslib/tslib.d.ts"
     ]
   },
-  "version": "4.1.3"
+  "version": "4.2.4"
 }
