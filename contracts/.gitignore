@@ -1,4 +1,4 @@
-dist
-abi
-ethers
-truffle
+artifacts
+cache
+node_modules
+solc

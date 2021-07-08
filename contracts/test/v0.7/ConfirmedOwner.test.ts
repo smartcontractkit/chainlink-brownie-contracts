@@ -1,143 +1,112 @@
-import {
-  contract,
-  helpers as h,
-  matchers,
-  setup,
-} from '@chainlink/test-helpers'
-import { assert } from 'chai'
-import { ethers } from 'ethers'
-import { ConfirmedOwner__factory } from '../../ethers/v0.7/factories/ConfirmedOwner__factory'
-import { ConfirmedOwnerTestHelper__factory } from '../../ethers/v0.7/factories/ConfirmedOwnerTestHelper__factory'
+import { ethers } from "hardhat";
+import { publicAbi } from "../test-helpers/helpers";
+import { assert, expect } from "chai";
+import { Contract, ContractFactory, Signer } from "ethers";
+import { Personas, getUsers } from "../test-helpers/setup";
+import { evmRevert } from "../test-helpers/matchers";
 
-const confirmedOwnerTestHelperFactory = new ConfirmedOwnerTestHelper__factory()
-const confirmedOwnerFactory = new ConfirmedOwner__factory()
-const provider = setup.provider()
+let confirmedOwnerTestHelperFactory: ContractFactory;
+let confirmedOwnerFactory: ContractFactory;
 
-let personas: setup.Personas
-let owner: ethers.Wallet
-let nonOwner: ethers.Wallet
-let newOwner: ethers.Wallet
+let personas: Personas;
+let owner: Signer;
+let nonOwner: Signer;
+let newOwner: Signer;
 
-beforeAll(async () => {
-  const users = await setup.users(provider)
-  personas = users.personas
-  owner = personas.Carol
-  nonOwner = personas.Neil
-  newOwner = personas.Ned
-})
+before(async () => {
+  const users = await getUsers();
+  personas = users.personas;
+  owner = personas.Carol;
+  nonOwner = personas.Neil;
+  newOwner = personas.Ned;
 
-describe('ConfirmedOwner', () => {
-  let confirmedOwner: contract.Instance<ConfirmedOwnerTestHelper__factory>
-  const confirmedOwnerEvents = confirmedOwnerTestHelperFactory.interface.events
+  confirmedOwnerTestHelperFactory = await ethers.getContractFactory("ConfirmedOwnerTestHelper", owner);
+  confirmedOwnerFactory = await ethers.getContractFactory("src/v0.7/dev/ConfirmedOwner.sol:ConfirmedOwner", owner);
+});
+
+describe("ConfirmedOwner", () => {
+  let confirmedOwner: Contract;
 
   beforeEach(async () => {
-    confirmedOwner = await confirmedOwnerTestHelperFactory
-      .connect(owner)
-      .deploy()
-  })
+    confirmedOwner = await confirmedOwnerTestHelperFactory.connect(owner).deploy();
+  });
 
-  it('has a limited public interface', () => {
-    matchers.publicAbi(confirmedOwnerTestHelperFactory, [
-      'acceptOwnership',
-      'owner',
-      'transferOwnership',
+  it("has a limited public interface", () => {
+    publicAbi(confirmedOwner, [
+      "acceptOwnership",
+      "owner",
+      "transferOwnership",
       // test helper public methods
-      'modifierOnlyOwner',
-    ])
-  })
+      "modifierOnlyOwner",
+    ]);
+  });
 
-  describe('#constructor', () => {
-    it('assigns ownership to the deployer', async () => {
-      const [actual, expected] = await Promise.all([
-        owner.getAddress(),
-        confirmedOwner.owner(),
-      ])
+  describe("#constructor", () => {
+    it("assigns ownership to the deployer", async () => {
+      const [actual, expected] = await Promise.all([owner.getAddress(), confirmedOwner.owner()]);
 
-      assert.equal(actual, expected)
-    })
+      assert.equal(actual, expected);
+    });
 
-    it('reverts if assigned to the zero address', async () => {
-      await matchers.evmRevert(
-        confirmedOwnerFactory
-          .connect(owner)
-          .deploy(ethers.constants.AddressZero),
-        'Cannot set owner to zero',
-      )
-    })
-  })
+    it("reverts if assigned to the zero address", async () => {
+      await evmRevert(
+        confirmedOwnerFactory.connect(owner).deploy(ethers.constants.AddressZero),
+        "Cannot set owner to zero",
+      );
+    });
+  });
 
-  describe('#onlyOwner modifier', () => {
-    describe('when called by an owner', () => {
-      it('successfully calls the method', async () => {
-        const tx = await confirmedOwner.connect(owner).modifierOnlyOwner()
-        const receipt = await tx.wait()
+  describe("#onlyOwner modifier", () => {
+    describe("when called by an owner", () => {
+      it("successfully calls the method", async () => {
+        const tx = await confirmedOwner.connect(owner).modifierOnlyOwner();
+        await expect(tx).to.emit(confirmedOwner, "Here");
+      });
+    });
 
-        expect(h.findEventIn(receipt, confirmedOwnerEvents.Here)).toBeDefined()
-      })
-    })
+    describe("when called by anyone but the owner", () => {
+      it("reverts", async () => await evmRevert(confirmedOwner.connect(nonOwner).modifierOnlyOwner()));
+    });
+  });
 
-    describe('when called by anyone but the owner', () => {
-      it('reverts', async () =>
-        await matchers.evmRevert(
-          confirmedOwner.connect(nonOwner).modifierOnlyOwner(),
-        ))
-    })
-  })
+  describe("#transferOwnership", () => {
+    describe("when called by an owner", () => {
+      it("emits a log", async () => {
+        const tx = await confirmedOwner.connect(owner).transferOwnership(await newOwner.getAddress());
+        await expect(tx)
+          .to.emit(confirmedOwner, "OwnershipTransferRequested")
+          .withArgs(await owner.getAddress(), await newOwner.getAddress());
+      });
 
-  describe('#transferOwnership', () => {
-    describe('when called by an owner', () => {
-      it('emits a log', async () => {
-        const tx = await confirmedOwner
-          .connect(owner)
-          .transferOwnership(newOwner.address)
-        const receipt = await tx.wait()
+      it("does not allow ownership transfer to self", async () => {
+        await evmRevert(
+          confirmedOwner.connect(owner).transferOwnership(await owner.getAddress()),
+          "Cannot transfer to self",
+        );
+      });
+    });
+  });
 
-        const event = h.findEventIn(
-          receipt,
-          confirmedOwnerEvents.OwnershipTransferRequested,
-        )
-        expect(h.eventArgs(event).to).toEqual(newOwner.address)
-        expect(h.eventArgs(event).from).toEqual(owner.address)
-      })
+  describe("when called by anyone but the owner", () => {
+    it("successfully calls the method", async () =>
+      await evmRevert(confirmedOwner.connect(nonOwner).transferOwnership(await newOwner.getAddress())));
+  });
 
-      it('does not allow ownership transfer to self', async () => {
-        await matchers.evmRevert(
-          confirmedOwner.connect(owner).transferOwnership(owner.address),
-          'Cannot transfer to self',
-        )
-      })
-    })
-  })
-
-  describe('when called by anyone but the owner', () => {
-    it('successfully calls the method', async () =>
-      await matchers.evmRevert(
-        confirmedOwner.connect(nonOwner).transferOwnership(newOwner.address),
-      ))
-  })
-
-  describe('#acceptOwnership', () => {
-    describe('after #transferOwnership has been called', () => {
+  describe("#acceptOwnership", () => {
+    describe("after #transferOwnership has been called", () => {
       beforeEach(async () => {
-        await confirmedOwner.connect(owner).transferOwnership(newOwner.address)
-      })
+        await confirmedOwner.connect(owner).transferOwnership(await newOwner.getAddress());
+      });
 
-      it('allows the recipient to call it', async () => {
-        const tx = await confirmedOwner.connect(newOwner).acceptOwnership()
-        const receipt = await tx.wait()
+      it("allows the recipient to call it", async () => {
+        const tx = await confirmedOwner.connect(newOwner).acceptOwnership();
+        await expect(tx)
+          .to.emit(confirmedOwner, "OwnershipTransferred")
+          .withArgs(await owner.getAddress(), await newOwner.getAddress());
+      });
 
-        const event = h.findEventIn(
-          receipt,
-          confirmedOwnerEvents.OwnershipTransferred,
-        )
-        expect(h.eventArgs(event).to).toEqual(newOwner.address)
-        expect(h.eventArgs(event).from).toEqual(owner.address)
-      })
-
-      it('does not allow a non-recipient to call it', async () =>
-        await matchers.evmRevert(
-          confirmedOwner.connect(nonOwner).acceptOwnership(),
-        ))
-    })
-  })
-})
+      it("does not allow a non-recipient to call it", async () =>
+        await evmRevert(confirmedOwner.connect(nonOwner).acceptOwnership()));
+    });
+  });
+});

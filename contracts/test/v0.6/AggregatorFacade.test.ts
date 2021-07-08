@@ -1,163 +1,145 @@
-import {
-  contract,
-  helpers as h,
-  matchers,
-  oracle,
-  setup,
-} from '@chainlink/test-helpers'
-import { assert } from 'chai'
-import { ethers } from 'ethers'
-import { Aggregator__factory } from '../../ethers/v0.4/factories/Aggregator__factory'
-import { AggregatorFacade__factory } from '../../ethers/v0.6/factories/AggregatorFacade__factory'
-import { Oracle__factory } from '../../ethers/v0.6/factories/Oracle__factory'
+import { ethers } from "hardhat";
+import { numToBytes32, publicAbi } from "../test-helpers/helpers";
+import { assert } from "chai";
+import { Contract, ContractFactory, Signer } from "ethers";
+import { getUsers } from "../test-helpers/setup";
+import { convertFufillParams, decodeRunRequest } from "../test-helpers/oracle";
+import { bigNumEquals, evmRevert } from "../test-helpers/matchers";
 
-let defaultAccount: ethers.Wallet
+let defaultAccount: Signer;
 
-const provider = setup.provider()
-const linkTokenFactory = new contract.LinkToken__factory()
-const aggregatorFactory = new Aggregator__factory()
-const oracleFactory = new Oracle__factory()
-const aggregatorFacadeFactory = new AggregatorFacade__factory()
+let linkTokenFactory: ContractFactory;
+let aggregatorFactory: ContractFactory;
+let oracleFactory: ContractFactory;
+let aggregatorFacadeFactory: ContractFactory;
 
-beforeAll(async () => {
-  const users = await setup.users(provider)
+before(async () => {
+  const users = await getUsers();
 
-  defaultAccount = users.roles.defaultAccount
-})
+  defaultAccount = users.roles.defaultAccount;
+  linkTokenFactory = await ethers.getContractFactory("LinkToken", defaultAccount);
+  aggregatorFactory = await ethers.getContractFactory("Aggregator", defaultAccount);
+  oracleFactory = await ethers.getContractFactory("src/v0.6/Oracle.sol:Oracle", defaultAccount);
+  aggregatorFacadeFactory = await ethers.getContractFactory("AggregatorFacade", defaultAccount);
+});
 
-describe('AggregatorFacade', () => {
-  const jobId1 =
-    '0x4c7b7ffb66b344fbaa64995af81e355a00000000000000000000000000000001'
-  const previousResponse = h.numToBytes32(54321)
-  const response = h.numToBytes32(67890)
-  const decimals = 18
-  const description = 'LINK / USD: Historic Aggregator Facade'
+describe("AggregatorFacade", () => {
+  const jobId1 = "0x4c7b7ffb66b344fbaa64995af81e355a00000000000000000000000000000001";
+  const previousResponse = numToBytes32(54321);
+  const response = numToBytes32(67890);
+  const decimals = 18;
+  const description = "LINK / USD: Historic Aggregator Facade";
 
-  let link: contract.Instance<contract.LinkToken__factory>
-  let aggregator: contract.Instance<Aggregator__factory>
-  let oc1: contract.Instance<Oracle__factory>
-  let facade: contract.Instance<AggregatorFacade__factory>
-
-  const deployment = setup.snapshot(provider, async () => {
-    link = await linkTokenFactory.connect(defaultAccount).deploy()
-    oc1 = await oracleFactory.connect(defaultAccount).deploy(link.address)
-    aggregator = await aggregatorFactory
-      .connect(defaultAccount)
-      .deploy(link.address, 0, 1, [oc1.address], [jobId1])
-    facade = await aggregatorFacadeFactory
-      .connect(defaultAccount)
-      .deploy(aggregator.address, decimals, description)
-
-    let requestTx = await aggregator.requestRateUpdate()
-    let receipt = await requestTx.wait()
-    let request = oracle.decodeRunRequest(receipt.logs?.[3])
-    await oc1.fulfillOracleRequest(
-      ...oracle.convertFufillParams(request, previousResponse),
-    )
-    requestTx = await aggregator.requestRateUpdate()
-    receipt = await requestTx.wait()
-    request = oracle.decodeRunRequest(receipt.logs?.[3])
-    await oc1.fulfillOracleRequest(
-      ...oracle.convertFufillParams(request, response),
-    )
-  })
+  let link: Contract;
+  let aggregator: Contract;
+  let oc1: Contract;
+  let facade: Contract;
 
   beforeEach(async () => {
-    await deployment()
-  })
+    link = await linkTokenFactory.connect(defaultAccount).deploy();
+    oc1 = await oracleFactory.connect(defaultAccount).deploy(link.address);
+    aggregator = await aggregatorFactory.connect(defaultAccount).deploy(link.address, 0, 1, [oc1.address], [jobId1]);
+    facade = await aggregatorFacadeFactory.connect(defaultAccount).deploy(aggregator.address, decimals, description);
 
-  it('has a limited public interface', () => {
-    matchers.publicAbi(aggregatorFacadeFactory, [
-      'aggregator',
-      'decimals',
-      'description',
-      'getAnswer',
-      'getRoundData',
-      'getTimestamp',
-      'latestAnswer',
-      'latestRound',
-      'latestRoundData',
-      'latestTimestamp',
-      'version',
-    ])
-  })
+    let requestTx = await aggregator.requestRateUpdate();
+    let receipt = await requestTx.wait();
+    let request = decodeRunRequest(receipt.logs?.[3]);
+    await oc1.fulfillOracleRequest(...convertFufillParams(request, previousResponse));
+    requestTx = await aggregator.requestRateUpdate();
+    receipt = await requestTx.wait();
+    request = decodeRunRequest(receipt.logs?.[3]);
+    await oc1.fulfillOracleRequest(...convertFufillParams(request, response));
+  });
 
-  describe('#constructor', () => {
-    it('uses the decimals set in the constructor', async () => {
-      matchers.bigNum(decimals, await facade.decimals())
-    })
+  it("has a limited public interface", () => {
+    publicAbi(facade, [
+      "aggregator",
+      "decimals",
+      "description",
+      "getAnswer",
+      "getRoundData",
+      "getTimestamp",
+      "latestAnswer",
+      "latestRound",
+      "latestRoundData",
+      "latestTimestamp",
+      "version",
+    ]);
+  });
 
-    it('uses the description set in the constructor', async () => {
-      assert.equal(description, await facade.description())
-    })
+  describe("#constructor", () => {
+    it("uses the decimals set in the constructor", async () => {
+      bigNumEquals(decimals, await facade.decimals());
+    });
 
-    it('sets the version to 2', async () => {
-      matchers.bigNum(2, await facade.version())
-    })
-  })
+    it("uses the description set in the constructor", async () => {
+      assert.equal(description, await facade.description());
+    });
 
-  describe('#getAnswer/latestAnswer', () => {
-    it('pulls the rate from the aggregator', async () => {
-      matchers.bigNum(response, await facade.latestAnswer())
-      const latestRound = await facade.latestRound()
-      matchers.bigNum(response, await facade.getAnswer(latestRound))
-    })
-  })
+    it("sets the version to 2", async () => {
+      bigNumEquals(2, await facade.version());
+    });
+  });
 
-  describe('#getTimestamp/latestTimestamp', () => {
-    it('pulls the timestamp from the aggregator', async () => {
-      const height = await aggregator.latestTimestamp()
-      assert.notEqual('0', height.toString())
-      matchers.bigNum(height, await facade.latestTimestamp())
-      const latestRound = await facade.latestRound()
-      matchers.bigNum(
-        await aggregator.latestTimestamp(),
-        await facade.getTimestamp(latestRound),
-      )
-    })
-  })
+  describe("#getAnswer/latestAnswer", () => {
+    it("pulls the rate from the aggregator", async () => {
+      bigNumEquals(response, await facade.latestAnswer());
+      const latestRound = await facade.latestRound();
+      bigNumEquals(response, await facade.getAnswer(latestRound));
+    });
+  });
 
-  describe('#getRoundData', () => {
-    it('assembles the requested round data', async () => {
-      const previousId = (await facade.latestRound()).sub(1)
-      const round = await facade.getRoundData(previousId)
-      matchers.bigNum(previousId, round.roundId)
-      matchers.bigNum(previousResponse, round.answer)
-      matchers.bigNum(await facade.getTimestamp(previousId), round.startedAt)
-      matchers.bigNum(await facade.getTimestamp(previousId), round.updatedAt)
-      matchers.bigNum(previousId, round.answeredInRound)
-    })
+  describe("#getTimestamp/latestTimestamp", () => {
+    it("pulls the timestamp from the aggregator", async () => {
+      const height = await aggregator.latestTimestamp();
+      assert.notEqual("0", height.toString());
+      bigNumEquals(height, await facade.latestTimestamp());
+      const latestRound = await facade.latestRound();
+      bigNumEquals(await aggregator.latestTimestamp(), await facade.getTimestamp(latestRound));
+    });
+  });
 
-    it('returns zero data for non-existing rounds', async () => {
-      const roundId = 13371337
-      await matchers.evmRevert(facade.getRoundData(roundId), 'No data present')
-    })
-  })
+  describe("#getRoundData", () => {
+    it("assembles the requested round data", async () => {
+      const previousId = (await facade.latestRound()).sub(1);
+      const round = await facade.getRoundData(previousId);
+      bigNumEquals(previousId, round.roundId);
+      bigNumEquals(previousResponse, round.answer);
+      bigNumEquals(await facade.getTimestamp(previousId), round.startedAt);
+      bigNumEquals(await facade.getTimestamp(previousId), round.updatedAt);
+      bigNumEquals(previousId, round.answeredInRound);
+    });
 
-  describe('#latestRoundData', () => {
-    it('assembles the requested round data', async () => {
-      const latestId = await facade.latestRound()
-      const round = await facade.latestRoundData()
-      matchers.bigNum(latestId, round.roundId)
-      matchers.bigNum(response, round.answer)
-      matchers.bigNum(await facade.getTimestamp(latestId), round.startedAt)
-      matchers.bigNum(await facade.getTimestamp(latestId), round.updatedAt)
-      matchers.bigNum(latestId, round.answeredInRound)
-    })
+    it("returns zero data for non-existing rounds", async () => {
+      const roundId = 13371337;
+      await evmRevert(facade.getRoundData(roundId), "No data present");
+    });
+  });
 
-    describe('when there is no latest round', () => {
+  describe("#latestRoundData", () => {
+    it("assembles the requested round data", async () => {
+      const latestId = await facade.latestRound();
+      const round = await facade.latestRoundData();
+      bigNumEquals(latestId, round.roundId);
+      bigNumEquals(response, round.answer);
+      bigNumEquals(await facade.getTimestamp(latestId), round.startedAt);
+      bigNumEquals(await facade.getTimestamp(latestId), round.updatedAt);
+      bigNumEquals(latestId, round.answeredInRound);
+    });
+
+    describe("when there is no latest round", () => {
       beforeEach(async () => {
         aggregator = await aggregatorFactory
           .connect(defaultAccount)
-          .deploy(link.address, 0, 1, [oc1.address], [jobId1])
+          .deploy(link.address, 0, 1, [oc1.address], [jobId1]);
         facade = await aggregatorFacadeFactory
           .connect(defaultAccount)
-          .deploy(aggregator.address, decimals, description)
-      })
+          .deploy(aggregator.address, decimals, description);
+      });
 
-      it('assembles the requested round data', async () => {
-        await matchers.evmRevert(facade.latestRoundData(), 'No data present')
-      })
-    })
-  })
-})
+      it("assembles the requested round data", async () => {
+        await evmRevert(facade.latestRoundData(), "No data present");
+      });
+    });
+  });
+});
