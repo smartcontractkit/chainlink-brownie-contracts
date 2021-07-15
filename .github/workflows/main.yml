@@ -1,10 +1,25 @@
-# Looking to automate the updates to here
-# for the moment:
+name: Update repo to match @chainlink/contracts
 
-# on the chainlink repo:
-# git pull
-# cp -r evm-contracts ../chainlink-brownie-contracts/contracts
-# cd ../chainlink-brownie-contracts
-# git add *
-# git commit -m 'update'
-# git push
+on:
+  push:
+  schedule:
+    - cron: '0 3 * * *'
+  jobs:
+    job-public-repo:
+      runs-on: ubuntu-latest
+      steps:
+        # - name: Clone https://github.com/smartcontractkit/chainlink
+        #   uses: GuillaumeFalourd/clone-github-repo-action@main
+        #   with:
+        #     owner: 'smartcontractkit'
+        #     repository: 'chainlink'
+
+        # - name: Compare contracts folder
+        #   run: |
+        #     cd contracts
+        #     ls -l
+        - name: Check @chainlink/contracts
+          uses: EndBug/version-check@v1
+        - name: Update package
+          if: steps.check.outputs.changed == 'true'
+          run: echo "test"
