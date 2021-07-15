@@ -1,0 +1,50 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "_a",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_b",
+        "type": "int256"
+      }
+    ],
+    "name": "testAdd",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "_a",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_b",
+        "type": "int256"
+      }
+    ],
+    "name": "testAvg",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
