@@ -4,22 +4,48 @@ on:
   push:
   schedule:
     - cron: '0 3 * * *'
-  jobs:
-    job-public-repo:
-      runs-on: ubuntu-latest
-      steps:
-        # - name: Clone https://github.com/smartcontractkit/chainlink
-        #   uses: GuillaumeFalourd/clone-github-repo-action@main
-        #   with:
-        #     owner: 'smartcontractkit'
-        #     repository: 'chainlink'
+jobs:
+  check-update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # - name: Get Current Version
+      #   run: current_version_var=$(cat version.txt) && echo "::set-output name=current_verision::${current_version_var}"
+      #   id: get_current_version
+      # - name: print current version
+      #   run: echo "Current @chainlink/contracts version is ${{steps.get_current_version.outputs.current_verision}}"
+      - name: Get npm version
+        # run: npm_version_var=$(npm outdated) && echo "::set-output name=npm_version::${npm_version_var}"
+        run: npm_version_var=$(yarn outdated) && echo "::set-output name=npm_version::${npm_version_var}"
+        continue-on-error: true
+        id: get_npm_version
+      - name: echo the npm versions
+        run: echo "${{steps.get_npm_version.outputs.npm_version}}"
 
-        # - name: Compare contracts folder
-        #   run: |
-        #     cd contracts
-        #     ls -l
-        - name: Check @chainlink/contracts
-          uses: EndBug/version-check@v1
-        - name: Update package
-          if: steps.check.outputs.changed == 'true'
-          run: echo "test"
+  # update-version:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: ok
+  #       run: echo "${{steps.get_npm_version.outputs.npm_version}}"
+
+  #       if: ${{ always() && (needs.job1.result=='failure' }}
+  #       run: echo "why"
+  # - name: print npm version
+  #   run: echo "NPM @chainlink/contracts version is ${{steps.get_npm_version.outputs.npm_version}}"
+
+  # - name: Clone https://github.com/smartcontractkit/chainlink
+  #   uses: GuillaumeFalourd/clone-github-repo-action@main
+  #   with:
+  #     owner: 'smartcontractkit'
+  #     repository: 'chainlink'
+
+  # - name: Compare contracts folder
+  #   run: |
+  #     cd contracts
+  #     ls -l
+  # - name: Check @chainlink/contracts
+  #   uses: EndBug/version-check@v1
+  # - name: Update package
+  #   if: steps.check.outputs.changed == 'true'
+  #   run: echo "test"
