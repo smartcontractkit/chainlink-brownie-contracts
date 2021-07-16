@@ -7,6 +7,9 @@ on:
 jobs:
   check-update-version:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,12 +19,14 @@ jobs:
       # - name: print current version
       #   run: echo "Current @chainlink/contracts version is ${{steps.get_current_version.outputs.current_verision}}"
       - name: Get npm version
-        # run: npm_version_var=$(npm outdated) && echo "::set-output name=npm_version::${npm_version_var}"
-        run: npm_version_var=$(yarn outdated) && echo "::set-output name=npm_version::${npm_version_var}"
+        run: yarn outdated
         continue-on-error: true
-        id: get_npm_version
-      - name: echo the npm versions
-        run: echo "${{steps.get_npm_version.outputs.npm_version}}"
+        id: check_outdated
+      - name: why you no work
+        run: echo "WTF ${{steps.check_outdated.outcome}}"
+      # - name: Check if it failed
+      #   if: steps.check_outdated.outcome != 'success'
+      #   run: echo "IT FAILED"
 
   # update-version:
   #   runs-on: ubuntu-latest
