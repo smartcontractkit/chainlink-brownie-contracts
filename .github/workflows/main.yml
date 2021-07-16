@@ -3,7 +3,7 @@ name: Update repo to match @chainlink/contracts
 on:
   push:
   schedule:
-  # Everyday at 3AM
+    # Everyday at 3AM
     - cron: '0 3 * * *'
 jobs:
   check-update-version-and-release:
@@ -47,4 +47,7 @@ jobs:
           repo_token: '${{ secrets.ACCESS_TOKEN }}'
           automatic_release_tag: '${{ steps.get_updated.version }}'
           prerelease: false
-          files: *
+          files: |
+            contracts/*
+            README.md
+            package.json
