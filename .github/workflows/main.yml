@@ -18,16 +18,51 @@ jobs:
       #   id: get_current_version
       # - name: print current version
       #   run: echo "Current @chainlink/contracts version is ${{steps.get_current_version.outputs.current_verision}}"
-      - name: Get npm version
+      - name: Check npm version
         run: yarn outdated
         continue-on-error: true
         id: check_outdated
-      - name: why you no work
+      - name: Get Updated Version
         if: steps.check_outdated.outcome != 'success'
-        run: echo "UHHH ${{steps.check_outdated.outcome}}"
-      # - name: Check if it failed
-      #   if: steps.check_outdated.outcome != 'success'
-      #   run: echo "IT FAILED"
+        id: get_updated
+        run: |
+        yarn upgrade --latest
+        cp -r node_modules/@chainlink/contracts/* contracts/
+        jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
+        version=$(cat version.txt)
+        echo "::set-output name=version::${version}"
+      - name: add and commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actor
+          message: 'auto-update to ${{steps.get_updated.version}}'
+          push: true
+
+      # - name: Create Draft Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: <tofill>
+      #     release_name: <tofill>
+      #     draft: true
+      #     prerelease: false
+
+      # - uses: actions/upload-release-asset@v1.0.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./my-artifact.zip
+      #     asset_name: my-artifact.zip
+      #     asset_content_type: application/zip
+
+      # - uses: eregon/publish-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     release_id: ${{ steps.create_release.outputs.id }}
 
   # update-version:
   #   runs-on: ubuntu-latest
