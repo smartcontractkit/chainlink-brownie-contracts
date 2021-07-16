@@ -23,7 +23,8 @@ jobs:
         continue-on-error: true
         id: check_outdated
       - name: why you no work
-        run: echo "WTF ${{steps.check_outdated.outcome}}"
+        if: steps.check_outdated.outcome != 'success'
+        run: echo "UHHH ${{steps.check_outdated.outcome}}"
       # - name: Check if it failed
       #   if: steps.check_outdated.outcome != 'success'
       #   run: echo "IT FAILED"
