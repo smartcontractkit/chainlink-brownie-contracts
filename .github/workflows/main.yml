@@ -3,9 +3,10 @@ name: Update repo to match @chainlink/contracts
 on:
   push:
   schedule:
+  # Everyday at 3AM
     - cron: '0 3 * * *'
 jobs:
-  check-update-version:
+  check-update-version-and-release:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,61 +34,17 @@ jobs:
           echo "::set-output name=version::${version}"
           rm version.txt
       - name: add and commit
+        if: steps.check_outdated.outcome != 'success'
         uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actor
-          message: 'auto-update to ${{steps.get_updated.version}}'
+          message: 'auto-update to `${{ steps.get_updated.version }}`'
           push: true
-
-      # - name: Create Draft Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: <tofill>
-      #     release_name: <tofill>
-      #     draft: true
-      #     prerelease: false
-
-      # - uses: actions/upload-release-asset@v1.0.1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./my-artifact.zip
-      #     asset_name: my-artifact.zip
-      #     asset_content_type: application/zip
-
-      # - uses: eregon/publish-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     release_id: ${{ steps.create_release.outputs.id }}
-
-  # update-version:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: ok
-  #       run: echo "${{steps.get_npm_version.outputs.npm_version}}"
-
-  #       if: ${{ always() && (needs.job1.result=='failure' }}
-  #       run: echo "why"
-  # - name: print npm version
-  #   run: echo "NPM @chainlink/contracts version is ${{steps.get_npm_version.outputs.npm_version}}"
-
-  # - name: Clone https://github.com/smartcontractkit/chainlink
-  #   uses: GuillaumeFalourd/clone-github-repo-action@main
-  #   with:
-  #     owner: 'smartcontractkit'
-  #     repository: 'chainlink'
-
-  # - name: Compare contracts folder
-  #   run: |
-  #     cd contracts
-  #     ls -l
-  # - name: Check @chainlink/contracts
-  #   uses: EndBug/version-check@v1
-  # - name: Update package
-  #   if: steps.check.outputs.changed == 'true'
-  #   run: echo "test"
+      - name: publish release
+        if: steps.check_outdated.outcome != 'success'
+        uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.ACCESS_TOKEN }}'
+          automatic_release_tag: '${{ steps.get_updated.version }}'
+          prerelease: false
+          files: *
