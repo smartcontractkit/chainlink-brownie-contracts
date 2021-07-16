@@ -31,6 +31,7 @@ jobs:
           jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
           version=$(cat version.txt)
           echo "::set-output name=version::${version}"
+          rm version.txt
       - name: add and commit
         uses: EndBug/add-and-commit@v7
         with:
