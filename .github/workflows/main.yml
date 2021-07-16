@@ -26,11 +26,11 @@ jobs:
         if: steps.check_outdated.outcome != 'success'
         id: get_updated
         run: |
-        yarn upgrade --latest
-        cp -r node_modules/@chainlink/contracts/* contracts/
-        jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
-        version=$(cat version.txt)
-        echo "::set-output name=version::${version}"
+          yarn upgrade --latest
+          cp -r node_modules/@chainlink/contracts/* contracts/
+          jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
+          version=$(cat version.txt)
+          echo "::set-output name=version::${version}"
       - name: add and commit
         uses: EndBug/add-and-commit@v7
         with:
