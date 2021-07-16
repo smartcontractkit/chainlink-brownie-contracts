@@ -1,0 +1,72 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_requestId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_sAId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_oracle",
+        "type": "address"
+      },
+      {
+        "name": "_value",
+        "type": "bytes32"
+      }
+    ],
+    "name": "fulfill",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "name": "complete",
+        "type": "bool"
+      },
+      {
+        "name": "response",
+        "type": "bytes"
+      },
+      {
+        "name": "paymentAmounts",
+        "type": "int256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sAId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_serviceAgreementData",
+        "type": "bytes"
+      }
+    ],
+    "name": "initiateJob",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "name": "message",
+        "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

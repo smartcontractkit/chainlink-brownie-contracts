@@ -1,0 +1,127 @@
+[
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "closeEvent",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      },
+      {
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "addUint",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      },
+      {
+        "name": "_value",
+        "type": "bytes"
+      }
+    ],
+    "name": "addBytes",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      },
+      {
+        "name": "_values",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "addStringArray",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      },
+      {
+        "name": "_value",
+        "type": "int256"
+      }
+    ],
+    "name": "addInt",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "setBuffer",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      },
+      {
+        "name": "_value",
+        "type": "string"
+      }
+    ],
+    "name": "add",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "payload",
+        "type": "bytes"
+      }
+    ],
+    "name": "RequestData",
+    "type": "event"
+  }
+]
