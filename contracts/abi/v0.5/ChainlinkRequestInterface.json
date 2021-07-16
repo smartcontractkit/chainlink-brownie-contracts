@@ -1,0 +1,70 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "name": "requestPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "serviceAgreementID",
+        "type": "bytes32"
+      },
+      {
+        "name": "callbackAddress",
+        "type": "address"
+      },
+      {
+        "name": "callbackFunctionId",
+        "type": "bytes4"
+      },
+      {
+        "name": "nonce",
+        "type": "uint256"
+      },
+      {
+        "name": "dataVersion",
+        "type": "uint256"
+      },
+      {
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "oracleRequest",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "name": "payment",
+        "type": "uint256"
+      },
+      {
+        "name": "callbackFunctionId",
+        "type": "bytes4"
+      },
+      {
+        "name": "expiration",
+        "type": "uint256"
+      }
+    ],
+    "name": "cancelOracleRequest",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
