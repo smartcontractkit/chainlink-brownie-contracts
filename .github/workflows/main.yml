@@ -32,19 +32,14 @@ jobs:
           jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
           version=$(cat version.txt)
           echo "::set-output name=version::${version}"
-      - name: set env
-        env:
-          VERSION: ${{ steps.get_updated.version }}
       - name: add and commit
         if: steps.check_outdated.outcome != 'success'
-        uses: EndBug/add-and-commit@v7
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          default_author: github_actor
-          message: 'Auto Update'
-          push: true
-      - name: publish release
-        if: steps.check_outdated.outcome != 'success'
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          tag: ${{env.VERSION}}
+          tagging_message: ${{steps.get_updated.outputs.version}}
+          commit_message: ${{steps.get_updated.outputs.version}}
+      # - name: publish release
+      #   if: steps.check_outdated.outcome != 'success'
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}
