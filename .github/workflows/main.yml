@@ -37,16 +37,11 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actor
-          message: \"${{ steps.get_updated.version }}\"
+          message: 'Auto Update'
           push: true
-          tag: ${{ steps.get_updated.version }}
       - name: publish release
         if: steps.check_outdated.outcome != 'success'
-        uses: 'marvinpinto/action-automatic-releases@latest'
+        uses: ncipollo/release-action@v1
         with:
-          repo_token: '${{ secrets.ACCESS_TOKEN }}'
-          prerelease: false
-          files: |
-            contracts/*
-            README.md
-            package.json
+          token: ${{ secrets.ACCESS_TOKEN }}
+          tag: cat version.txt
