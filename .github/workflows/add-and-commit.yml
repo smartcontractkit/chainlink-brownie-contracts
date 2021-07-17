@@ -30,7 +30,7 @@ jobs:
           yarn upgrade --latest
           cp -r node_modules/@chainlink/contracts/* contracts/
           jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
-          version="v"$(cat version.txt)
+          version=$(cat version.txt)
           echo "::set-output name=version::${version}"
       - name: add and commit
         if: steps.check_outdated.outcome != 'success'
