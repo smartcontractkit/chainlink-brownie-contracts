@@ -1,0 +1,163 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_id",
+        "type": "bytes32"
+      },
+      {
+        "name": "_callbackFunc",
+        "type": "bytes"
+      }
+    ],
+    "name": "maliciousRequestCancel",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "maliciousWithdraw",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "doesNothing",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_target",
+        "type": "address"
+      }
+    ],
+    "name": "maliciousTargetConsumer",
+    "outputs": [
+      {
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_id",
+        "type": "bytes32"
+      },
+      {
+        "name": "_target",
+        "type": "address"
+      },
+      {
+        "name": "_callbackFunc",
+        "type": "bytes"
+      }
+    ],
+    "name": "request",
+    "outputs": [
+      {
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "maliciousPrice",
+    "outputs": [
+      {
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_link",
+        "type": "address"
+      },
+      {
+        "name": "_oracle",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ChainlinkRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ChainlinkFulfilled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ChainlinkCancelled",
+    "type": "event"
+  }
+]

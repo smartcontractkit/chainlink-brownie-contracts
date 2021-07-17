@@ -1,0 +1,116 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_requestId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_saId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_oracle",
+        "type": "address"
+      },
+      {
+        "name": "_fulfillment",
+        "type": "bytes32"
+      }
+    ],
+    "name": "fulfill",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "name": "complete",
+        "type": "bool"
+      },
+      {
+        "name": "response",
+        "type": "bytes"
+      },
+      {
+        "name": "paymentAmounts",
+        "type": "int256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_saId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_serviceAgreementData",
+        "type": "bytes"
+      }
+    ],
+    "name": "initiateJob",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "name": "_",
+        "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "said",
+        "type": "bytes32"
+      }
+    ],
+    "name": "InitiatedJob",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "oracle",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "name": "complete",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "name": "fulfillment",
+        "type": "bytes"
+      }
+    ],
+    "name": "Fulfilled",
+    "type": "event"
+  }
+]

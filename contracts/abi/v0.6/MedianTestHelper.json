@@ -1,0 +1,55 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "int256[]",
+        "name": "list",
+        "type": "int256[]"
+      }
+    ],
+    "name": "publicGet",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256[]",
+        "name": "list",
+        "type": "int256[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "k1",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "k2",
+        "type": "uint256"
+      }
+    ],
+    "name": "publicQuickselectTwo",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

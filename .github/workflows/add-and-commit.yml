@@ -1,0 +1,51 @@
+name: Update repo to match @chainlink/contracts
+
+on:
+  push:
+  schedule:
+    # Everyday at 3AM
+    - cron: '0 3 * * *'
+jobs:
+  check-update-version-and-release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # - name: Get Current Version
+      #   run: current_version_var=$(cat version.txt) && echo "::set-output name=current_verision::${current_version_var}"
+      #   id: get_current_version
+      # - name: print current version
+      #   run: echo "Current @chainlink/contracts version is ${{steps.get_current_version.outputs.current_verision}}"
+      - name: Check npm version
+        run: yarn outdated
+        continue-on-error: true
+        id: check_outdated
+      - name: Get Updated Version
+        if: steps.check_outdated.outcome != 'success'
+        id: get_updated
+        run: |
+          yarn upgrade --latest
+          cp -r node_modules/@chainlink/contracts/* contracts/
+          jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
+          version=$(cat version.txt)
+          echo "::set-output name=version::${version}"
+      - name: add and commit
+        if: steps.check_outdated.outcome != 'success'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          tagging_message: ${{steps.get_updated.outputs.version}}
+          commit_message: ${{steps.get_updated.outputs.version}}
+      - name: Create Release
+        if: steps.check_outdated.outcome != 'success'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{steps.get_updated.outputs.version}}
+          release_name: ${{steps.get_updated.outputs.version}}
+          draft: false
+          prerelease: false

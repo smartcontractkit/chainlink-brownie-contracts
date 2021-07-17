@@ -1,0 +1,119 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_previousRoundId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "int256",
+        "name": "_previousAnswer",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_currentRoundId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "int256",
+        "name": "_currentAnswer",
+        "type": "int256"
+      }
+    ],
+    "name": "Validated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "currentAnswer",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "currentRoundId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "previousAnswer",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "previousRoundId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_previousRoundId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_previousAnswer",
+        "type": "int256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_currentRoundId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_currentAnswer",
+        "type": "int256"
+      }
+    ],
+    "name": "validate",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
