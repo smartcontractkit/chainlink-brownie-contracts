@@ -1,0 +1,20 @@
+name: 'tagged-release'
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  tagged-release:
+    name: 'Tagged Release'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.ACCESS_TOKEN }}'
+          prerelease: false
+          files: |
+            contracts/*
+            package.json
+            README.md
