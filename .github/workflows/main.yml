@@ -39,7 +39,7 @@ jobs:
           default_author: github_actor
           message: \"${{ steps.get_updated.version }}\"
           push: true
-          tag: \" ${{ steps.get_updated.version }} \"
+          tag: ${{ steps.get_updated.version }}
       - name: publish release
         if: steps.check_outdated.outcome != 'success'
         uses: 'marvinpinto/action-automatic-releases@latest'
