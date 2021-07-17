@@ -32,6 +32,9 @@ jobs:
           jq '.dependencies."@chainlink/contracts"' package.json | sed 's/"//g' | sed 's/\^//g' > version.txt
           version=$(cat version.txt)
           echo "::set-output name=version::${version}"
+      - name: set env
+        env:
+          VERSION: ${{ steps.get_updated.version }}
       - name: add and commit
         if: steps.check_outdated.outcome != 'success'
         uses: EndBug/add-and-commit@v7
@@ -44,4 +47,4 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          tag: ' ${{ steps.get_updated.version }} '
+          tag: ${{env.VERSION}}
