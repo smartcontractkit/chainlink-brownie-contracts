@@ -38,8 +38,8 @@ jobs:
         with:
           tagging_message: ${{steps.get_updated.outputs.version}}
           commit_message: ${{steps.get_updated.outputs.version}}
-      # - name: publish release
-      #   if: steps.check_outdated.outcome != 'success'
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     token: ${{ secrets.ACCESS_TOKEN }}
+      - name: publish release
+        if: steps.check_outdated.outcome != 'success'
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
