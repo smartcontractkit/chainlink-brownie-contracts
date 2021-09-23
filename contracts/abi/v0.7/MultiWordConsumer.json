@@ -110,6 +110,37 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "usd",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "eur",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "jpy",
+        "type": "uint256"
+      }
+    ],
+    "name": "RequestMultipleFulfilledWithCustomURLs",
+    "type": "event"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -187,6 +218,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "eurInt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes32",
@@ -233,6 +277,34 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_requestId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_usd",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_eur",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_jpy",
+        "type": "uint256"
+      }
+    ],
+    "name": "fulfillMultipleParametersWithCustomURLs",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "jpy",
     "outputs": [
@@ -240,6 +312,19 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "jpyInt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -307,6 +392,49 @@
   {
     "inputs": [
       {
+        "internalType": "string",
+        "name": "_urlUSD",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_pathUSD",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_urlEUR",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_pathEUR",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_urlJPY",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_pathJPY",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_payment",
+        "type": "uint256"
+      }
+    ],
+    "name": "requestMultipleParametersWithCustomURLs",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "bytes32",
         "name": "_specId",
         "type": "bytes32"
@@ -325,6 +453,19 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "usdInt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",

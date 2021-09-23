@@ -143,6 +143,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "currentPriceInt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes32",
@@ -156,6 +169,24 @@
       }
     ],
     "name": "fulfill",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_requestId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+      }
+    ],
+    "name": "fulfillParametersWithCustomURLs",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -197,6 +228,42 @@
       }
     ],
     "name": "requestEthereumPriceByCallback",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_urlUSD",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_pathUSD",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_payment",
+        "type": "uint256"
+      }
+    ],
+    "name": "requestMultipleParametersWithCustomURLs",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_specId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setSpecID",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
