@@ -1,0 +1,346 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "field",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "InvalidField",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "InvalidSpec",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ListTooLarge",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnknownFieldType",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "cronString",
+        "type": "string"
+      }
+    ],
+    "name": "calculateLastTick",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "cronString",
+        "type": "string"
+      }
+    ],
+    "name": "calculateNextTick",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "cronString",
+        "type": "string"
+      }
+    ],
+    "name": "cronStringtoEncodedSpec",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "enum FieldType",
+                "name": "fieldType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "singleValue",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "interval",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeStart",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeEnd",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "listLength",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8[26]",
+                "name": "list",
+                "type": "uint8[26]"
+              }
+            ],
+            "internalType": "struct Field",
+            "name": "minute",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "enum FieldType",
+                "name": "fieldType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "singleValue",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "interval",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeStart",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeEnd",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "listLength",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8[26]",
+                "name": "list",
+                "type": "uint8[26]"
+              }
+            ],
+            "internalType": "struct Field",
+            "name": "hour",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "enum FieldType",
+                "name": "fieldType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "singleValue",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "interval",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeStart",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeEnd",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "listLength",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8[26]",
+                "name": "list",
+                "type": "uint8[26]"
+              }
+            ],
+            "internalType": "struct Field",
+            "name": "day",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "enum FieldType",
+                "name": "fieldType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "singleValue",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "interval",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeStart",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeEnd",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "listLength",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8[26]",
+                "name": "list",
+                "type": "uint8[26]"
+              }
+            ],
+            "internalType": "struct Field",
+            "name": "month",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "enum FieldType",
+                "name": "fieldType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "singleValue",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "interval",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeStart",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "rangeEnd",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8",
+                "name": "listLength",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint8[26]",
+                "name": "list",
+                "type": "uint8[26]"
+              }
+            ],
+            "internalType": "struct Field",
+            "name": "dayOfWeek",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Spec",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "cronString",
+        "type": "string"
+      }
+    ],
+    "name": "encodeCronString",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "encodedSpec",
+        "type": "bytes"
+      }
+    ],
+    "name": "encodedSpecToString",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

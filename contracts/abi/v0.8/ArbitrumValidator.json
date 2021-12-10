@@ -218,6 +218,19 @@
   },
   {
     "inputs": [],
+    "name": "FLAG_ARBITRUM_SEQ_OFFLINE",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "L2_ALIAS",
     "outputs": [
       {

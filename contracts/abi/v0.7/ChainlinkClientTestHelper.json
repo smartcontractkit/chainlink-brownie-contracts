@@ -278,11 +278,6 @@
         "type": "bytes32"
       },
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      },
-      {
         "internalType": "bytes",
         "name": "_fulfillmentSignature",
         "type": "bytes"

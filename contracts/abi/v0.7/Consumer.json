@@ -213,29 +213,6 @@
     "inputs": [
       {
         "internalType": "string",
-        "name": "_currency",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_payment",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_callback",
-        "type": "address"
-      }
-    ],
-    "name": "requestEthereumPriceByCallback",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
         "name": "_urlUSD",
         "type": "string"
       },

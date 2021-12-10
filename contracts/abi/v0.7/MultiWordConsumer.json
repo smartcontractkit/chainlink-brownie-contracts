@@ -331,21 +331,16 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_currency",
-        "type": "string"
-      },
+    "inputs": [],
+    "name": "publicGetNextRequestCount",
+    "outputs": [
       {
         "internalType": "uint256",
-        "name": "_payment",
+        "name": "",
         "type": "uint256"
       }
     ],
-    "name": "requestEthereumPrice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -359,14 +354,9 @@
         "internalType": "uint256",
         "name": "_payment",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_callback",
-        "type": "address"
       }
     ],
-    "name": "requestEthereumPriceByCallback",
+    "name": "requestEthereumPrice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

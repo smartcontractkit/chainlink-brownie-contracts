@@ -1,5 +1,23 @@
 # @chainlink/contracts CHANGELOG.md
 
+## 0.2.3 - Unreleased
+
+### Added
+
+- Prettier Solidity formatting applied to v0.7 and above.
+- ERC677ReceiverInterface added in v0.8.
+- `KeeperBase.sol` and `KeeperCompatible.sol` in Solidity v0.6 and v0.8
+
+### Changed:
+
+- Operator Contract and Chainlink Client are officially supported. This enables
+  multiword requests/response are available through the ChainlinkClient by using
+  the newly enabled `buildOperatorRequest` along with `sendOperatorRequest` or
+  `sendOperatorRequestTo`.
+- `ChainlinkClient` functions `requestOracleData` and `requestOracleDataFrom` have been changed to `sendChainlinkRequest` and
+  `sendChainlinkRequestTo` respectively.
+- Updated function comments in `v0.6/interfaces/KeeperCompatibleInterface.sol` and `v0.8/interfaces/KeeperCompatibleInterface.sol` to match the latest in v0.7.
+
 ## 0.2.2 - 2021-09-21
 
 ### Added:

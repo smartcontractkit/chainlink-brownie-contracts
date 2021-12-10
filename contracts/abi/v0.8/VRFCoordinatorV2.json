@@ -212,6 +212,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "PendingRequestExists",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes32",
@@ -244,12 +249,6 @@
       {
         "indexed": false,
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
-        "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint32",
         "name": "maxGasLimit",
         "type": "uint32"
       },
@@ -267,15 +266,62 @@
       },
       {
         "indexed": false,
-        "internalType": "uint96",
-        "name": "minimumSubscriptionBalance",
-        "type": "uint96"
-      },
-      {
-        "indexed": false,
         "internalType": "int256",
         "name": "fallbackWeiPerUnitLink",
         "type": "int256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier3",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier4",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier5",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier2",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier3",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier4",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier5",
+            "type": "uint24"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct VRFCoordinatorV2.FeeConfig",
+        "name": "feeConfig",
+        "type": "tuple"
       }
     ],
     "name": "ConfigSet",
@@ -387,9 +433,15 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256[]",
-        "name": "output",
-        "type": "uint256[]"
+        "internalType": "uint256",
+        "name": "outputSeed",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint96",
+        "name": "payment",
+        "type": "uint96"
       },
       {
         "indexed": false,
@@ -423,7 +475,7 @@
         "type": "uint256"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint64",
         "name": "subId",
         "type": "uint64"
@@ -536,31 +588,6 @@
       }
     ],
     "name": "SubscriptionCreated",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "uint64",
-        "name": "subId",
-        "type": "uint64"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldBalance",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newBalance",
-        "type": "uint256"
-      }
-    ],
-    "name": "SubscriptionDefunded",
     "type": "event"
   },
   {
@@ -718,19 +745,6 @@
   },
   {
     "inputs": [],
-    "name": "MIN_GAS_LIMIT",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "acceptOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -795,29 +809,6 @@
         "type": "uint64"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint64",
-        "name": "subId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "defundSubscription",
-    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -922,7 +913,13 @@
       }
     ],
     "name": "fulfillRandomWords",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "",
+        "type": "uint96"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -956,11 +953,6 @@
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
         "name": "maxGasLimit",
         "type": "uint32"
       },
@@ -973,16 +965,127 @@
         "internalType": "uint32",
         "name": "gasAfterPaymentCalculation",
         "type": "uint32"
-      },
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCurrentSubId",
+    "outputs": [
       {
-        "internalType": "uint96",
-        "name": "minimumSubscriptionBalance",
-        "type": "uint96"
-      },
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getFallbackWeiPerUnitLink",
+    "outputs": [
       {
         "internalType": "int256",
-        "name": "fallbackWeiPerUnitLink",
+        "name": "",
         "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getFeeConfig",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier1",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier2",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier3",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier4",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier5",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier2",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier3",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier4",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier5",
+        "type": "uint24"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
+      }
+    ],
+    "name": "getFeeTier",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRequestConfig",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "",
+        "type": "bytes32[]"
       }
     ],
     "stateMutability": "view",
@@ -1004,6 +1107,11 @@
         "type": "uint96"
       },
       {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
+      },
+      {
         "internalType": "address",
         "name": "owner",
         "type": "address"
@@ -1012,6 +1120,19 @@
         "internalType": "address[]",
         "name": "consumers",
         "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -1040,7 +1161,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "sender",
+        "name": "",
         "type": "address"
       },
       {
@@ -1085,6 +1206,38 @@
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subId",
+        "type": "uint64"
+      }
+    ],
+    "name": "ownerCancelSubscription",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subId",
+        "type": "uint64"
+      }
+    ],
+    "name": "pendingRequestExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -1197,29 +1350,11 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "s_totalBalance",
-    "outputs": [
-      {
-        "internalType": "uint96",
-        "name": "",
-        "type": "uint96"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint16",
         "name": "minimumRequestConfirmations",
         "type": "uint16"
-      },
-      {
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
-        "type": "uint32"
       },
       {
         "internalType": "uint32",
@@ -1237,14 +1372,61 @@
         "type": "uint32"
       },
       {
-        "internalType": "uint96",
-        "name": "minimumSubscriptionBalance",
-        "type": "uint96"
-      },
-      {
         "internalType": "int256",
         "name": "fallbackWeiPerUnitLink",
         "type": "int256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier3",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier4",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "fulfillmentFlatFeeLinkPPMTier5",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier2",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier3",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier4",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint24",
+            "name": "reqsForTier5",
+            "type": "uint24"
+          }
+        ],
+        "internalType": "struct VRFCoordinatorV2.FeeConfig",
+        "name": "feeConfig",
+        "type": "tuple"
       }
     ],
     "name": "setConfig",

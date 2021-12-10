@@ -22,6 +22,11 @@
         "type": "uint32"
       },
       {
+        "internalType": "uint32",
+        "name": "flatFeeMicroLink",
+        "type": "uint32"
+      },
+      {
         "internalType": "uint24",
         "name": "blockCountPerTurn",
         "type": "uint24"
@@ -102,6 +107,19 @@
       }
     ],
     "name": "ConfigSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "flatFeeMicroLink",
+        "type": "uint32"
+      }
+    ],
+    "name": "FlatFeeSet",
     "type": "event"
   },
   {
@@ -609,6 +627,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getFlatFee",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -892,6 +923,11 @@
         "type": "uint32"
       },
       {
+        "internalType": "uint32",
+        "name": "flatFeeMicroLink",
+        "type": "uint32"
+      },
+      {
         "internalType": "uint24",
         "name": "blockCountPerTurn",
         "type": "uint24"
@@ -987,6 +1023,19 @@
     "name": "transferPayeeship",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "typeAndVersion",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

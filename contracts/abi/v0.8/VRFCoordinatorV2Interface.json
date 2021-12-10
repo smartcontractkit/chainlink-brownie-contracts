@@ -62,66 +62,23 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint64",
-        "name": "subId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "defundSubscription",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
-    "name": "getConfig",
+    "name": "getRequestConfig",
     "outputs": [
       {
         "internalType": "uint16",
-        "name": "minimumRequestBlockConfirmations",
+        "name": "",
         "type": "uint16"
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
+        "name": "",
         "type": "uint32"
       },
       {
-        "internalType": "uint32",
-        "name": "maxGasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "stalenessSeconds",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasAfterPaymentCalculation",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint96",
-        "name": "minimumSubscriptionBalance",
-        "type": "uint96"
-      },
-      {
-        "internalType": "int256",
-        "name": "fallbackWeiPerUnitLink",
-        "type": "int256"
+        "internalType": "bytes32[]",
+        "name": "",
+        "type": "bytes32[]"
       }
     ],
     "stateMutability": "view",
@@ -141,6 +98,11 @@
         "internalType": "uint96",
         "name": "balance",
         "type": "uint96"
+      },
+      {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
       },
       {
         "internalType": "address",

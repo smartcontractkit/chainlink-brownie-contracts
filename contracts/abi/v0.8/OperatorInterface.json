@@ -187,6 +187,49 @@
       },
       {
         "internalType": "uint256",
+        "name": "payment",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "specId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes4",
+        "name": "callbackFunctionId",
+        "type": "bytes4"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nonce",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "dataVersion",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "operatorRequest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
         "name": "requestPrice",
         "type": "uint256"
       },
@@ -252,54 +295,6 @@
         "type": "bool"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "payment",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "specId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "callbackAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes4",
-        "name": "callbackFunctionId",
-        "type": "bytes4"
-      },
-      {
-        "internalType": "uint256",
-        "name": "nonce",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "dataVersion",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      }
-    ],
-    "name": "requestOracleData",
-    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
