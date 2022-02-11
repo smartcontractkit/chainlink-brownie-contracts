@@ -8,12 +8,7 @@
       },
       {
         "internalType": "address",
-        "name": "l2CrossDomainForwarderAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "l2FlagsAddr",
+        "name": "l2ArbitrumSequencerUptimeFeedAddr",
         "type": "address"
       },
       {
@@ -218,19 +213,6 @@
   },
   {
     "inputs": [],
-    "name": "FLAG_ARBITRUM_SEQ_OFFLINE",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "L2_ALIAS",
     "outputs": [
       {
@@ -244,20 +226,7 @@
   },
   {
     "inputs": [],
-    "name": "L2_CROSS_DOMAIN_FORWARDER",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "L2_FLAGS",
+    "name": "L2_SEQ_STATUS_RECORDER",
     "outputs": [
       {
         "internalType": "address",

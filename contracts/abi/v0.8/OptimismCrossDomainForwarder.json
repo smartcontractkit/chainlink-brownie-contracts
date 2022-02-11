@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "address",
+        "internalType": "contract iOVM_CrossDomainMessenger",
         "name": "crossDomainMessengerAddr",
         "type": "address"
       },
@@ -14,6 +14,25 @@
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "L1OwnershipTransferRequested",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -71,6 +90,13 @@
     ],
     "name": "OwnershipTransferred",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "acceptL1Ownership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
     "inputs": [],

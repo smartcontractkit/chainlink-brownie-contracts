@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@chainlink/contracts": "^0.3.1"
+    "@chainlink/contracts": "^0.4.0"
   }
 }

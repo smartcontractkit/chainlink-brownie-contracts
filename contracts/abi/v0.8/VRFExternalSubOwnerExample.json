@@ -10,26 +10,6 @@
         "internalType": "address",
         "name": "link",
         "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "callbackGasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint16",
-        "name": "requestConfirmations",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint32",
-        "name": "numWords",
-        "type": "uint32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "keyHash",
-        "type": "bytes32"
       }
     ],
     "stateMutability": "nonpayable",
@@ -70,35 +50,7 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "requestRandomWords",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "s_randomWords",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "s_requestConfig",
-    "outputs": [
       {
         "internalType": "uint64",
         "name": "subId",
@@ -125,6 +77,27 @@
         "type": "bytes32"
       }
     ],
+    "name": "requestRandomWords",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "s_randomWords",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -144,12 +117,12 @@
   {
     "inputs": [
       {
-        "internalType": "uint64",
-        "name": "subId",
-        "type": "uint64"
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
       }
     ],
-    "name": "setSubscriptionID",
+    "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

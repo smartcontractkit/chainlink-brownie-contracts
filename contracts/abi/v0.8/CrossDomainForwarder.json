@@ -15,6 +15,25 @@
         "type": "address"
       }
     ],
+    "name": "L1OwnershipTransferRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
     "name": "L1OwnershipTransferred",
     "type": "event"
   },
@@ -58,22 +77,16 @@
   },
   {
     "inputs": [],
-    "name": "acceptOwnership",
+    "name": "acceptL1Ownership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "crossDomainMessenger",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
