@@ -45,6 +45,13 @@ contract VRFCoordinatorV2Mock is VRFCoordinatorV2Interface {
   }
   mapping(uint256 => Request) s_requests; /* requestId */ /* request */
 
+  /** 
+   *  @dev It's recommendable to use 0.25 * 1e18 and 1e9, respectively, 
+   *  @dev to populate the constructor. 
+   *
+   *  @param _baseFee the premium for your current network  
+   *  @param _gasPriceLink value set dinamically set on-chain based on the link price
+   */
   constructor(uint96 _baseFee, uint96 _gasPriceLink) {
     BASE_FEE = _baseFee;
     GAS_PRICE_LINK = _gasPriceLink;
