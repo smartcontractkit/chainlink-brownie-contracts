@@ -1,0 +1,31 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "fromRegistry",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "toRegistry",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "encodedUpkeeps",
+        "type": "bytes"
+      }
+    ],
+    "name": "transcodeUpkeeps",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
