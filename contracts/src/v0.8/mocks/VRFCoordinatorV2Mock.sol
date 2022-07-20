@@ -183,19 +183,19 @@ contract VRFCoordinatorV2Mock is VRFCoordinatorV2Interface {
     return (3, 2000000, new bytes32[](0));
   }
 
-  function addConsumer(uint64 _subId, address _consumer) external pure override {
+  function addConsumer(uint64 /* _subId */, address /* _consumer */) external pure override {
     revert("not implemented");
   }
 
-  function removeConsumer(uint64 _subId, address _consumer) external pure override {
+  function removeConsumer(uint64 /* _subId */, address /* _consumer */) external pure override {
     revert("not implemented");
   }
 
-  function requestSubscriptionOwnerTransfer(uint64 _subId, address _newOwner) external pure override {
+  function requestSubscriptionOwnerTransfer(uint64 /* _subId */, address /* _newOwner */) external pure override {
     revert("not implemented");
   }
 
-  function acceptSubscriptionOwnerTransfer(uint64 _subId) external pure override {
+  function acceptSubscriptionOwnerTransfer(uint64 /* _subId */) external pure override {
     revert("not implemented");
   }
 }
