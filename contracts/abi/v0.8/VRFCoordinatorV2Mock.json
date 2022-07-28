@@ -22,6 +22,16 @@
   },
   {
     "inputs": [],
+    "name": "InvalidConsumer",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidRandomWords",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidSubscription",
     "type": "error"
   },
@@ -35,6 +45,49 @@
     ],
     "name": "MustBeSubOwner",
     "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TooManyConsumers",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "ConsumerAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "ConsumerRemoved",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -218,6 +271,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "MAX_CONSUMERS",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint64",
@@ -245,7 +311,7 @@
     ],
     "name": "addConsumer",
     "outputs": [],
-    "stateMutability": "pure",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -264,6 +330,30 @@
     "name": "cancelSubscription",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "_subId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "_consumer",
+        "type": "address"
+      }
+    ],
+    "name": "consumerIsAdded",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -300,6 +390,29 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "_requestId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_consumer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_words",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "fulfillRandomWordsWithOverride",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint64",
         "name": "_subId",
         "type": "uint64"
@@ -313,6 +426,100 @@
     "name": "fundSubscription",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getConfig",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "minimumRequestConfirmations",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint32",
+        "name": "maxGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "stalenessSeconds",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gasAfterPaymentCalculation",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getFallbackWeiPerUnitLink",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getFeeConfig",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier1",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier2",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier3",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier4",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkPPMTier5",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier2",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier3",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier4",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint24",
+        "name": "reqsForTier5",
+        "type": "uint24"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -376,6 +583,25 @@
     "inputs": [
       {
         "internalType": "uint64",
+        "name": "subId",
+        "type": "uint64"
+      }
+    ],
+    "name": "pendingRequestExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
         "name": "_subId",
         "type": "uint64"
       },
@@ -387,7 +613,7 @@
     ],
     "name": "removeConsumer",
     "outputs": [],
-    "stateMutability": "pure",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

@@ -187,6 +187,37 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "latestStatus",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "latestTimestamp",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "incomingStatus",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "incomingTimestamp",
+        "type": "uint64"
+      }
+    ],
+    "name": "UpdateIgnored",
+    "type": "event"
+  },
+  {
     "inputs": [],
     "name": "FLAGS",
     "outputs": [

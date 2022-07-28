@@ -10,6 +10,16 @@
         "internalType": "address",
         "name": "delegate",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxJobs",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "firstJob",
+        "type": "bytes"
       }
     ],
     "stateMutability": "nonpayable",
@@ -40,6 +50,11 @@
       }
     ],
     "name": "CronJobIDNotFound",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ExceedsMaxJobs",
     "type": "error"
   },
   {
@@ -159,6 +174,31 @@
       }
     ],
     "name": "CronJobExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "target",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "handler",
+        "type": "bytes"
+      }
+    ],
+    "name": "CronJobUpdated",
     "type": "event"
   },
   {
@@ -309,25 +349,6 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "cronString",
-        "type": "string"
-      }
-    ],
-    "name": "cronStringToEncodedSpec",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "pure",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
@@ -432,6 +453,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "s_maxJobs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -460,6 +494,34 @@
   {
     "inputs": [],
     "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "newTarget",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "newHandler",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "newEncodedCronSpec",
+        "type": "bytes"
+      }
+    ],
+    "name": "updateCronJob",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

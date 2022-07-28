@@ -3,18 +3,18 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "crossDomainMessengerAddr",
+        "name": "l1CrossDomainMessengerAddress",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "l2CrossDomainForwarderAddr",
+        "name": "l2UptimeFeedAddr",
         "type": "address"
       },
       {
-        "internalType": "address",
-        "name": "l2FlagsAddr",
-        "type": "address"
+        "internalType": "uint32",
+        "name": "gasLimit",
+        "type": "uint32"
       }
     ],
     "stateMutability": "nonpayable",
@@ -43,6 +43,19 @@
     "anonymous": false,
     "inputs": [],
     "name": "CheckAccessEnabled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "gasLimit",
+        "type": "uint32"
+      }
+    ],
+    "name": "GasLimitUpdated",
     "type": "event"
   },
   {
@@ -98,7 +111,7 @@
   },
   {
     "inputs": [],
-    "name": "CROSS_DOMAIN_MESSENGER",
+    "name": "L1_CROSS_DOMAIN_MESSENGER_ADDRESS",
     "outputs": [
       {
         "internalType": "address",
@@ -111,33 +124,7 @@
   },
   {
     "inputs": [],
-    "name": "FLAG_OPTIMISM_SEQ_OFFLINE",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "L2_CROSS_DOMAIN_FORWARDER",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "L2_FLAGS",
+    "name": "L2_UPTIME_FEED_ADDR",
     "outputs": [
       {
         "internalType": "address",
@@ -196,6 +183,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getGasLimit",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -241,6 +241,19 @@
       }
     ],
     "name": "removeAccess",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gasLimit",
+        "type": "uint32"
+      }
+    ],
+    "name": "setGasLimit",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

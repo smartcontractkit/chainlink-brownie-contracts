@@ -145,6 +145,11 @@
           },
           {
             "internalType": "uint256",
+            "name": "expectedLinkBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
             "name": "numUpkeeps",
             "type": "uint256"
           }
