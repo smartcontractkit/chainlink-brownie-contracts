@@ -27,6 +27,11 @@
         "type": "uint256"
       },
       {
+        "internalType": "uint256",
+        "name": "baseFee",
+        "type": "uint256"
+      },
+      {
         "internalType": "address",
         "name": "gasPriceL1FeedAddr",
         "type": "address"
@@ -314,6 +319,11 @@
             "type": "uint256"
           },
           {
+            "internalType": "uint256",
+            "name": "baseFee",
+            "type": "uint256"
+          },
+          {
             "internalType": "address",
             "name": "gasPriceL1FeedAddr",
             "type": "address"
@@ -413,6 +423,11 @@
       {
         "internalType": "uint256",
         "name": "gasPriceBid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "baseFee",
         "type": "uint256"
       },
       {
