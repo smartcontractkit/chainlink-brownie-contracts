@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract KeeperRegistryExecutableInterface",
+        "internalType": "contract AutomationRegistryExecutableInterface",
         "name": "keeperRegistry",
         "type": "address"
       }
@@ -60,7 +60,7 @@
     "name": "getKeeperRegistry",
     "outputs": [
       {
-        "internalType": "contract KeeperRegistryExecutableInterface",
+        "internalType": "contract AutomationRegistryExecutableInterface",
         "name": "",
         "type": "address"
       }

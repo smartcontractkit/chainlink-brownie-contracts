@@ -5,19 +5,6 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
-      }
-    ],
-    "name": "acceptUpkeepAdmin",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
       },
       {
         "internalType": "uint96",
@@ -74,17 +61,17 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint256",
-        "name": "adjustedGasWei",
-        "type": "uint256"
+        "internalType": "int256",
+        "name": "gasWei",
+        "type": "int256"
       },
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "linkEth",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -296,27 +283,9 @@
         "internalType": "uint96",
         "name": "amountSpent",
         "type": "uint96"
-      },
-      {
-        "internalType": "bool",
-        "name": "paused",
-        "type": "bool"
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      }
-    ],
-    "name": "pauseUpkeep",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -391,55 +360,6 @@
       }
     ],
     "name": "setUpkeepGasLimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "proposed",
-        "type": "address"
-      }
-    ],
-    "name": "transferUpkeepAdmin",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      }
-    ],
-    "name": "unpauseUpkeep",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "newCheckData",
-        "type": "bytes"
-      }
-    ],
-    "name": "updateCheckData",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
