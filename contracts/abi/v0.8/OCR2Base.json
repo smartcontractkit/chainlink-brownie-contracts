@@ -1,5 +1,10 @@
 [
   {
+    "inputs": [],
+    "name": "ReportInvalid",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {

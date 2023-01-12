@@ -325,6 +325,11 @@
         "type": "bytes"
       },
       {
+        "internalType": "bytes",
+        "name": "offchainConfig",
+        "type": "bytes"
+      },
+      {
         "internalType": "bytes32",
         "name": "hash",
         "type": "bytes32"
@@ -493,6 +498,11 @@
         "type": "bytes"
       },
       {
+        "internalType": "bytes",
+        "name": "offchainConfig",
+        "type": "bytes"
+      },
+      {
         "internalType": "uint96",
         "name": "amount",
         "type": "uint96"
@@ -511,39 +521,51 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "name",
-        "type": "string"
-      },
-      {
-        "internalType": "bytes",
-        "name": "encryptedEmail",
-        "type": "bytes"
-      },
-      {
-        "internalType": "address",
-        "name": "upkeepContract",
-        "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "address",
-        "name": "adminAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "checkData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes",
+            "name": "encryptedEmail",
+            "type": "bytes"
+          },
+          {
+            "internalType": "address",
+            "name": "upkeepContract",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "gasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "adminAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "checkData",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes",
+            "name": "offchainConfig",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint96",
+            "name": "amount",
+            "type": "uint96"
+          }
+        ],
+        "internalType": "struct KeeperRegistrar2_0.RegistrationParams",
+        "name": "requestParams",
+        "type": "tuple"
       }
     ],
     "name": "registerUpkeep",

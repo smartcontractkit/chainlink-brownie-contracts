@@ -11,7 +11,22 @@
   },
   {
     "inputs": [],
+    "name": "CheckDataExceedsLimit",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ConfigDigestMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "DuplicateEntry",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DuplicateSigners",
     "type": "error"
   },
   {
@@ -22,6 +37,21 @@
   {
     "inputs": [],
     "name": "GasLimitOutsideRange",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectNumberOfFaultyOracles",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectNumberOfSignatures",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectNumberOfSigners",
     "type": "error"
   },
   {
@@ -51,7 +81,17 @@
   },
   {
     "inputs": [],
-    "name": "KeepersMustTakeTurns",
+    "name": "InvalidReport",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MaxCheckDataSizeCanOnlyIncrease",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MaxPerformDataSizeCanOnlyIncrease",
     "type": "error"
   },
   {
@@ -66,7 +106,17 @@
   },
   {
     "inputs": [],
-    "name": "OnlyActiveKeepers",
+    "name": "OnchainConfigNonEmpty",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyActiveSigners",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyActiveTransmitters",
     "type": "error"
   },
   {
@@ -130,6 +180,31 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "ReentrantCall",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RegistryPaused",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RepeatedSigner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RepeatedTransmitter",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "StaleReport",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes",
@@ -142,7 +217,17 @@
   },
   {
     "inputs": [],
+    "name": "TooManyOracles",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "TranscoderNotSet",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UpkeepAlreadyExists",
     "type": "error"
   },
   {
@@ -169,75 +254,13 @@
     "anonymous": false,
     "inputs": [
       {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "paymentPremiumPPB",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "flatFeeMicroLink",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint24",
-            "name": "blockCountPerTurn",
-            "type": "uint24"
-          },
-          {
-            "internalType": "uint32",
-            "name": "checkGasLimit",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint24",
-            "name": "stalenessSeconds",
-            "type": "uint24"
-          },
-          {
-            "internalType": "uint16",
-            "name": "gasCeilingMultiplier",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint96",
-            "name": "minUpkeepSpend",
-            "type": "uint96"
-          },
-          {
-            "internalType": "uint32",
-            "name": "maxPerformGas",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint256",
-            "name": "fallbackGasPrice",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "fallbackLinkPrice",
-            "type": "uint256"
-          },
-          {
-            "internalType": "address",
-            "name": "transcoder",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
-            "name": "registrar",
-            "type": "address"
-          }
-        ],
-        "indexed": false,
-        "internalType": "struct Config",
-        "name": "config",
-        "type": "tuple"
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
       }
     ],
-    "name": "ConfigSet",
+    "name": "CancelledUpkeepReport",
     "type": "event"
   },
   {
@@ -294,19 +317,13 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "address[]",
-        "name": "keepers",
-        "type": "address[]"
-      },
-      {
-        "indexed": false,
-        "internalType": "address[]",
-        "name": "payees",
-        "type": "address[]"
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
       }
     ],
-    "name": "KeepersUpdated",
+    "name": "InsufficientFundsUpkeepReport",
     "type": "event"
   },
   {
@@ -377,9 +394,28 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "transmitters",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "payees",
+        "type": "address[]"
+      }
+    ],
+    "name": "PayeesUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "address",
-        "name": "keeper",
+        "name": "transmitter",
         "type": "address"
       },
       {
@@ -404,7 +440,7 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "keeper",
+        "name": "transmitter",
         "type": "address"
       },
       {
@@ -429,7 +465,7 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "keeper",
+        "name": "transmitter",
         "type": "address"
       },
       {
@@ -452,6 +488,32 @@
       }
     ],
     "name": "PaymentWithdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReorgedUpkeepReport",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "StaleUpkeepReport",
     "type": "event"
   },
   {
@@ -607,6 +669,25 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "offchainConfig",
+        "type": "bytes"
+      }
+    ],
+    "name": "UpkeepOffchainConfigSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
       }
     ],
     "name": "UpkeepPaused",
@@ -628,22 +709,28 @@
         "type": "bool"
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "checkBlockNumber",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "gasUsed",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "gasOverhead",
+        "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint96",
-        "name": "payment",
+        "name": "totalPayment",
         "type": "uint96"
-      },
-      {
-        "indexed": false,
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
       }
     ],
     "name": "UpkeepPerformed",
@@ -714,123 +801,6 @@
   },
   {
     "inputs": [],
-    "name": "ARB_NITRO_ORACLE",
-    "outputs": [
-      {
-        "internalType": "contract ArbGasInfo",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "FAST_GAS_FEED",
-    "outputs": [
-      {
-        "internalType": "contract AggregatorV3Interface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "L1_FEE_DATA_PADDING",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "LINK",
-    "outputs": [
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "LINK_ETH_FEED",
-    "outputs": [
-      {
-        "internalType": "contract AggregatorV3Interface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "MAX_INPUT_DATA",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "OPTIMISM_ORACLE",
-    "outputs": [
-      {
-        "internalType": "contract OVM_GasPriceOracle",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "PAYMENT_MODEL",
-    "outputs": [
-      {
-        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
-        "name": "",
-        "type": "uint8"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "REGISTRY_GAS_OVERHEAD",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "acceptOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -838,7 +808,7 @@
   },
   {
     "inputs": [],
-    "name": "owner",
+    "name": "getFastGasFeedAddress",
     "outputs": [
       {
         "internalType": "address",
@@ -851,12 +821,51 @@
   },
   {
     "inputs": [],
-    "name": "paused",
+    "name": "getLinkAddress",
     "outputs": [
       {
-        "internalType": "bool",
+        "internalType": "address",
         "name": "",
-        "type": "bool"
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLinkNativeFeedAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPaymentModel",
+    "outputs": [
+      {
+        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",

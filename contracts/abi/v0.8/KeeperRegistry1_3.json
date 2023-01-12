@@ -882,7 +882,7 @@
     "name": "PAYMENT_MODEL",
     "outputs": [
       {
-        "internalType": "enum KeeperRegistryBase.PaymentModel",
+        "internalType": "enum KeeperRegistryBase1_3.PaymentModel",
         "name": "",
         "type": "uint8"
       }
@@ -1113,7 +1113,7 @@
     "name": "getPeerRegistryMigrationPermission",
     "outputs": [
       {
-        "internalType": "enum KeeperRegistryBase.MigrationPermission",
+        "internalType": "enum KeeperRegistryBase1_3.MigrationPermission",
         "name": "",
         "type": "uint8"
       }
@@ -1553,7 +1553,7 @@
         "type": "address"
       },
       {
-        "internalType": "enum KeeperRegistryBase.MigrationPermission",
+        "internalType": "enum KeeperRegistryBase1_3.MigrationPermission",
         "name": "permission",
         "type": "uint8"
       }

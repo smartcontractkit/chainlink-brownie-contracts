@@ -38,7 +38,7 @@
   },
   {
     "inputs": [],
-    "name": "testCannotExecute",
+    "name": "verifyCannotExecute",
     "outputs": [],
     "stateMutability": "view",
     "type": "function"
