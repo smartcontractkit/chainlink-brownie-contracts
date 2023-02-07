@@ -1,6 +1,6 @@
 {
   "name": "@chainlink/contracts",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Chainlink smart contracts",
   "author": "Chainlink devs",
   "license": "MIT",
@@ -69,6 +69,6 @@
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
     "publish-beta": "pnpm publish --tag beta",
-    "publish-prod": "npm dist-tag add @chainlink/contracts@0.6.0 latest"
+    "publish-prod": "npm dist-tag add @chainlink/contracts@0.6.1 latest"
   }
 }
