@@ -200,11 +200,6 @@
     "type": "error"
   },
   {
-    "inputs": [],
-    "name": "StaleReport",
-    "type": "error"
-  },
-  {
     "inputs": [
       {
         "internalType": "bytes",
@@ -847,10 +842,10 @@
   },
   {
     "inputs": [],
-    "name": "getPaymentModel",
+    "name": "getMode",
     "outputs": [
       {
-        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
+        "internalType": "enum KeeperRegistryBase2_0.Mode",
         "name": "",
         "type": "uint8"
       }

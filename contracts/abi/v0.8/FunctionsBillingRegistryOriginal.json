@@ -1,0 +1,1301 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "internalBalance",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "externalBalance",
+        "type": "uint256"
+      }
+    ],
+    "name": "BalanceInvariantViolated",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CannotSelfTransfer",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "EmptySendersList",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "have",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "want",
+        "type": "uint32"
+      }
+    ],
+    "name": "GasLimitTooBig",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectRequestID",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InsufficientBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidCalldata",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "InvalidConsumer",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "linkWei",
+        "type": "int256"
+      }
+    ],
+    "name": "InvalidLinkWeiPrice",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidSubscription",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "proposedOwner",
+        "type": "address"
+      }
+    ],
+    "name": "MustBeRequestedOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "MustBeSubOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAllowedToSetSenders",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotProposedOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyCallableByOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyCallableFromLink",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OwnerMustBeSet",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PaymentTooLarge",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PendingRequestExists",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Reentrant",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TooManyConsumers",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnauthorizedSender",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "senders",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "changedBy",
+        "type": "address"
+      }
+    ],
+    "name": "AuthorizedSendersChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint96",
+        "name": "signerPayment",
+        "type": "uint96"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint96",
+        "name": "transmitterPayment",
+        "type": "uint96"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint96",
+        "name": "totalCost",
+        "type": "uint96"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "name": "BillingEnd",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "subscriptionId",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "client",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "gasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gasPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "don",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "donFee",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "registryFee",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "estimatedCost",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct FunctionsBillingRegistryOriginal.Commitment",
+        "name": "commitment",
+        "type": "tuple"
+      }
+    ],
+    "name": "BillingStart",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "maxGasLimit",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "stalenessSeconds",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "gasAfterPaymentCalculation",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "fallbackWeiPerUnitLink",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "gasOverhead",
+        "type": "uint32"
+      }
+    ],
+    "name": "ConfigSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "FundsRecovered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Paused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RequestTimedOut",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "SubscriptionCanceled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "SubscriptionConsumerAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "SubscriptionConsumerRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "SubscriptionCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldBalance",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newBalance",
+        "type": "uint256"
+      }
+    ],
+    "name": "SubscriptionFunded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "SubscriptionOwnerTransferRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "SubscriptionOwnerTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Unpaused",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "LINK",
+    "outputs": [
+      {
+        "internalType": "contract LinkTokenInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LINK_ETH_FEED",
+    "outputs": [
+      {
+        "internalType": "contract AggregatorV3Interface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_CONSUMERS",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "acceptSubscriptionOwnerTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "addConsumer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "cancelSubscription",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "createSubscription",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gasPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint96",
+        "name": "donFee",
+        "type": "uint96"
+      },
+      {
+        "internalType": "uint96",
+        "name": "registryFee",
+        "type": "uint96"
+      }
+    ],
+    "name": "estimateCost",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "",
+        "type": "uint96"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "response",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "err",
+        "type": "bytes"
+      },
+      {
+        "internalType": "address",
+        "name": "transmitter",
+        "type": "address"
+      },
+      {
+        "internalType": "address[31]",
+        "name": "signers",
+        "type": "address[31]"
+      },
+      {
+        "internalType": "uint8",
+        "name": "signerCount",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "reportValidationGas",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "initialGas",
+        "type": "uint256"
+      }
+    ],
+    "name": "fulfillAndBill",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAuthorizedSenders",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getConfig",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "maxGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "stalenessSeconds",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gasAfterPaymentCalculation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256",
+        "name": "fallbackWeiPerUnitLink",
+        "type": "int256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gasOverhead",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCurrentsubscriptionId",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRequestConfig",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "subscriptionId",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "client",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "gasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gasPrice",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct FunctionsBillingRegistryInterface.RequestBilling",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "name": "getRequiredFee",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "",
+        "type": "uint96"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "getSubscription",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "balance",
+        "type": "uint96"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "consumers",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "getSubscriptionOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "link",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "linkEthFeed",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "oracle",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "isAuthorizedSender",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "onTokenTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint96",
+        "name": "amount",
+        "type": "uint96"
+      }
+    ],
+    "name": "oracleWithdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "ownerCancelSubscription",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "pendingRequestExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "recoverFunds",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "consumer",
+        "type": "address"
+      }
+    ],
+    "name": "removeConsumer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "requestSubscriptionOwnerTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "senders",
+        "type": "address[]"
+      }
+    ],
+    "name": "setAuthorizedSenders",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "maxGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "stalenessSeconds",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gasAfterPaymentCalculation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256",
+        "name": "fallbackWeiPerUnitLink",
+        "type": "int256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gasOverhead",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "requestTimeoutSeconds",
+        "type": "uint32"
+      }
+    ],
+    "name": "setConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "subscriptionId",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "client",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "gasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gasPrice",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct FunctionsBillingRegistryInterface.RequestBilling",
+        "name": "billing",
+        "type": "tuple"
+      }
+    ],
+    "name": "startBilling",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "requestIdsToTimeout",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "timeoutRequests",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -211,11 +211,6 @@
     "type": "error"
   },
   {
-    "inputs": [],
-    "name": "StaleReport",
-    "type": "error"
-  },
-  {
     "inputs": [
       {
         "internalType": "bytes",
@@ -1118,10 +1113,10 @@
   },
   {
     "inputs": [],
-    "name": "getPaymentModel",
+    "name": "getMode",
     "outputs": [
       {
-        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
+        "internalType": "enum KeeperRegistryBase2_0.Mode",
         "name": "",
         "type": "uint8"
       }
@@ -1886,6 +1881,19 @@
     "outputs": [
       {
         "internalType": "enum UpkeepFormat",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "upkeepVersion",
+    "outputs": [
+      {
+        "internalType": "uint8",
         "name": "",
         "type": "uint8"
       }

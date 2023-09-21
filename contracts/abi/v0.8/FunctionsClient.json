@@ -1,17 +1,7 @@
 [
   {
     "inputs": [],
-    "name": "RequestIsAlreadyPending",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "RequestIsNotPending",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "SenderIsNotRegistry",
+    "name": "OnlyRouterCanFulfill",
     "type": "error"
   },
   {
@@ -39,85 +29,6 @@
     ],
     "name": "RequestSent",
     "type": "event"
-  },
-  {
-    "inputs": [
-      {
-        "components": [
-          {
-            "internalType": "enum Functions.Location",
-            "name": "codeLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.Location",
-            "name": "secretsLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.CodeLanguage",
-            "name": "language",
-            "type": "uint8"
-          },
-          {
-            "internalType": "string",
-            "name": "source",
-            "type": "string"
-          },
-          {
-            "internalType": "bytes",
-            "name": "secrets",
-            "type": "bytes"
-          },
-          {
-            "internalType": "string[]",
-            "name": "args",
-            "type": "string[]"
-          }
-        ],
-        "internalType": "struct Functions.Request",
-        "name": "req",
-        "type": "tuple"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "estimateCost",
-    "outputs": [
-      {
-        "internalType": "uint96",
-        "name": "",
-        "type": "uint96"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getDONPublicKey",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
   },
   {
     "inputs": [

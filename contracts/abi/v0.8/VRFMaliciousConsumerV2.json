@@ -63,7 +63,13 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "keyHash",
+        "type": "bytes32"
+      }
+    ],
     "name": "requestRandomness",
     "outputs": [
       {
@@ -131,19 +137,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "keyHash",
-        "type": "bytes32"
-      }
-    ],
-    "name": "setKeyHash",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "oracle",
+        "name": "router",
         "type": "address"
       }
     ],
@@ -27,17 +27,12 @@
   },
   {
     "inputs": [],
-    "name": "RequestIsAlreadyPending",
+    "name": "NoInlineSecrets",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "RequestIsNotPending",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "SenderIsNotRegistry",
+    "name": "OnlyRouterCanFulfill",
     "type": "error"
   },
   {
@@ -129,117 +124,10 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "source",
-        "type": "string"
-      },
-      {
-        "internalType": "bytes",
-        "name": "secrets",
-        "type": "bytes"
-      },
-      {
-        "internalType": "string[]",
-        "name": "args",
-        "type": "string[]"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      }
-    ],
-    "name": "SendRequest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "acceptOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "components": [
-          {
-            "internalType": "enum Functions.Location",
-            "name": "codeLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.Location",
-            "name": "secretsLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.CodeLanguage",
-            "name": "language",
-            "type": "uint8"
-          },
-          {
-            "internalType": "string",
-            "name": "source",
-            "type": "string"
-          },
-          {
-            "internalType": "bytes",
-            "name": "secrets",
-            "type": "bytes"
-          },
-          {
-            "internalType": "string[]",
-            "name": "args",
-            "type": "string[]"
-          }
-        ],
-        "internalType": "struct Functions.Request",
-        "name": "req",
-        "type": "tuple"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "estimateCost",
-    "outputs": [
-      {
-        "internalType": "uint96",
-        "name": "",
-        "type": "uint96"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getDONPublicKey",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -267,71 +155,6 @@
   },
   {
     "inputs": [],
-    "name": "lastError",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lastErrorLength",
-    "outputs": [
-      {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lastRequestId",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lastResponse",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lastResponseLength",
-    "outputs": [
-      {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "owner",
     "outputs": [
       {
@@ -341,6 +164,104 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_lastError",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_lastErrorLength",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_lastRequestId",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_lastResponse",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_lastResponseLength",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "source",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes",
+        "name": "encryptedSecretsReferences",
+        "type": "bytes"
+      },
+      {
+        "internalType": "string[]",
+        "name": "args",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "jobId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "sendRequest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

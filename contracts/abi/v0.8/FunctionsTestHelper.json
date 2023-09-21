@@ -15,6 +15,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "NoInlineSecrets",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -42,7 +47,20 @@
         "type": "bytes"
       }
     ],
-    "name": "addSecrets",
+    "name": "addSecretsReference",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "addSignature",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -390,6 +390,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "s_fulfillmentTxSizeBytes",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint32",
@@ -418,6 +431,19 @@
       }
     ],
     "name": "setConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "size",
+        "type": "uint32"
+      }
+    ],
+    "name": "setFulfillmentTxSize",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

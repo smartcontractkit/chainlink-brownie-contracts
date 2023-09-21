@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "oracle",
+        "name": "router",
         "type": "address"
       }
     ],
@@ -17,17 +17,12 @@
   },
   {
     "inputs": [],
-    "name": "RequestIsAlreadyPending",
+    "name": "NoInlineSecrets",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "RequestIsNotPending",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "SenderIsNotRegistry",
+    "name": "OnlyRouterCanFulfill",
     "type": "error"
   },
   {
@@ -109,109 +104,47 @@
   {
     "inputs": [
       {
-        "components": [
-          {
-            "internalType": "enum Functions.Location",
-            "name": "codeLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.Location",
-            "name": "secretsLocation",
-            "type": "uint8"
-          },
-          {
-            "internalType": "enum Functions.CodeLanguage",
-            "name": "language",
-            "type": "uint8"
-          },
-          {
-            "internalType": "string",
-            "name": "source",
-            "type": "string"
-          },
-          {
-            "internalType": "bytes",
-            "name": "secrets",
-            "type": "bytes"
-          },
-          {
-            "internalType": "string[]",
-            "name": "args",
-            "type": "string[]"
-          }
-        ],
-        "internalType": "struct Functions.Request",
-        "name": "req",
-        "type": "tuple"
-      },
-      {
         "internalType": "uint64",
         "name": "subscriptionId",
         "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasPrice",
-        "type": "uint256"
       }
     ],
-    "name": "estimateCost",
-    "outputs": [
-      {
-        "internalType": "uint96",
-        "name": "",
-        "type": "uint96"
-      }
-    ],
-    "stateMutability": "view",
+    "name": "acceptSubscriptionOwnerTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "sourceCode",
-        "type": "string"
+        "internalType": "address",
+        "name": "acceptor",
+        "type": "address"
       },
       {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
       },
       {
-        "internalType": "uint256",
-        "name": "gasCost",
-        "type": "uint256"
-      }
-    ],
-    "name": "estimateJuelCost",
-    "outputs": [
+        "internalType": "bytes32",
+        "name": "r",
+        "type": "bytes32"
+      },
       {
-        "internalType": "uint96",
-        "name": "",
-        "type": "uint96"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getDONPublicKey",
-    "outputs": [
+        "internalType": "bytes32",
+        "name": "s",
+        "type": "bytes32"
+      },
       {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
+        "internalType": "uint8",
+        "name": "v",
+        "type": "uint8"
       }
     ],
-    "stateMutability": "view",
+    "name": "acceptTermsOfService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -248,6 +181,45 @@
         "internalType": "uint64",
         "name": "subscriptionId",
         "type": "uint64"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "donId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "sendRequestProposed",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "sourceCode",
+        "type": "string"
+      },
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "donId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "callbackGasLimit",
+        "type": "uint32"
       }
     ],
     "name": "sendSimpleRequestWithJavaScript",
@@ -270,6 +242,47 @@
       }
     ],
     "name": "setDoInvalidOperation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "on",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      }
+    ],
+    "name": "setDoInvalidReentrantOperation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "on",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint64",
+        "name": "subscriptionId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "donId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setDoValidReentrantOperation",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

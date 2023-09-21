@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import {AddressAliasHelper} from "./vendor/arb-bridge-eth/v0.8.0-custom/contracts/libraries/AddressAliasHelper.sol";
+import {AddressAliasHelper} from "./../vendor/arb-bridge-eth/v0.8.0-custom/contracts/libraries/AddressAliasHelper.sol";
 import {ForwarderInterface} from "./interfaces/ForwarderInterface.sol";
 import {AggregatorInterface} from "../interfaces/AggregatorInterface.sol";
 import {AggregatorV3Interface} from "../interfaces/AggregatorV3Interface.sol";
@@ -10,7 +10,7 @@ import {TypeAndVersionInterface} from "../interfaces/TypeAndVersionInterface.sol
 import {FlagsInterface} from "./interfaces/FlagsInterface.sol";
 import {ArbitrumSequencerUptimeFeedInterface} from "./interfaces/ArbitrumSequencerUptimeFeedInterface.sol";
 import {SimpleReadAccessController} from "../SimpleReadAccessController.sol";
-import {ConfirmedOwner} from "../ConfirmedOwner.sol";
+import {ConfirmedOwner} from "../shared/access/ConfirmedOwner.sol";
 
 /**
  * @title ArbitrumSequencerUptimeFeed - L2 sequencer uptime status aggregator
@@ -183,11 +183,7 @@ contract ArbitrumSequencerUptimeFeed is
    * @param status Sequencer status
    * @param timestamp Block timestamp of status update
    */
-  function recordRound(
-    uint80 roundId,
-    bool status,
-    uint64 timestamp
-  ) private {
+  function recordRound(uint80 roundId, bool status, uint64 timestamp) private {
     Round memory nextRound = Round(status, timestamp);
     FeedState memory feedState = FeedState(roundId, status, timestamp);
 
@@ -267,18 +263,14 @@ contract ArbitrumSequencerUptimeFeed is
   }
 
   /// @inheritdoc AggregatorV3Interface
-  function getRoundData(uint80 _roundId)
+  function getRoundData(
+    uint80 _roundId
+  )
     public
     view
     override
     checkAccess
-    returns (
-      uint80 roundId,
-      int256 answer,
-      uint256 startedAt,
-      uint256 updatedAt,
-      uint80 answeredInRound
-    )
+    returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)
   {
     requireInitialized(s_feedState.latestRoundId);
 
@@ -301,13 +293,7 @@ contract ArbitrumSequencerUptimeFeed is
     view
     override
     checkAccess
-    returns (
-      uint80 roundId,
-      int256 answer,
-      uint256 startedAt,
-      uint256 updatedAt,
-      uint80 answeredInRound
-    )
+    returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)
   {
     FeedState memory feedState = s_feedState;
     requireInitialized(feedState.latestRoundId);

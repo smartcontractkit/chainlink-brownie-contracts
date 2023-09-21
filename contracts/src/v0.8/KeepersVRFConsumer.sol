@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-import "./KeeperCompatible.sol";
-import "./VRFConsumerBaseV2.sol";
+import "./automation/KeeperCompatible.sol";
+import "./vrf/VRFConsumerBaseV2.sol";
 import "./interfaces/VRFCoordinatorV2Interface.sol";
 
 /**
@@ -61,15 +61,7 @@ contract KeepersVRFConsumer is KeeperCompatibleInterface, VRFConsumerBaseV2 {
    */
   function checkUpkeep(
     bytes calldata /* checkData */
-  )
-    external
-    view
-    override
-    returns (
-      bool upkeepNeeded,
-      bytes memory /* performData */
-    )
-  {
+  ) external view override returns (bool upkeepNeeded, bytes memory /* performData */) {
     upkeepNeeded = (block.timestamp - s_lastTimeStamp) > UPKEEP_INTERVAL;
   }
 
@@ -77,9 +69,7 @@ contract KeepersVRFConsumer is KeeperCompatibleInterface, VRFConsumerBaseV2 {
    * @notice Requests random words from the VRF coordinator if UPKEEP_INTERVAL seconds have elapsed
    * since the last upkeep or since construction of the contract.
    */
-  function performUpkeep(
-    bytes calldata /* performData */
-  ) external override {
+  function performUpkeep(bytes calldata /* performData */) external override {
     if ((block.timestamp - s_lastTimeStamp) > UPKEEP_INTERVAL) {
       s_lastTimeStamp = block.timestamp;
 

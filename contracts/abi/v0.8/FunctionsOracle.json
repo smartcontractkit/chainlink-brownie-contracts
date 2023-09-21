@@ -1,12 +1,12 @@
 [
   {
     "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+    "name": "AlreadySet",
+    "type": "error"
   },
   {
     "inputs": [],
-    "name": "AlreadySet",
+    "name": "CannotSelfTransfer",
     "type": "error"
   },
   {
@@ -36,12 +36,22 @@
   },
   {
     "inputs": [],
-    "name": "InvalidRequestID",
+    "name": "NotAllowedToSetSenders",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "NotAllowedToSetSenders",
+    "name": "NotProposedOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyCallableByOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OwnerMustBeSet",
     "type": "error"
   },
   {
@@ -169,6 +179,32 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "InvalidRequestID",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "bytes32",
         "name": "requestId",
@@ -257,6 +293,25 @@
       }
     ],
     "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "transmitter",
+        "type": "address"
+      }
+    ],
+    "name": "ResponseTransmitted",
     "type": "event"
   },
   {
@@ -497,7 +552,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FunctionsBillingRegistryInterface.RequestBilling",
+        "internalType": "struct IFunctionsBillingRegistry.RequestBilling",
         "name": "",
         "type": "tuple"
       }
@@ -511,6 +566,26 @@
       }
     ],
     "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getThresholdPublicKey",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -711,6 +786,19 @@
       }
     ],
     "name": "setRegistry",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "thresholdPublicKey",
+        "type": "bytes"
+      }
+    ],
+    "name": "setThresholdPublicKey",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

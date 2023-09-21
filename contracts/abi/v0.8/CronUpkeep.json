@@ -31,22 +31,6 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
-      },
-      {
-        "internalType": "string",
-        "name": "reason",
-        "type": "string"
-      }
-    ],
-    "name": "CallFailed",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
       }
     ],
     "name": "CronJobIDNotFound",
@@ -136,9 +120,9 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256",
-        "name": "timestamp",
-        "type": "uint256"
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
       }
     ],
     "name": "CronJobExecuted",

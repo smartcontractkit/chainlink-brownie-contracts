@@ -52,6 +52,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "checkRevertReason",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes",
@@ -149,6 +162,19 @@
       }
     ],
     "name": "setCheckGasToBurn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "name": "setCheckRevertReason",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

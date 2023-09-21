@@ -2,8 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
-        "name": "paymentModel",
+        "internalType": "enum KeeperRegistryBase2_0.Mode",
+        "name": "mode",
         "type": "uint8"
       },
       {
@@ -223,11 +223,6 @@
   {
     "inputs": [],
     "name": "RepeatedTransmitter",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "StaleReport",
     "type": "error"
   },
   {
@@ -974,10 +969,10 @@
   },
   {
     "inputs": [],
-    "name": "getPaymentModel",
+    "name": "getMode",
     "outputs": [
       {
-        "internalType": "enum KeeperRegistryBase2_0.PaymentModel",
+        "internalType": "enum KeeperRegistryBase2_0.Mode",
         "name": "",
         "type": "uint8"
       }

@@ -2,27 +2,6 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "linkEthFeed",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "oracle",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "uint256",
         "name": "internalBalance",
         "type": "uint256"
@@ -34,6 +13,11 @@
       }
     ],
     "name": "BalanceInvariantViolated",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CannotSelfTransfer",
     "type": "error"
   },
   {
@@ -55,11 +39,6 @@
       }
     ],
     "name": "GasLimitTooBig",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "IncorrectRequestID",
     "type": "error"
   },
   {
@@ -133,7 +112,22 @@
   },
   {
     "inputs": [],
+    "name": "NotProposedOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyCallableByOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "OnlyCallableFromLink",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OwnerMustBeSet",
     "type": "error"
   },
   {
@@ -343,6 +337,19 @@
       }
     ],
     "name": "FundsRecovered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
     "type": "event"
   },
   {
@@ -581,32 +588,6 @@
   },
   {
     "inputs": [],
-    "name": "LINK",
-    "outputs": [
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "LINK_ETH_FEED",
-    "outputs": [
-      {
-        "internalType": "contract AggregatorV3Interface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "MAX_CONSUMERS",
     "outputs": [
       {
@@ -767,9 +748,9 @@
     "name": "fulfillAndBill",
     "outputs": [
       {
-        "internalType": "bool",
-        "name": "success",
-        "type": "bool"
+        "internalType": "enum IFunctionsBillingRegistry.FulfillResult",
+        "name": "",
+        "type": "uint8"
       }
     ],
     "stateMutability": "nonpayable",
@@ -816,6 +797,16 @@
         "internalType": "uint32",
         "name": "gasOverhead",
         "type": "uint32"
+      },
+      {
+        "internalType": "address",
+        "name": "linkAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "linkPriceFeed",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -882,7 +873,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FunctionsBillingRegistryInterface.RequestBilling",
+        "internalType": "struct IFunctionsBillingRegistry.RequestBilling",
         "name": "",
         "type": "tuple"
       }
@@ -957,6 +948,29 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "link",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "linkEthFeed",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "oracle",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1214,7 +1228,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FunctionsBillingRegistryInterface.RequestBilling",
+        "internalType": "struct IFunctionsBillingRegistry.RequestBilling",
         "name": "billing",
         "type": "tuple"
       }

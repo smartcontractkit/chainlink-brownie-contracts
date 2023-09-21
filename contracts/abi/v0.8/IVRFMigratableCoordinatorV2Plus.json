@@ -1,0 +1,53 @@
+[
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "keyHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "subId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint16",
+            "name": "requestConfirmations",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint32",
+            "name": "callbackGasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numWords",
+            "type": "uint32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "extraArgs",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct VRFV2PlusClient.RandomWordsRequest",
+        "name": "req",
+        "type": "tuple"
+      }
+    ],
+    "name": "requestRandomWords",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "requestId",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

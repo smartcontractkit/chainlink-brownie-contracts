@@ -18,5 +18,10 @@
     "inputs": [],
     "name": "EmptyUrl",
     "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NoInlineSecrets",
+    "type": "error"
   }
 ]

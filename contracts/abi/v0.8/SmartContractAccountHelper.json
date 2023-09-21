@@ -1,0 +1,171 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "entryPoint",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "factory",
+        "type": "address"
+      }
+    ],
+    "name": "calculateSmartContractAccountAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "topupThreshold",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "topupAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAbiEncodedDirectRequestData",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "endContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "getFullEndTxEncoding",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "encoding",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "userOpHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "scaAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getFullHashForSigning",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "factory",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "entryPoint",
+        "type": "address"
+      }
+    ],
+    "name": "getInitCode",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "initCode",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "entryPoint",
+        "type": "address"
+      }
+    ],
+    "name": "getSCAInitCodeWithConstructor",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "initCode",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

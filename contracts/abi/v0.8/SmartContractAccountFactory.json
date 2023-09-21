@@ -1,0 +1,44 @@
+[
+  {
+    "inputs": [],
+    "name": "DeploymentFailed",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "scaAddress",
+        "type": "address"
+      }
+    ],
+    "name": "ContractCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "abiEncodedOwnerAddress",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "initCode",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploySmartContractAccount",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "scaAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]
