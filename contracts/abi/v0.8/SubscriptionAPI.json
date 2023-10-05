@@ -17,7 +17,12 @@
   },
   {
     "inputs": [],
-    "name": "FailedToSendEther",
+    "name": "FailedToSendNative",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToTransferLink",
     "type": "error"
   },
   {
@@ -59,6 +64,11 @@
   {
     "inputs": [],
     "name": "LinkAlreadySet",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "LinkNotSet",
     "type": "error"
   },
   {
@@ -119,7 +129,7 @@
         "type": "uint256"
       }
     ],
-    "name": "EthFundsRecovered",
+    "name": "FundsRecovered",
     "type": "event"
   },
   {
@@ -138,7 +148,7 @@
         "type": "uint256"
       }
     ],
-    "name": "FundsRecovered",
+    "name": "NativeFundsRecovered",
     "type": "event"
   },
   {
@@ -203,7 +213,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "amountEth",
+        "name": "amountNative",
         "type": "uint256"
       }
     ],
@@ -304,17 +314,17 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "oldEthBalance",
+        "name": "oldNativeBalance",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "newEthBalance",
+        "name": "newNativeBalance",
         "type": "uint256"
       }
     ],
-    "name": "SubscriptionFundedWithEth",
+    "name": "SubscriptionFundedWithNative",
     "type": "event"
   },
   {
@@ -382,7 +392,7 @@
   },
   {
     "inputs": [],
-    "name": "LINK_ETH_FEED",
+    "name": "LINK_NATIVE_FEED",
     "outputs": [
       {
         "internalType": "contract AggregatorV3Interface",
@@ -483,7 +493,7 @@
         "type": "uint256"
       }
     ],
-    "name": "fundSubscriptionWithEth",
+    "name": "fundSubscriptionWithNative",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
@@ -529,7 +539,7 @@
       },
       {
         "internalType": "uint96",
-        "name": "ethBalance",
+        "name": "nativeBalance",
         "type": "uint96"
       },
       {
@@ -605,7 +615,7 @@
         "type": "uint96"
       }
     ],
-    "name": "oracleWithdrawEth",
+    "name": "oracleWithdrawNative",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -639,14 +649,20 @@
   {
     "inputs": [
       {
-        "internalType": "address payable",
-        "name": "to",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "subId",
+        "type": "uint256"
       }
     ],
-    "name": "recoverEthFunds",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "pendingRequestExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -658,6 +674,19 @@
       }
     ],
     "name": "recoverFunds",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "recoverNativeFunds",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -759,7 +788,7 @@
   },
   {
     "inputs": [],
-    "name": "s_totalEthBalance",
+    "name": "s_totalNativeBalance",
     "outputs": [
       {
         "internalType": "uint96",
@@ -779,11 +808,11 @@
       },
       {
         "internalType": "address",
-        "name": "linkEthFeed",
+        "name": "linkNativeFeed",
         "type": "address"
       }
     ],
-    "name": "setLINKAndLINKETHFeed",
+    "name": "setLINKAndLINKNativeFeed",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

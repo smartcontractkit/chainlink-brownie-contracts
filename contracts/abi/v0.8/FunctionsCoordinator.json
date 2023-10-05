@@ -10,7 +10,7 @@
         "components": [
           {
             "internalType": "uint32",
-            "name": "maxCallbackGasLimit",
+            "name": "fulfillmentGasPriceOverEstimationBP",
             "type": "uint32"
           },
           {
@@ -42,11 +42,6 @@
             "internalType": "uint16",
             "name": "maxSupportedRequestDataVersion",
             "type": "uint16"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentGasPriceOverEstimationBP",
-            "type": "uint32"
           },
           {
             "internalType": "uint224",
@@ -251,7 +246,7 @@
         "components": [
           {
             "internalType": "uint32",
-            "name": "maxCallbackGasLimit",
+            "name": "fulfillmentGasPriceOverEstimationBP",
             "type": "uint32"
           },
           {
@@ -283,11 +278,6 @@
             "internalType": "uint16",
             "name": "maxSupportedRequestDataVersion",
             "type": "uint16"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentGasPriceOverEstimationBP",
-            "type": "uint32"
           },
           {
             "internalType": "uint224",
@@ -520,13 +510,7 @@
       }
     ],
     "name": "deleteCommitment",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -549,7 +533,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "gasPriceGwei",
+        "name": "gasPriceWei",
         "type": "uint256"
       }
     ],
@@ -585,7 +569,7 @@
         "components": [
           {
             "internalType": "uint32",
-            "name": "maxCallbackGasLimit",
+            "name": "fulfillmentGasPriceOverEstimationBP",
             "type": "uint32"
           },
           {
@@ -617,11 +601,6 @@
             "internalType": "uint16",
             "name": "maxSupportedRequestDataVersion",
             "type": "uint16"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentGasPriceOverEstimationBP",
-            "type": "uint32"
           },
           {
             "internalType": "uint224",
@@ -1054,7 +1033,7 @@
         "components": [
           {
             "internalType": "uint32",
-            "name": "maxCallbackGasLimit",
+            "name": "fulfillmentGasPriceOverEstimationBP",
             "type": "uint32"
           },
           {
@@ -1086,11 +1065,6 @@
             "internalType": "uint16",
             "name": "maxSupportedRequestDataVersion",
             "type": "uint16"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentGasPriceOverEstimationBP",
-            "type": "uint32"
           },
           {
             "internalType": "uint224",

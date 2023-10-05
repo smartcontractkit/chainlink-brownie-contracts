@@ -197,6 +197,11 @@
         "type": "address"
       },
       {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
         "internalType": "address[]",
         "name": "",
         "type": "address[]"

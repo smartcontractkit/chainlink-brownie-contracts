@@ -52,6 +52,11 @@
   },
   {
     "inputs": [],
+    "name": "InvalidReceivingAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidSurcharge",
     "type": "error"
   },
@@ -64,6 +69,67 @@
     "inputs": [],
     "name": "ZeroDeficit",
     "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "configDigest",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "subscriber",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "assetAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Common.Asset",
+        "name": "fee",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "assetAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Common.Asset",
+        "name": "reward",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "appliedDiscount",
+        "type": "uint256"
+      }
+    ],
+    "name": "DiscountApplied",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -203,6 +269,12 @@
       {
         "indexed": false,
         "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
         "name": "assetAddress",
         "type": "address"
       },
@@ -236,16 +308,9 @@
         "type": "bytes"
       },
       {
-        "components": [
-          {
-            "internalType": "address",
-            "name": "quoteAddress",
-            "type": "address"
-          }
-        ],
-        "internalType": "struct IFeeManager.Quote",
-        "name": "quote",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "quoteAddress",
+        "type": "address"
       }
     ],
     "name": "getFeeAndReward",
@@ -283,6 +348,63 @@
         "internalType": "struct Common.Asset",
         "name": "",
         "type": "tuple"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "i_linkAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "i_nativeAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "i_proxyAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "i_rewardManager",
+    "outputs": [
+      {
+        "internalType": "contract IRewardManager",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -335,6 +457,11 @@
         "type": "bytes"
       },
       {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
+      },
+      {
         "internalType": "address",
         "name": "subscriber",
         "type": "address"
@@ -351,6 +478,11 @@
         "internalType": "bytes[]",
         "name": "payloads",
         "type": "bytes[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       },
       {
         "internalType": "address",
@@ -545,6 +677,11 @@
       {
         "internalType": "address",
         "name": "assetAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "recipient",
         "type": "address"
       },
       {

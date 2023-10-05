@@ -37,6 +37,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "FeeManagerInvalid",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -220,7 +225,7 @@
     "outputs": [
       {
         "internalType": "address",
-        "name": "verifierAddress",
+        "name": "",
         "type": "address"
       }
     ],
@@ -385,13 +390,18 @@
         "internalType": "bytes",
         "name": "payload",
         "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       }
     ],
     "name": "verify",
     "outputs": [
       {
         "internalType": "bytes",
-        "name": "verifiedReport",
+        "name": "",
         "type": "bytes"
       }
     ],
@@ -404,6 +414,11 @@
         "internalType": "bytes[]",
         "name": "payloads",
         "type": "bytes[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       }
     ],
     "name": "verifyBulk",

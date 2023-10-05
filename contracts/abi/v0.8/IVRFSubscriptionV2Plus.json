@@ -69,7 +69,7 @@
         "type": "uint256"
       }
     ],
-    "name": "fundSubscriptionWithEth",
+    "name": "fundSubscriptionWithNative",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
@@ -115,7 +115,7 @@
       },
       {
         "internalType": "uint96",
-        "name": "ethBalance",
+        "name": "nativeBalance",
         "type": "uint96"
       },
       {
@@ -132,6 +132,25 @@
         "internalType": "address[]",
         "name": "consumers",
         "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "subId",
+        "type": "uint256"
+      }
+    ],
+    "name": "pendingRequestExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",

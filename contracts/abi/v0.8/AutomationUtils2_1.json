@@ -35,7 +35,7 @@
           },
           {
             "internalType": "uint256",
-            "name": "txIndex",
+            "name": "timestamp",
             "type": "uint256"
           },
           {
@@ -83,6 +83,11 @@
     "inputs": [
       {
         "components": [
+          {
+            "internalType": "bytes32",
+            "name": "logBlockHash",
+            "type": "bytes32"
+          },
           {
             "internalType": "bytes32",
             "name": "txHash",

@@ -69,29 +69,30 @@
         "type": "uint256"
       }
     ],
-    "name": "fundSubscriptionWithEth",
+    "name": "fundSubscriptionWithNative",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getRequestConfig",
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "startIndex",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxCount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getActiveSubscriptionIds",
     "outputs": [
       {
-        "internalType": "uint16",
+        "internalType": "uint256[]",
         "name": "",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      },
-      {
-        "internalType": "bytes32[]",
-        "name": "",
-        "type": "bytes32[]"
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",
@@ -114,8 +115,13 @@
       },
       {
         "internalType": "uint96",
-        "name": "ethBalance",
+        "name": "nativeBalance",
         "type": "uint96"
+      },
+      {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
       },
       {
         "internalType": "address",
@@ -289,7 +295,7 @@
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeEthPPM",
+        "name": "fulfillmentFlatFeeNativePPM",
         "type": "uint32"
       }
     ],

@@ -5,6 +5,11 @@
         "internalType": "bytes",
         "name": "payload",
         "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       }
     ],
     "name": "processFee",
@@ -18,6 +23,11 @@
         "internalType": "bytes[]",
         "name": "payloads",
         "type": "bytes[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       }
     ],
     "name": "processFeeBulk",

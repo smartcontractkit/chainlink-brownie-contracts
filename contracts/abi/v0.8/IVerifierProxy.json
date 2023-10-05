@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "bytes",
-        "name": "signedReport",
+        "name": "payload",
         "type": "bytes"
       }
     ],
@@ -11,11 +11,11 @@
     "outputs": [
       {
         "internalType": "bytes",
-        "name": "verifierResponse",
+        "name": "verifiedReport",
         "type": "bytes"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   }
 ]

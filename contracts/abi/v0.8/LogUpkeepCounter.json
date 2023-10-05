@@ -121,7 +121,7 @@
           },
           {
             "internalType": "uint256",
-            "name": "txIndex",
+            "name": "timestamp",
             "type": "uint256"
           },
           {

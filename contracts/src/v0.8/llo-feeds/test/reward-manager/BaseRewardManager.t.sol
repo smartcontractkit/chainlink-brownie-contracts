@@ -3,9 +3,9 @@ pragma solidity 0.8.16;
 
 import {Test} from "forge-std/Test.sol";
 import {ERC20Mock} from "../../../vendor/openzeppelin-solidity/v4.8.0/contracts/mocks/ERC20Mock.sol";
-import {RewardManager} from "../../dev/RewardManager.sol";
+import {RewardManager} from "../../RewardManager.sol";
 import {Common} from "../../../libraries/Common.sol";
-import {IRewardManager} from "../../dev/interfaces/IRewardManager.sol";
+import {IRewardManager} from "../../interfaces/IRewardManager.sol";
 
 /**
  * @title BaseRewardManagerTest
@@ -67,6 +67,7 @@ contract BaseRewardManagerTest is Test {
   bytes4 internal immutable INVALID_WEIGHT_ERROR_SELECTOR = RewardManager.InvalidWeights.selector;
   bytes4 internal immutable INVALID_POOL_ID_ERROR_SELECTOR = RewardManager.InvalidPoolId.selector;
   bytes internal constant ONLY_CALLABLE_BY_OWNER_ERROR = "Only callable by owner";
+  bytes4 internal immutable INVALID_POOL_LENGTH_SELECTOR = RewardManager.InvalidPoolLength.selector;
 
   // Events emitted within the reward manager
   event RewardRecipientsUpdated(bytes32 indexed poolId, Common.AddressAndWeight[] newRewardRecipients);

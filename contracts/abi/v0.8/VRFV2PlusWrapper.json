@@ -8,7 +8,7 @@
       },
       {
         "internalType": "address",
-        "name": "_linkEthFeed",
+        "name": "_linkNativeFeed",
         "type": "address"
       },
       {
@@ -19,6 +19,11 @@
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToTransferLink",
+    "type": "error"
   },
   {
     "inputs": [],
@@ -484,10 +489,23 @@
   },
   {
     "inputs": [],
-    "name": "s_linkEthFeed",
+    "name": "s_linkNativeFeed",
     "outputs": [
       {
         "internalType": "contract AggregatorV3Interface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_vrfCoordinator",
+    "outputs": [
+      {
+        "internalType": "contract IVRFCoordinatorV2Plus",
         "name": "",
         "type": "address"
       }
@@ -571,11 +589,11 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "linkEthFeed",
+        "name": "linkNativeFeed",
         "type": "address"
       }
     ],
-    "name": "setLinkEthFeed",
+    "name": "setLinkNativeFeed",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

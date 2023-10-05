@@ -585,6 +585,11 @@
         "type": "address"
       },
       {
+        "internalType": "uint32",
+        "name": "newConfigCount",
+        "type": "uint32"
+      },
+      {
         "internalType": "address[]",
         "name": "signers",
         "type": "address[]"

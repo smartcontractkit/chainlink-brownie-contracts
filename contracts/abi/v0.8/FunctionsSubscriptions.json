@@ -68,22 +68,6 @@
     "type": "error"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "totalBalance",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "deductionAttempt",
-        "type": "uint256"
-      }
-    ],
-    "name": "TotalBalanceInvariantViolated",
-    "type": "error"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
@@ -472,6 +456,62 @@
         "internalType": "uint64",
         "name": "",
         "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "subscriptionIdStart",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "subscriptionIdEnd",
+        "type": "uint64"
+      }
+    ],
+    "name": "getSubscriptionsInRange",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint96",
+            "name": "balance",
+            "type": "uint96"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "blockedBalance",
+            "type": "uint96"
+          },
+          {
+            "internalType": "address",
+            "name": "proposedOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "consumers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "flags",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct IFunctionsSubscriptions.Subscription[]",
+        "name": "subscriptions",
+        "type": "tuple[]"
       }
     ],
     "stateMutability": "view",

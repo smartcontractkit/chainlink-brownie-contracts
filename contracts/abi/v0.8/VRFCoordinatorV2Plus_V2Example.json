@@ -69,6 +69,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "SubscriptionIDCollisionFound",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -111,16 +116,6 @@
     "name": "getSubscription",
     "outputs": [
       {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "internalType": "address[]",
-        "name": "consumers",
-        "type": "address[]"
-      },
-      {
         "internalType": "uint96",
         "name": "linkBalance",
         "type": "uint96"
@@ -129,6 +124,21 @@
         "internalType": "uint96",
         "name": "nativeBalance",
         "type": "uint96"
+      },
+      {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "consumers",
+        "type": "address[]"
       }
     ],
     "stateMutability": "view",
@@ -183,7 +193,7 @@
           }
         ],
         "internalType": "struct VRFV2PlusClient.RandomWordsRequest",
-        "name": "",
+        "name": "req",
         "type": "tuple"
       }
     ],
@@ -267,11 +277,6 @@
     "name": "s_subscriptions",
     "outputs": [
       {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
         "internalType": "uint96",
         "name": "linkBalance",
         "type": "uint96"
@@ -280,6 +285,16 @@
         "internalType": "uint96",
         "name": "nativeBalance",
         "type": "uint96"
+      },
+      {
+        "internalType": "uint64",
+        "name": "reqCount",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
       }
     ],
     "stateMutability": "view",

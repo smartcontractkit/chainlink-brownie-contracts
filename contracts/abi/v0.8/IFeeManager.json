@@ -12,16 +12,9 @@
         "type": "bytes"
       },
       {
-        "components": [
-          {
-            "internalType": "address",
-            "name": "quoteAddress",
-            "type": "address"
-          }
-        ],
-        "internalType": "struct IFeeManager.Quote",
-        "name": "quote",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "quoteAddress",
+        "type": "address"
       }
     ],
     "name": "getFeeAndReward",
@@ -59,6 +52,11 @@
         "internalType": "struct Common.Asset",
         "name": "",
         "type": "tuple"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -98,6 +96,11 @@
         "type": "bytes"
       },
       {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
+      },
+      {
         "internalType": "address",
         "name": "subscriber",
         "type": "address"
@@ -114,6 +117,11 @@
         "internalType": "bytes[]",
         "name": "payloads",
         "type": "bytes[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       },
       {
         "internalType": "address",
@@ -221,6 +229,11 @@
       {
         "internalType": "address",
         "name": "assetAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "recipientAddress",
         "type": "address"
       },
       {

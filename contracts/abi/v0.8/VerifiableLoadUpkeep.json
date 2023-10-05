@@ -36,13 +36,38 @@
         "type": "uint256"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "addr",
         "type": "address"
       }
     ],
     "name": "LogEmitted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "blockNum",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "LogEmittedAgain",
     "type": "event"
   },
   {
@@ -88,25 +113,6 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "Received",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
         "internalType": "uint256",
         "name": "upkeepId",
         "type": "uint256"
@@ -125,19 +131,6 @@
       }
     ],
     "name": "UpkeepTopUp",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "upkeepIds",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "UpkeepsRegistered",
     "type": "event"
   },
   {
@@ -207,6 +200,67 @@
   {
     "inputs": [
       {
+        "internalType": "uint256[]",
+        "name": "upkeepIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint8",
+        "name": "selector",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic0",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic1",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic2",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic3",
+        "type": "bytes32"
+      }
+    ],
+    "name": "batchPreparingUpkeeps",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "upkeepIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint8",
+        "name": "log",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "selector",
+        "type": "uint8"
+      }
+    ],
+    "name": "batchPreparingUpkeepsSimple",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint8",
         "name": "number",
         "type": "uint8"
@@ -248,7 +302,13 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "log",
+        "type": "uint8"
+      }
+    ],
     "name": "batchSendLogs",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -365,19 +425,6 @@
       }
     ],
     "name": "burnPerformGas",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "upkeepId",
-        "type": "uint256"
-      }
-    ],
-    "name": "cancelUpkeep",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -508,12 +555,57 @@
   },
   {
     "inputs": [],
+    "name": "emittedAgainSig",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "emittedSig",
     "outputs": [
       {
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "feedParamKey",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "feedsHex",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       }
     ],
     "stateMutability": "view",
@@ -570,12 +662,55 @@
         "type": "uint256"
       }
     ],
-    "name": "getActiveUpkeepIDs",
+    "name": "getActiveUpkeepIDsDeployedByThisContract",
     "outputs": [
       {
         "internalType": "uint256[]",
         "name": "",
         "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "startIndex",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxCount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAllActiveUpkeepIDsOnRegistry",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "balance",
+        "type": "uint96"
       }
     ],
     "stateMutability": "view",
@@ -666,8 +801,52 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "upkeepId",
+        "name": "upkeepID",
         "type": "uint256"
+      }
+    ],
+    "name": "getForwarder",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "selector",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic0",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic1",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic2",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic3",
+        "type": "bytes32"
       }
     ],
     "name": "getLogTriggerConfig",
@@ -676,6 +855,25 @@
         "internalType": "bytes",
         "name": "logTrigger",
         "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMinBalanceForUpkeep",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "",
+        "type": "uint96"
       }
     ],
     "stateMutability": "view",
@@ -763,6 +961,134 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getTriggerType",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getUpkeepInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "performGas",
+            "type": "uint32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "checkData",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint96",
+            "name": "balance",
+            "type": "uint96"
+          },
+          {
+            "internalType": "address",
+            "name": "admin",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "maxValidBlocknumber",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint32",
+            "name": "lastPerformedBlockNumber",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint96",
+            "name": "amountSpent",
+            "type": "uint96"
+          },
+          {
+            "internalType": "bool",
+            "name": "paused",
+            "type": "bool"
+          },
+          {
+            "internalType": "bytes",
+            "name": "offchainConfig",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct KeeperRegistryBase2_1.UpkeepInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getUpkeepPrivilegeConfig",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getUpkeepTriggerConfig",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
       }
     ],
     "stateMutability": "view",
@@ -947,40 +1273,14 @@
         "internalType": "uint256",
         "name": "upkeepId",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint8",
+        "name": "log",
+        "type": "uint8"
       }
     ],
     "name": "sendLog",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "setAddLinkAmount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "upkeepId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "setCheckGasToBurn",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -994,6 +1294,19 @@
       }
     ],
     "name": "setConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string[]",
+        "name": "_feeds",
+        "type": "string[]"
+      }
+    ],
+    "name": "setFeeds",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1019,12 +1332,17 @@
   {
     "inputs": [
       {
-        "internalType": "uint8",
-        "name": "newMinBalanceThresholdMultiplier",
-        "type": "uint8"
+        "internalType": "string",
+        "name": "_feedParamKey",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_timeParamKey",
+        "type": "string"
       }
     ],
-    "name": "setMinBalanceThresholdMultiplier",
+    "name": "setParamKeys",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1055,24 +1373,6 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "setPerformGasToBurn",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "upkeepId",
-        "type": "uint256"
-      },
-      {
         "internalType": "uint32",
         "name": "gasLimit",
         "type": "uint32"
@@ -1087,13 +1387,31 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "newInterval",
+        "name": "upkeepId",
         "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "cfg",
+        "type": "bytes"
       }
     ],
-    "name": "setUpkeepTopUpCheckInterval",
+    "name": "setUpkeepPrivilegeConfig",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "timeParamKey",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -1123,6 +1441,67 @@
       }
     ],
     "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "selector",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic0",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic1",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic2",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "topic3",
+        "type": "bytes32"
+      }
+    ],
+    "name": "updateLogTriggerConfig1",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "upkeepId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "cfg",
+        "type": "bytes"
+      }
+    ],
+    "name": "updateLogTriggerConfig2",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -7,6 +7,11 @@
         "type": "bytes"
       },
       {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
+      },
+      {
         "internalType": "address",
         "name": "subscriber",
         "type": "address"
@@ -23,6 +28,11 @@
         "internalType": "bytes[]",
         "name": "payloads",
         "type": "bytes[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "parameterPayload",
+        "type": "bytes"
       },
       {
         "internalType": "address",
