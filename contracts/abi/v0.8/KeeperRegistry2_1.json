@@ -1238,7 +1238,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct KeeperRegistryBase2_1.OnchainConfig",
+        "internalType": "struct IAutomationV21PlusCommon.OnchainConfigLegacy",
         "name": "onchainConfig",
         "type": "tuple"
       },

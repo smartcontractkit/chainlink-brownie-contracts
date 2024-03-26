@@ -56,6 +56,19 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "address",
+        "name": "vrfCoordinator",
+        "type": "address"
+      }
+    ],
+    "name": "CoordinatorSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "address",
         "name": "from",
@@ -224,7 +237,7 @@
   },
   {
     "inputs": [],
-    "name": "s_averageFulfillmentInMillions",
+    "name": "s_averageResponseTimeInBlocksMillions",
     "outputs": [
       {
         "internalType": "uint256",
@@ -237,7 +250,33 @@
   },
   {
     "inputs": [],
-    "name": "s_fastestFulfillment",
+    "name": "s_averageResponseTimeInSecondsMillions",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_fastestResponseTimeInBlocks",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_fastestResponseTimeInSeconds",
     "outputs": [
       {
         "internalType": "uint256",
@@ -328,7 +367,20 @@
   },
   {
     "inputs": [],
-    "name": "s_slowestFulfillment",
+    "name": "s_slowestResponseTimeInBlocks",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_slowestResponseTimeInSeconds",
     "outputs": [
       {
         "internalType": "uint256",

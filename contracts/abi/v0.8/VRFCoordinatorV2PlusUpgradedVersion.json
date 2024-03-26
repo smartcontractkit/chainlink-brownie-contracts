@@ -101,22 +101,6 @@
     "type": "error"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "have",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "want",
-        "type": "uint256"
-      }
-    ],
-    "name": "InsufficientGasForConsumer",
-    "type": "error"
-  },
-  {
     "inputs": [],
     "name": "InvalidCalldata",
     "type": "error"
@@ -350,22 +334,16 @@
         "type": "int256"
       },
       {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentFlatFeeLinkPPM",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentFlatFeeNativePPM",
-            "type": "uint32"
-          }
-        ],
         "indexed": false,
-        "internalType": "struct VRFCoordinatorV2PlusUpgradedVersion.FeeConfig",
-        "name": "feeConfig",
-        "type": "tuple"
+        "internalType": "uint8",
+        "name": "nativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "linkPremiumPercentage",
+        "type": "uint8"
       }
     ],
     "name": "ConfigSet",
@@ -487,12 +465,6 @@
         "internalType": "bytes32",
         "name": "keyHash",
         "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "oracle",
-        "type": "address"
       }
     ],
     "name": "ProvingKeyRegistered",
@@ -924,7 +896,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "subId",
         "type": "uint256"
       }
     ],
@@ -1021,6 +993,11 @@
         "internalType": "struct VRFCoordinatorV2PlusUpgradedVersion.RequestCommitment",
         "name": "rc",
         "type": "tuple"
+      },
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "name": "fulfillRandomWords",
@@ -1064,7 +1041,7 @@
     "outputs": [
       {
         "internalType": "uint256[]",
-        "name": "",
+        "name": "ids",
         "type": "uint256[]"
       }
     ],
@@ -1220,42 +1197,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "recipient",
-        "type": "address"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "oracleWithdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address payable",
-        "name": "recipient",
-        "type": "address"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "oracleWithdrawNative",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "owner",
     "outputs": [
@@ -1341,11 +1282,6 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "oracle",
-        "type": "address"
-      },
       {
         "internalType": "uint256[2]",
         "name": "publicProvingKey",
@@ -1472,6 +1408,26 @@
         "internalType": "uint32",
         "name": "gasAfterPaymentCalculation",
         "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeNativePPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkDiscountPPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "nativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "linkPremiumPercentage",
+        "type": "uint8"
       }
     ],
     "stateMutability": "view",
@@ -1491,37 +1447,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "s_fallbackWeiPerUnitLink",
-    "outputs": [
-      {
-        "internalType": "int256",
-        "name": "",
-        "type": "int256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "s_feeConfig",
-    "outputs": [
-      {
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeNativePPM",
-        "type": "uint32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -1535,25 +1460,6 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "name": "s_provingKeys",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -1632,21 +1538,24 @@
         "type": "int256"
       },
       {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentFlatFeeLinkPPM",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "fulfillmentFlatFeeNativePPM",
-            "type": "uint32"
-          }
-        ],
-        "internalType": "struct VRFCoordinatorV2PlusUpgradedVersion.FeeConfig",
-        "name": "feeConfig",
-        "type": "tuple"
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeNativePPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkDiscountPPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "nativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "linkPremiumPercentage",
+        "type": "uint8"
       }
     ],
     "name": "setConfig",
@@ -1681,6 +1590,32 @@
       }
     ],
     "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "recipient",
+        "type": "address"
+      }
+    ],
+    "name": "withdrawNative",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

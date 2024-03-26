@@ -48,7 +48,7 @@
   },
   {
     "inputs": [],
-    "name": "getAdminFee",
+    "name": "getAdminFeeJuels",
     "outputs": [
       {
         "internalType": "uint72",
@@ -67,12 +67,43 @@
         "type": "bytes"
       }
     ],
-    "name": "getDONFee",
+    "name": "getDONFeeJuels",
     "outputs": [
       {
         "internalType": "uint72",
         "name": "",
         "type": "uint72"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getOperationFeeJuels",
+    "outputs": [
+      {
+        "internalType": "uint72",
+        "name": "",
+        "type": "uint72"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getUsdPerUnitLink",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
       }
     ],
     "stateMutability": "view",

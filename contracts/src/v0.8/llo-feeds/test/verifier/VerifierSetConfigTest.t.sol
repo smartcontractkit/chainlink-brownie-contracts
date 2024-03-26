@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.16;
+pragma solidity 0.8.19;
 
 import {BaseTest, BaseTestWithMultipleConfiguredDigests} from "./BaseVerifierTest.t.sol";
 import {Verifier} from "../../Verifier.sol";
-import {VerifierProxy} from "../../VerifierProxy.sol";
-import {Common} from "../../../libraries/Common.sol";
+import {Common} from "../../libraries/Common.sol";
 
 contract VerifierSetConfigTest is BaseTest {
   function setUp() public virtual override {

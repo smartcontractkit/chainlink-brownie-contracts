@@ -1,0 +1,105 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "channelId",
+        "type": "uint32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "reportFormat",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "chainSelector",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint32[]",
+            "name": "streamIDs",
+            "type": "uint32[]"
+          }
+        ],
+        "internalType": "struct IChannelConfigStore.ChannelDefinition",
+        "name": "channelDefinition",
+        "type": "tuple"
+      }
+    ],
+    "name": "addChannel",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "channelId",
+        "type": "uint32"
+      }
+    ],
+    "name": "getChannelDefinitions",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "reportFormat",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "chainSelector",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint32[]",
+            "name": "streamIDs",
+            "type": "uint32[]"
+          }
+        ],
+        "internalType": "struct IChannelConfigStore.ChannelDefinition",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "channelId",
+        "type": "uint32"
+      }
+    ],
+    "name": "removeChannel",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

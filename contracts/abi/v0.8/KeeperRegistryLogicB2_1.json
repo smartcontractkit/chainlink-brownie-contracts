@@ -1345,7 +1345,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct KeeperRegistryBase2_1.State",
+        "internalType": "struct IAutomationV21PlusCommon.StateLegacy",
         "name": "state",
         "type": "tuple"
       },
@@ -1427,7 +1427,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct KeeperRegistryBase2_1.OnchainConfig",
+        "internalType": "struct IAutomationV21PlusCommon.OnchainConfigLegacy",
         "name": "config",
         "type": "tuple"
       },
@@ -1571,7 +1571,7 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct KeeperRegistryBase2_1.UpkeepInfo",
+        "internalType": "struct IAutomationV21PlusCommon.UpkeepInfoLegacy",
         "name": "upkeepInfo",
         "type": "tuple"
       }

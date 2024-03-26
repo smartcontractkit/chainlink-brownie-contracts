@@ -293,7 +293,7 @@
       },
       {
         "internalType": "int256",
-        "name": "previousAnswer",
+        "name": "",
         "type": "int256"
       },
       {
