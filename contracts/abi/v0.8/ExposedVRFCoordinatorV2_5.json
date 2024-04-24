@@ -117,22 +117,6 @@
     "type": "error"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "have",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "want",
-        "type": "uint256"
-      }
-    ],
-    "name": "InsufficientGasForConsumer",
-    "type": "error"
-  },
-  {
     "inputs": [],
     "name": "InvalidCalldata",
     "type": "error"
@@ -1218,7 +1202,7 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct VRFCoordinatorV2_5.RequestCommitment",
+        "internalType": "struct VRFTypes.RequestCommitmentV2Plus",
         "name": "rc",
         "type": "tuple"
       },
@@ -1376,7 +1360,7 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct VRFCoordinatorV2_5.RequestCommitment",
+        "internalType": "struct VRFTypes.RequestCommitmentV2Plus",
         "name": "rc",
         "type": "tuple"
       }
@@ -1448,7 +1432,7 @@
       },
       {
         "internalType": "address",
-        "name": "owner",
+        "name": "subOwner",
         "type": "address"
       },
       {

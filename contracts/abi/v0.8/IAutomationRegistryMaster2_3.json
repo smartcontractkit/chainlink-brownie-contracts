@@ -77,6 +77,11 @@
   },
   {
     "inputs": [],
+    "name": "InsufficientLinkLiquidity",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidDataLength",
     "type": "error"
   },
@@ -107,6 +112,11 @@
   },
   {
     "inputs": [],
+    "name": "InvalidToken",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidTransmitter",
     "type": "error"
   },
@@ -122,17 +132,17 @@
   },
   {
     "inputs": [],
-    "name": "MaxCheckDataSizeCanOnlyIncrease",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "MaxPerformDataSizeCanOnlyIncrease",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "MigrationNotPermitted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MustSettleOffchain",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MustSettleOnchain",
     "type": "error"
   },
   {
@@ -213,11 +223,6 @@
   {
     "inputs": [],
     "name": "ParameterLengthError",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "PaymentGreaterThanAllLINK",
     "type": "error"
   },
   {
@@ -320,6 +325,50 @@
     "inputs": [
       {
         "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "gasFeePPB",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "flatFeeMilliCents",
+            "type": "uint24"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct AutomationRegistryBase2_3.BillingOverrides",
+        "name": "overrides",
+        "type": "tuple"
+      }
+    ],
+    "name": "BillingConfigOverridden",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "BillingConfigOverrideRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
         "internalType": "address",
         "name": "token",
         "type": "address"
@@ -333,13 +382,23 @@
           },
           {
             "internalType": "uint24",
-            "name": "flatFeeMicroLink",
+            "name": "flatFeeMilliCents",
             "type": "uint24"
           },
           {
             "internalType": "address",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint96",
+            "name": "minSpend",
+            "type": "uint96"
           }
         ],
         "indexed": false,
@@ -463,13 +522,13 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "recipient",
+        "name": "assetAddress",
         "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
-        "name": "assetAddress",
+        "name": "recipient",
         "type": "address"
       },
       {
@@ -549,6 +608,25 @@
       }
     ],
     "name": "InsufficientFundsUpkeepReport",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "payees",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "payments",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "NOPsSettledOffchain",
     "type": "event"
   },
   {
@@ -1081,7 +1159,7 @@
     "type": "event"
   },
   {
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "fallback"
   },
   {
@@ -1132,7 +1210,7 @@
     ],
     "name": "addFunds",
     "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -1296,6 +1374,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "disableOffchainPayments",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -1438,6 +1523,25 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "upkeepID",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBillingToken",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "token",
         "type": "address"
@@ -1454,13 +1558,23 @@
           },
           {
             "internalType": "uint24",
-            "name": "flatFeeMicroLink",
+            "name": "flatFeeMilliCents",
             "type": "uint24"
           },
           {
             "internalType": "address",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint96",
+            "name": "minSpend",
+            "type": "uint96"
           }
         ],
         "internalType": "struct AutomationRegistryBase2_3.BillingConfig",
@@ -1525,6 +1639,101 @@
   },
   {
     "inputs": [],
+    "name": "getConfig",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "checkGasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxPerformGas",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxCheckDataSize",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "transcoder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "reorgProtectionEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint24",
+            "name": "stalenessSeconds",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxPerformDataSize",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxRevertDataSize",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "upkeepPrivilegeManager",
+            "type": "address"
+          },
+          {
+            "internalType": "uint16",
+            "name": "gasCeilingMultiplier",
+            "type": "uint16"
+          },
+          {
+            "internalType": "address",
+            "name": "financeAdmin",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackGasPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackLinkPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackNativePrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "registrars",
+            "type": "address[]"
+          },
+          {
+            "internalType": "address",
+            "name": "chainModule",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct AutomationRegistryBase2_3.OnchainConfig",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getFallbackNativePrice",
     "outputs": [
       {
@@ -1563,6 +1772,66 @@
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHotVars",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint96",
+            "name": "totalPremium",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint32",
+            "name": "latestEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "stalenessSeconds",
+            "type": "uint24"
+          },
+          {
+            "internalType": "uint16",
+            "name": "gasCeilingMultiplier",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "f",
+            "type": "uint8"
+          },
+          {
+            "internalType": "bool",
+            "name": "paused",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "reentrancyGuard",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "reorgProtectionEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "chainModule",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct AutomationRegistryBase2_3.HotVars",
+        "name": "",
+        "type": "tuple"
       }
     ],
     "stateMutability": "view",
@@ -1610,6 +1879,11 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
         "internalType": "uint8",
         "name": "triggerType",
         "type": "uint8"
@@ -1618,6 +1892,11 @@
         "internalType": "uint32",
         "name": "gasLimit",
         "type": "uint32"
+      },
+      {
+        "internalType": "address",
+        "name": "billingToken",
+        "type": "address"
       }
     ],
     "name": "getMaxPaymentForGas",
@@ -1683,6 +1962,32 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getNumUpkeeps",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPayoutMode",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -1735,6 +2040,25 @@
         "internalType": "bool",
         "name": "reorgProtectionEnabled",
         "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "billingToken",
+        "type": "address"
+      }
+    ],
+    "name": "getReserveAmount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -1821,7 +2145,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct AutomationRegistryBase2_3.State",
+        "internalType": "struct IAutomationV21PlusCommon.StateLegacy",
         "name": "state",
         "type": "tuple"
       },
@@ -1903,7 +2227,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct AutomationRegistryBase2_3.OnchainConfigLegacy",
+        "internalType": "struct IAutomationV21PlusCommon.OnchainConfigLegacy",
         "name": "config",
         "type": "tuple"
       },
@@ -1921,6 +2245,76 @@
         "internalType": "uint8",
         "name": "f",
         "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getStorage",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "transcoder",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "checkGasLimit",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxPerformGas",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "nonce",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "upkeepPrivilegeManager",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "configCount",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "latestConfigBlockNumber",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxCheckDataSize",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "financeAdmin",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxPerformDataSize",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "maxRevertDataSize",
+            "type": "uint32"
+          }
+        ],
+        "internalType": "struct AutomationRegistryBase2_3.Storage",
+        "name": "",
+        "type": "tuple"
       }
     ],
     "stateMutability": "view",
@@ -2073,7 +2467,7 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct AutomationRegistryBase2_3.UpkeepInfo",
+        "internalType": "struct IAutomationV21PlusCommon.UpkeepInfoLegacy",
         "name": "upkeepInfo",
         "type": "tuple"
       }
@@ -2114,6 +2508,19 @@
         "internalType": "bytes",
         "name": "",
         "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getWrappedNativeTokenAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -2189,9 +2596,9 @@
     "name": "linkAvailableForPayment",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "stateMutability": "view",
@@ -2307,6 +2714,11 @@
         "type": "uint8"
       },
       {
+        "internalType": "address",
+        "name": "billingToken",
+        "type": "address"
+      },
+      {
         "internalType": "bytes",
         "name": "checkData",
         "type": "bytes"
@@ -2336,39 +2748,13 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "target",
-        "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "checkData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "bytes",
-        "name": "offchainConfig",
-        "type": "bytes"
-      }
-    ],
-    "name": "registerUpkeep",
-    "outputs": [
-      {
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
       }
     ],
+    "name": "removeBillingOverrides",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -2386,6 +2772,36 @@
       }
     ],
     "name": "setAdminPrivilegeConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "gasFeePPB",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "flatFeeMilliCents",
+            "type": "uint24"
+          }
+        ],
+        "internalType": "struct AutomationRegistryBase2_3.BillingOverrides",
+        "name": "billingOverrides",
+        "type": "tuple"
+      }
+    ],
+    "name": "setBillingOverrides",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2449,33 +2865,8 @@
         "components": [
           {
             "internalType": "uint32",
-            "name": "paymentPremiumPPB",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "flatFeeMicroLink",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
             "name": "checkGasLimit",
             "type": "uint32"
-          },
-          {
-            "internalType": "uint24",
-            "name": "stalenessSeconds",
-            "type": "uint24"
-          },
-          {
-            "internalType": "uint16",
-            "name": "gasCeilingMultiplier",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint96",
-            "name": "minUpkeepSpend",
-            "type": "uint96"
           },
           {
             "internalType": "uint32",
@@ -2488,6 +2879,21 @@
             "type": "uint32"
           },
           {
+            "internalType": "address",
+            "name": "transcoder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "reorgProtectionEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint24",
+            "name": "stalenessSeconds",
+            "type": "uint24"
+          },
+          {
             "internalType": "uint32",
             "name": "maxPerformDataSize",
             "type": "uint32"
@@ -2496,6 +2902,21 @@
             "internalType": "uint32",
             "name": "maxRevertDataSize",
             "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "upkeepPrivilegeManager",
+            "type": "address"
+          },
+          {
+            "internalType": "uint16",
+            "name": "gasCeilingMultiplier",
+            "type": "uint16"
+          },
+          {
+            "internalType": "address",
+            "name": "financeAdmin",
+            "type": "address"
           },
           {
             "internalType": "uint256",
@@ -2513,33 +2934,13 @@
             "type": "uint256"
           },
           {
-            "internalType": "address",
-            "name": "transcoder",
-            "type": "address"
-          },
-          {
             "internalType": "address[]",
             "name": "registrars",
             "type": "address[]"
           },
           {
             "internalType": "address",
-            "name": "upkeepPrivilegeManager",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
             "name": "chainModule",
-            "type": "address"
-          },
-          {
-            "internalType": "bool",
-            "name": "reorgProtectionEnabled",
-            "type": "bool"
-          },
-          {
-            "internalType": "address",
-            "name": "financeAdmin",
             "type": "address"
           }
         ],
@@ -2571,13 +2972,23 @@
           },
           {
             "internalType": "uint24",
-            "name": "flatFeeMicroLink",
+            "name": "flatFeeMilliCents",
             "type": "uint24"
           },
           {
             "internalType": "address",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint96",
+            "name": "minSpend",
+            "type": "uint96"
           }
         ],
         "internalType": "struct AutomationRegistryBase2_3.BillingConfig[]",
@@ -2712,6 +3123,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "settleNOPsOffchain",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -2735,6 +3153,25 @@
         "internalType": "uint256",
         "name": "gasUsed",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "supportsBillingToken",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -2857,19 +3294,6 @@
   },
   {
     "inputs": [],
-    "name": "upkeepTranscoderVersion",
-    "outputs": [
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
-      }
-    ],
-    "stateMutability": "pure",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "upkeepVersion",
     "outputs": [
       {
@@ -2885,7 +3309,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "assetAddress",
+        "name": "asset",
         "type": "address"
       },
       {
@@ -2935,7 +3359,7 @@
         "type": "uint256"
       }
     ],
-    "name": "withdrawLinkFees",
+    "name": "withdrawLink",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -88,6 +88,11 @@
   },
   {
     "inputs": [],
+    "name": "InsufficientLinkLiquidity",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidDataLength",
     "type": "error"
   },
@@ -118,6 +123,11 @@
   },
   {
     "inputs": [],
+    "name": "InvalidToken",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidTransmitter",
     "type": "error"
   },
@@ -133,17 +143,17 @@
   },
   {
     "inputs": [],
-    "name": "MaxCheckDataSizeCanOnlyIncrease",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "MaxPerformDataSizeCanOnlyIncrease",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "MigrationNotPermitted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MustSettleOffchain",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "MustSettleOnchain",
     "type": "error"
   },
   {
@@ -224,11 +234,6 @@
   {
     "inputs": [],
     "name": "ParameterLengthError",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "PaymentGreaterThanAllLINK",
     "type": "error"
   },
   {
@@ -331,6 +336,50 @@
     "inputs": [
       {
         "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "gasFeePPB",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "flatFeeMilliCents",
+            "type": "uint24"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct AutomationRegistryBase2_3.BillingOverrides",
+        "name": "overrides",
+        "type": "tuple"
+      }
+    ],
+    "name": "BillingConfigOverridden",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "BillingConfigOverrideRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
         "internalType": "contract IERC20",
         "name": "token",
         "type": "address"
@@ -344,13 +393,23 @@
           },
           {
             "internalType": "uint24",
-            "name": "flatFeeMicroLink",
+            "name": "flatFeeMilliCents",
             "type": "uint24"
           },
           {
-            "internalType": "address",
+            "internalType": "contract AggregatorV3Interface",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fallbackPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint96",
+            "name": "minSpend",
+            "type": "uint96"
           }
         ],
         "indexed": false,
@@ -413,13 +472,13 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "recipient",
+        "name": "assetAddress",
         "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
-        "name": "assetAddress",
+        "name": "recipient",
         "type": "address"
       },
       {
@@ -499,6 +558,25 @@
       }
     ],
     "name": "InsufficientFundsUpkeepReport",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "payees",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "payments",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "NOPsSettledOffchain",
     "type": "event"
   },
   {
@@ -1012,7 +1090,7 @@
     "type": "event"
   },
   {
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "fallback"
   },
   {
@@ -1028,214 +1106,10 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "addFunds",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
       }
     ],
     "name": "cancelUpkeep",
     "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes[]",
-        "name": "values",
-        "type": "bytes[]"
-      },
-      {
-        "internalType": "bytes",
-        "name": "extraData",
-        "type": "bytes"
-      }
-    ],
-    "name": "checkCallback",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "enum AutomationRegistryBase2_3.UpkeepFailureReason",
-        "name": "upkeepFailureReason",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasUsed",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "triggerData",
-        "type": "bytes"
-      }
-    ],
-    "name": "checkUpkeep",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "enum AutomationRegistryBase2_3.UpkeepFailureReason",
-        "name": "upkeepFailureReason",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasUsed",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasLimit",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "fastGasWei",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "linkUSD",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      }
-    ],
-    "name": "checkUpkeep",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "enum AutomationRegistryBase2_3.UpkeepFailureReason",
-        "name": "upkeepFailureReason",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasUsed",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasLimit",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "fastGasWei",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "linkUSD",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "payload",
-        "type": "bytes"
-      }
-    ],
-    "name": "executeCallback",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "enum AutomationRegistryBase2_3.UpkeepFailureReason",
-        "name": "upkeepFailureReason",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint256",
-        "name": "gasUsed",
-        "type": "uint256"
-      }
-    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -1319,6 +1193,11 @@
         "type": "uint8"
       },
       {
+        "internalType": "contract IERC20",
+        "name": "billingToken",
+        "type": "address"
+      },
+      {
         "internalType": "bytes",
         "name": "checkData",
         "type": "bytes"
@@ -1342,63 +1221,6 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "target",
-        "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "checkData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "bytes",
-        "name": "offchainConfig",
-        "type": "bytes"
-      }
-    ],
-    "name": "registerUpkeep",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "triggerConfig",
-        "type": "bytes"
-      }
-    ],
-    "name": "setUpkeepTriggerConfig",
-    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },

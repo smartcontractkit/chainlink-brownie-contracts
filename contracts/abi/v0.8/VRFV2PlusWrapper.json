@@ -15,6 +15,11 @@
         "internalType": "address",
         "name": "_coordinator",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_subId",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -42,6 +47,22 @@
     "type": "error"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "premiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "max",
+        "type": "uint8"
+      }
+    ],
+    "name": "InvalidPremiumPercentage",
+    "type": "error"
+  },
+  {
     "inputs": [],
     "name": "LINKPaymentInRequestRandomWordsInNative",
     "type": "error"
@@ -49,6 +70,22 @@
   {
     "inputs": [],
     "name": "LinkAlreadySet",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "flatFeeLinkDiscountPPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "flatFeeNativePPM",
+        "type": "uint32"
+      }
+    ],
+    "name": "LinkDiscountTooHigh",
     "type": "error"
   },
   {
@@ -95,6 +132,11 @@
   },
   {
     "inputs": [],
+    "name": "SubscriptionIdMissing",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "ZeroAddress",
     "type": "error"
   },
@@ -116,7 +158,13 @@
       {
         "indexed": false,
         "internalType": "uint8",
-        "name": "wrapperPremiumPercentage",
+        "name": "coordinatorNativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "coordinatorLinkPremiumPercentage",
         "type": "uint8"
       },
       {
@@ -146,13 +194,13 @@
       {
         "indexed": false,
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
+        "name": "fulfillmentFlatFeeNativePPM",
         "type": "uint32"
       },
       {
         "indexed": false,
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeNativePPM",
+        "name": "fulfillmentFlatFeeLinkDiscountPPM",
         "type": "uint32"
       }
     ],
@@ -214,25 +262,6 @@
       }
     ],
     "name": "FulfillmentTxSizeSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "linkNativeFeed",
-        "type": "address"
-      }
-    ],
-    "name": "LinkAndLinkNativeFeedSet",
     "type": "event"
   },
   {
@@ -484,12 +513,12 @@
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkPPM",
+        "name": "fulfillmentFlatFeeNativePPM",
         "type": "uint32"
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeNativePPM",
+        "name": "fulfillmentFlatFeeLinkDiscountPPM",
         "type": "uint32"
       },
       {
@@ -504,7 +533,12 @@
       },
       {
         "internalType": "uint8",
-        "name": "wrapperPremiumPercentage",
+        "name": "wrapperNativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "wrapperLinkPremiumPercentage",
         "type": "uint8"
       },
       {
@@ -535,16 +569,29 @@
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "link",
+    "outputs": [
       {
         "internalType": "address",
-        "name": "newCoordinator",
+        "name": "",
         "type": "address"
       }
     ],
-    "name": "migrate",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "linkNativeFeed",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -705,32 +752,6 @@
   },
   {
     "inputs": [],
-    "name": "s_link",
-    "outputs": [
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "s_linkNativeFeed",
-    "outputs": [
-      {
-        "internalType": "contract AggregatorV3Interface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "s_vrfCoordinator",
     "outputs": [
       {
@@ -756,7 +777,12 @@
       },
       {
         "internalType": "uint8",
-        "name": "_wrapperPremiumPercentage",
+        "name": "_coordinatorNativePremiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_coordinatorLinkPremiumPercentage",
         "type": "uint8"
       },
       {
@@ -781,12 +807,12 @@
       },
       {
         "internalType": "uint32",
-        "name": "_fulfillmentFlatFeeLinkPPM",
+        "name": "_fulfillmentFlatFeeNativePPM",
         "type": "uint32"
       },
       {
         "internalType": "uint32",
-        "name": "_fulfillmentFlatFeeNativePPM",
+        "name": "_fulfillmentFlatFeeLinkDiscountPPM",
         "type": "uint32"
       }
     ],
@@ -817,24 +843,6 @@
       }
     ],
     "name": "setFulfillmentTxSize",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "linkNativeFeed",
-        "type": "address"
-      }
-    ],
-    "name": "setLinkAndLinkNativeFeed",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

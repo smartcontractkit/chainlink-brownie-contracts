@@ -1,10 +1,5 @@
 [
   {
-    "inputs": [],
-    "name": "LINKAlreadySet",
-    "type": "error"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -19,19 +14,6 @@
     ],
     "name": "OnlyVRFWrapperCanFulfill",
     "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      }
-    ],
-    "name": "LinkTokenSet",
-    "type": "event"
   },
   {
     "inputs": [],
@@ -86,19 +68,6 @@
       }
     ],
     "name": "rawFulfillRandomWords",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      }
-    ],
-    "name": "setLinkToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

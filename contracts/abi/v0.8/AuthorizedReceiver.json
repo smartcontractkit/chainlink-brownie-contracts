@@ -1,20 +1,5 @@
 [
   {
-    "inputs": [],
-    "name": "EmptySendersList",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "NotAllowedToSetSenders",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "UnauthorizedSender",
-    "type": "error"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {

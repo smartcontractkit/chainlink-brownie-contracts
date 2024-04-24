@@ -3,22 +3,12 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_vrfV2Wrapper",
         "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "inputs": [],
-    "name": "LINKAlreadySet",
-    "type": "error"
   },
   {
     "inputs": [
@@ -35,19 +25,6 @@
     ],
     "name": "OnlyVRFWrapperCanFulfill",
     "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      }
-    ],
-    "name": "LinkTokenSet",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -322,19 +299,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      }
-    ],
-    "name": "setLinkToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

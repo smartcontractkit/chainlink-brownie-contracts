@@ -1,23 +1,6 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
-    ],
-    "name": "InvalidConfig",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
-    ],
+    "inputs": [],
     "name": "ReportInvalid",
     "type": "error"
   },

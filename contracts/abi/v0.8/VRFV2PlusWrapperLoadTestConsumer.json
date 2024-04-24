@@ -3,22 +3,12 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_vrfV2PlusWrapper",
         "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "inputs": [],
-    "name": "LINKAlreadySet",
-    "type": "error"
   },
   {
     "inputs": [
@@ -35,19 +25,6 @@
     ],
     "name": "OnlyVRFWrapperCanFulfill",
     "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "link",
-        "type": "address"
-      }
-    ],
-    "name": "LinkTokenSet",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -159,6 +136,30 @@
         "internalType": "contract LinkTokenInterface",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "offset",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      }
+    ],
+    "name": "getRequestBlockTimes",
+    "outputs": [
+      {
+        "internalType": "uint32[]",
+        "name": "",
+        "type": "uint32[]"
       }
     ],
     "stateMutability": "view",
@@ -360,6 +361,25 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "s_requestBlockTimes",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "s_requestCount",
     "outputs": [
@@ -445,19 +465,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      }
-    ],
-    "name": "setLinkToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

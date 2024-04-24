@@ -11,7 +11,7 @@
     "type": "constructor"
   },
   {
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "fallback"
   },
   {

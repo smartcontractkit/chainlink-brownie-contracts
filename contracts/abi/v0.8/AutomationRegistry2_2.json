@@ -1008,7 +1008,7 @@
     "type": "event"
   },
   {
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "fallback"
   },
   {
