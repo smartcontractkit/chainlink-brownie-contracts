@@ -12,16 +12,6 @@
   },
   {
     "inputs": [],
-    "name": "EmptyArgs",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "EmptySecrets",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "EmptySource",
     "type": "error"
   },
@@ -183,55 +173,6 @@
   {
     "inputs": [
       {
-        "internalType": "bytes32",
-        "name": "donId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "string",
-        "name": "source",
-        "type": "string"
-      },
-      {
-        "internalType": "bytes",
-        "name": "secrets",
-        "type": "bytes"
-      },
-      {
-        "internalType": "string[]",
-        "name": "args",
-        "type": "string[]"
-      },
-      {
-        "internalType": "bytes[]",
-        "name": "bytesArgs",
-        "type": "bytes[]"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "callbackGasLimit",
-        "type": "uint32"
-      }
-    ],
-    "name": "sendRequest",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "sourceCode",
         "type": "string"
@@ -355,19 +296,6 @@
       }
     ],
     "name": "setRevertFulfillRequest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
-    ],
-    "name": "setRevertFulfillRequestMessage",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

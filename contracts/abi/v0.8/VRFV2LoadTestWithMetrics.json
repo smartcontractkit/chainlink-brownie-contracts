@@ -30,25 +30,38 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint64",
-        "name": "subId",
-        "type": "uint64"
-      },
-      {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
-        "name": "consumer",
+        "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       }
     ],
-    "name": "SubscriptionCreatedFundedAndConsumerAdded",
+    "name": "OwnershipTransferRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
     "type": "event"
   },
   {
@@ -66,15 +79,9 @@
   },
   {
     "inputs": [],
-    "name": "LINKTOKEN",
-    "outputs": [
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -116,6 +123,19 @@
         "internalType": "uint256",
         "name": "fulfilmentBlockNumber",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -173,49 +193,6 @@
       }
     ],
     "name": "requestRandomWords",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint16",
-        "name": "_requestConfirmations",
-        "type": "uint16"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "_keyHash",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "_callbackGasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "_numWords",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint16",
-        "name": "_requestCount",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_subTopUpAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_link",
-        "type": "address"
-      }
-    ],
-    "name": "requestRandomWordsWithForceFulfill",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -347,22 +324,12 @@
   {
     "inputs": [
       {
-        "internalType": "uint64",
-        "name": "_subId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      },
-      {
         "internalType": "address",
-        "name": "_link",
+        "name": "to",
         "type": "address"
       }
     ],
-    "name": "topUpSubscription",
+    "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

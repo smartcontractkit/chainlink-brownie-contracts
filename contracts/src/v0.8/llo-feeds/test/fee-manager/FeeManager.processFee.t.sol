@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.19;
+pragma solidity 0.8.16;
 
-import {Common} from "../../libraries/Common.sol";
+import {Test} from "forge-std/Test.sol";
+import {FeeManager} from "../../FeeManager.sol";
+import {Common} from "../../../libraries/Common.sol";
 import "./BaseFeeManager.t.sol";
 import {IRewardManager} from "../../interfaces/IRewardManager.sol";
 

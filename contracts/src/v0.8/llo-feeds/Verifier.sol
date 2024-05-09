@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19;
+pragma solidity 0.8.16;
 
 import {ConfirmedOwner} from "../shared/access/ConfirmedOwner.sol";
 import {IVerifier} from "./interfaces/IVerifier.sol";
 import {IVerifierProxy} from "./interfaces/IVerifierProxy.sol";
 import {TypeAndVersionInterface} from "../interfaces/TypeAndVersionInterface.sol";
-import {IERC165} from "../vendor/openzeppelin-solidity/v4.8.3/contracts/interfaces/IERC165.sol";
-import {Common} from "./libraries/Common.sol";
+import {IERC165} from "../vendor/openzeppelin-solidity/v4.8.0/contracts/interfaces/IERC165.sol";
+import {Common} from "../libraries/Common.sol";
 
 // OCR2 standard
 uint256 constant MAX_NUM_ORACLES = 31;
@@ -173,7 +173,7 @@ contract Verifier is IVerifier, ConfirmedOwner, TypeAndVersionInterface {
   address private immutable i_verifierProxyAddr;
 
   /// @notice Verifier states keyed on Feed ID
-  mapping(bytes32 => VerifierState) internal s_feedVerifierStates;
+  mapping(bytes32 => VerifierState) s_feedVerifierStates;
 
   /// @param verifierProxyAddr The address of the VerifierProxy contract
   constructor(address verifierProxyAddr) ConfirmedOwner(msg.sender) {

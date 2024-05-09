@@ -27,13 +27,13 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "initialTimestamp",
+        "name": "initialBlock",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "lastTimestamp",
+        "name": "lastBlock",
         "type": "uint256"
       },
       {
@@ -104,7 +104,7 @@
   },
   {
     "inputs": [],
-    "name": "initialTimestamp",
+    "name": "initialBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -130,7 +130,7 @@
   },
   {
     "inputs": [],
-    "name": "lastTimestamp",
+    "name": "lastBlock",
     "outputs": [
       {
         "internalType": "uint256",

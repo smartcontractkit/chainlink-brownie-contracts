@@ -14,8 +14,16 @@ $ npm install @chainlink/contracts --save
 ```sh
 @chainlink/contracts
 ├── src # Solidity contracts
+│   ├── v0.4
+│   ├── v0.5
+│   ├── v0.6
+│   ├── v0.7
 │   └── v0.8
 └── abi # ABI json output
+    ├── v0.4
+    ├── v0.5
+    ├── v0.6
+    ├── v0.7
     └── v0.8
 ```
 
@@ -25,6 +33,7 @@ The solidity smart contracts themselves can be imported via the `src` directory 
 
 ```solidity
 import '@chainlink/contracts/src/v0.8/AutomationCompatibleInterface.sol';
+
 ```
 
 ## Local Development

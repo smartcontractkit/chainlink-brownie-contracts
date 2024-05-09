@@ -6,7 +6,6 @@ import {EnumerableSet} from "../../vendor/openzeppelin-solidity/v4.7.3/contracts
 import {Address} from "../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol";
 import {UpkeepFormat} from "../interfaces/UpkeepTranscoderInterface.sol";
 import {IAutomationForwarder} from "../interfaces/IAutomationForwarder.sol";
-import {IAutomationV21PlusCommon} from "../interfaces/IAutomationV21PlusCommon.sol";
 
 contract KeeperRegistryLogicB2_1 is KeeperRegistryBase2_1 {
   using Address for address;
@@ -314,10 +313,10 @@ contract KeeperRegistryLogicB2_1 is KeeperRegistryBase2_1 {
    * @dev this function may be deprecated in a future version of automation in favor of individual
    * getters for each field
    */
-  function getUpkeep(uint256 id) external view returns (IAutomationV21PlusCommon.UpkeepInfoLegacy memory upkeepInfo) {
+  function getUpkeep(uint256 id) external view returns (UpkeepInfo memory upkeepInfo) {
     Upkeep memory reg = s_upkeep[id];
     address target = address(reg.forwarder) == address(0) ? address(0) : reg.forwarder.getTarget();
-    upkeepInfo = IAutomationV21PlusCommon.UpkeepInfoLegacy({
+    upkeepInfo = UpkeepInfo({
       target: target,
       performGas: reg.performGas,
       checkData: s_checkData[id],
@@ -403,14 +402,14 @@ contract KeeperRegistryLogicB2_1 is KeeperRegistryBase2_1 {
     external
     view
     returns (
-      IAutomationV21PlusCommon.StateLegacy memory state,
-      IAutomationV21PlusCommon.OnchainConfigLegacy memory config,
+      State memory state,
+      OnchainConfig memory config,
       address[] memory signers,
       address[] memory transmitters,
       uint8 f
     )
   {
-    state = IAutomationV21PlusCommon.StateLegacy({
+    state = State({
       nonce: s_storage.nonce,
       ownerLinkBalance: s_storage.ownerLinkBalance,
       expectedLinkBalance: s_expectedLinkBalance,
@@ -423,7 +422,7 @@ contract KeeperRegistryLogicB2_1 is KeeperRegistryBase2_1 {
       paused: s_hotVars.paused
     });
 
-    config = IAutomationV21PlusCommon.OnchainConfigLegacy({
+    config = OnchainConfig({
       paymentPremiumPPB: s_hotVars.paymentPremiumPPB,
       flatFeeMicroLink: s_hotVars.flatFeeMicroLink,
       checkGasLimit: s_storage.checkGasLimit,

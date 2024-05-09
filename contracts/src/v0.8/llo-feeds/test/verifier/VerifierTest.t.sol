@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.19;
+pragma solidity 0.8.16;
 
 import {BaseTest} from "./BaseVerifierTest.t.sol";
 import {Verifier} from "../../Verifier.sol";
+import {VerifierProxy} from "../../VerifierProxy.sol";
 
 contract VerifierConstructorTest is BaseTest {
   function test_revertsIfInitializedWithEmptyVerifierProxy() public {

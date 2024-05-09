@@ -3,33 +3,13 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "contract IERC20",
-        "name": "linkToken",
+        "name": "linkTokenAddress",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "minWaitPeriodSeconds",
+        "name": "topUpAmount",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint16",
-        "name": "maxPerform",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint16",
-        "name": "maxCheck",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint8",
-        "name": "upkeepInterval",
-        "type": "uint8"
       }
     ],
     "stateMutability": "nonpayable",
@@ -47,116 +27,9 @@
     "type": "error"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "target",
-        "type": "address"
-      }
-    ],
-    "name": "InvalidAddress",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "InvalidChainSelector",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "lt",
-        "type": "address"
-      }
-    ],
-    "name": "InvalidLinkTokenAddress",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint16",
-        "name": "maxCheck",
-        "type": "uint16"
-      }
-    ],
-    "name": "InvalidMaxCheck",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint96",
-        "name": "minBalance",
-        "type": "uint96"
-      }
-    ],
-    "name": "InvalidMinBalance",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint96",
-        "name": "topUpAmount",
-        "type": "uint96"
-      }
-    ],
-    "name": "InvalidTopUpAmount",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint8",
-        "name": "upkeepInterval",
-        "type": "uint8"
-      }
-    ],
-    "name": "InvalidUpkeepInterval",
-    "type": "error"
-  },
-  {
     "inputs": [],
     "name": "InvalidWatchList",
     "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint16",
-        "name": "maxPerform",
-        "type": "uint16"
-      }
-    ],
-    "name": "InvalixMaxPerform",
-    "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "addr",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldBalance",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newBalance",
-        "type": "uint256"
-      }
-    ],
-    "name": "BalanceUpdated",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -181,57 +54,38 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldMaxCheck",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newMaxCheck",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       }
     ],
-    "name": "MaxCheckSet",
+    "name": "OwnershipTransferRequested",
     "type": "event"
   },
   {
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldMaxPerform",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newMaxPerform",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       }
     ],
-    "name": "MaxPerformSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "s_minWaitPeriodSeconds",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "minWaitPeriodSeconds",
-        "type": "uint256"
-      }
-    ],
-    "name": "MinWaitPeriodSet",
+    "name": "OwnershipTransferred",
     "type": "event"
   },
   {
@@ -245,81 +99,6 @@
       }
     ],
     "name": "Paused",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "previousAdminRole",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "newAdminRole",
-        "type": "bytes32"
-      }
-    ],
-    "name": "RoleAdminChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
-    ],
-    "name": "RoleGranted",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
-    ],
-    "name": "RoleRevoked",
     "type": "event"
   },
   {
@@ -341,49 +120,11 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "recipient",
-        "type": "address"
-      }
-    ],
-    "name": "TopUpFailed",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
         "name": "topUpAddress",
         "type": "address"
       }
     ],
     "name": "TopUpSucceeded",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "addr",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldTopUpAmount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newTopUpAmount",
-        "type": "uint256"
-      }
-    ],
-    "name": "TopUpUpdated",
     "type": "event"
   },
   {
@@ -401,56 +142,70 @@
   },
   {
     "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "oldUpkeepInterval",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newUpkeepInterval",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpkeepIntervalSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
     "inputs": [],
     "name": "WatchlistUpdated",
     "type": "event"
   },
   {
     "inputs": [],
-    "name": "DEFAULT_ADMIN_ROLE",
+    "name": "LINK_TOKEN",
     "outputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "contract IERC20",
         "name": "",
-        "type": "bytes32"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "MAX_CHECK",
+    "outputs": [
       {
-        "internalType": "address",
-        "name": "targetAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "uint64",
-        "name": "dstChainSelector",
-        "type": "uint64"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    "name": "addToWatchListOrDecomission",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_PERFORM",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "addresses",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "minBalances",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "addToWatchList",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -483,65 +238,11 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "targetAddress",
+        "name": "target",
         "type": "address"
       }
     ],
-    "name": "getAccountInfo",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "isActive",
-        "type": "bool"
-      },
-      {
-        "internalType": "uint96",
-        "name": "minBalance",
-        "type": "uint96"
-      },
-      {
-        "internalType": "uint96",
-        "name": "topUpAmount",
-        "type": "uint96"
-      },
-      {
-        "internalType": "uint56",
-        "name": "lastTopUpTimestamp",
-        "type": "uint56"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getMaxCheck",
-    "outputs": [
-      {
-        "internalType": "uint16",
-        "name": "",
-        "type": "uint16"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getMaxPerform",
-    "outputs": [
-      {
-        "internalType": "uint16",
-        "name": "",
-        "type": "uint16"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getMinWaitPeriodSeconds",
+    "name": "getMinBalance",
     "outputs": [
       {
         "internalType": "uint256",
@@ -553,51 +254,13 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint64",
-        "name": "dstChainSelector",
-        "type": "uint64"
-      }
-    ],
-    "name": "getOnRampAddressAtChainSelector",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      }
-    ],
-    "name": "getRoleAdmin",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [],
-    "name": "getUpkeepInterval",
+    "name": "getTopUpAmount",
     "outputs": [
       {
-        "internalType": "uint8",
+        "internalType": "uint256",
         "name": "",
-        "type": "uint8"
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -611,48 +274,24 @@
         "internalType": "address[]",
         "name": "",
         "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
-    ],
-    "name": "grantRole",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
-    ],
-    "name": "hasRole",
+    "inputs": [],
+    "name": "owner",
     "outputs": [
       {
-        "internalType": "bool",
+        "internalType": "address",
         "name": "",
-        "type": "bool"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -694,54 +333,12 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "targetAddress",
-        "type": "address"
+        "internalType": "address[]",
+        "name": "addresses",
+        "type": "address[]"
       }
     ],
-    "name": "removeFromWatchList",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
-    ],
-    "name": "renounceRole",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
-    ],
-    "name": "revokeRole",
+    "name": "removeFromWatchlist",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -762,44 +359,24 @@
   {
     "inputs": [
       {
-        "internalType": "uint16",
-        "name": "maxCheck",
-        "type": "uint16"
-      }
-    ],
-    "name": "setMaxCheck",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint16",
-        "name": "maxPerform",
-        "type": "uint16"
-      }
-    ],
-    "name": "setMaxPerform",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "target",
         "type": "address"
       },
       {
-        "internalType": "uint96",
+        "internalType": "uint256",
         "name": "minBalance",
-        "type": "uint96"
+        "type": "uint256"
       }
     ],
     "name": "setMinBalance",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -807,43 +384,18 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "minWaitPeriodSeconds",
+        "name": "topUpAmount",
         "type": "uint256"
       }
     ],
-    "name": "setMinWaitPeriodSeconds",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "target",
-        "type": "address"
-      },
-      {
-        "internalType": "uint96",
-        "name": "topUpAmount",
-        "type": "uint96"
-      }
-    ],
     "name": "setTopUpAmount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
+    "outputs": [
       {
-        "internalType": "uint8",
-        "name": "upkeepInterval",
-        "type": "uint8"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    "name": "setUpkeepInterval",
-    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -855,43 +407,14 @@
         "type": "address[]"
       },
       {
-        "internalType": "uint96[]",
+        "internalType": "uint256[]",
         "name": "minBalances",
-        "type": "uint96[]"
-      },
-      {
-        "internalType": "uint96[]",
-        "name": "topUpAmounts",
-        "type": "uint96[]"
-      },
-      {
-        "internalType": "uint64[]",
-        "name": "dstChainSelectors",
-        "type": "uint64[]"
+        "type": "uint256[]"
       }
     ],
     "name": "setWatchList",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-      }
-    ],
-    "name": "supportsInterface",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -903,6 +426,19 @@
       }
     ],
     "name": "topUp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

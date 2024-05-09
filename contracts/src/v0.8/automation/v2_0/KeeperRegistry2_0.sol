@@ -5,7 +5,7 @@ import "../../vendor/openzeppelin-solidity/v4.7.3/contracts/proxy/Proxy.sol";
 import "../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/structs/EnumerableSet.sol";
 import "../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol";
 import "./KeeperRegistryBase2_0.sol";
-import {AutomationRegistryExecutableInterface, UpkeepInfo, State, OnchainConfig, UpkeepFailureReason} from "../interfaces/v2_0/AutomationRegistryInterface2_0.sol";
+import {AutomationRegistryExecutableInterface, UpkeepInfo} from "../interfaces/v2_0/AutomationRegistryInterface2_0.sol";
 import "../interfaces/MigratableKeeperRegistryInterface.sol";
 import "../interfaces/MigratableKeeperRegistryInterfaceV2.sol";
 import "../../shared/interfaces/IERC677Receiver.sol";
@@ -281,7 +281,7 @@ contract KeeperRegistry2_0 is
     uint64 offchainConfigVersion,
     bytes memory offchainConfig
   ) external override onlyOwner {
-    if (signers.length > MAX_NUM_ORACLES) revert TooManyOracles();
+    if (signers.length > maxNumOracles) revert TooManyOracles();
     if (f == 0) revert IncorrectNumberOfFaultyOracles();
     if (signers.length != transmitters.length || signers.length <= 3 * f) revert IncorrectNumberOfSigners();
 

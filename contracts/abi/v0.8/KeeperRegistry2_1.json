@@ -1000,7 +1000,7 @@
     "type": "event"
   },
   {
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "fallback"
   },
   {
@@ -1238,7 +1238,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct IAutomationV21PlusCommon.OnchainConfigLegacy",
+        "internalType": "struct KeeperRegistryBase2_1.OnchainConfig",
         "name": "onchainConfig",
         "type": "tuple"
       },

@@ -53,7 +53,7 @@
     "name": "COORDINATOR",
     "outputs": [
       {
-        "internalType": "contract IVRFCoordinatorV2PlusFulfill",
+        "internalType": "contract IVRFCoordinatorV2Plus",
         "name": "",
         "type": "address"
       }

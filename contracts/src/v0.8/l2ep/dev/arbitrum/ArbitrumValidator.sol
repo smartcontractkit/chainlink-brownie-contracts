@@ -1,17 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {AggregatorValidatorInterface} from "../../../shared/interfaces/AggregatorValidatorInterface.sol";
-import {TypeAndVersionInterface} from "../../../interfaces/TypeAndVersionInterface.sol";
-import {AccessControllerInterface} from "../../../shared/interfaces/AccessControllerInterface.sol";
-import {SimpleWriteAccessController} from "../../../shared/access/SimpleWriteAccessController.sol";
+import "../../../interfaces/AggregatorValidatorInterface.sol";
+import "../../../interfaces/TypeAndVersionInterface.sol";
+import "../../../shared/interfaces/AccessControllerInterface.sol";
+import "../../../interfaces/AggregatorV3Interface.sol";
+import "../../../shared/access/SimpleWriteAccessController.sol";
 
 /* ./dev dependencies - to be moved from ./dev after audit */
-import {ArbitrumSequencerUptimeFeedInterface} from "../interfaces/ArbitrumSequencerUptimeFeedInterface.sol";
-import {IArbitrumDelayedInbox} from "../interfaces/IArbitrumDelayedInbox.sol";
-import {AddressAliasHelper} from "../../../vendor/arb-bridge-eth/v0.8.0-custom/contracts/libraries/AddressAliasHelper.sol";
-import {ArbSys} from "../../../vendor/@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol";
-import {Address} from "../../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol";
+import "../interfaces/ArbitrumSequencerUptimeFeedInterface.sol";
+import "../../../dev/interfaces/FlagsInterface.sol";
+import "../interfaces/IArbitrumDelayedInbox.sol";
+import "../../../vendor/arb-bridge-eth/v0.8.0-custom/contracts/libraries/AddressAliasHelper.sol";
+import "../../../vendor/@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol";
+import "../../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol";
 
 /**
  * @title ArbitrumValidator - makes xDomain L2 Flags contract call (using L2 xDomain Forwarder contract)
@@ -34,17 +36,14 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
   }
 
   /// @dev Precompiled contract that exists in every Arbitrum chain at address(100). Exposes a variety of system-level functionality.
-  address internal constant ARBSYS_ADDR = address(0x0000000000000000000000000000000000000064);
+  address constant ARBSYS_ADDR = address(0x0000000000000000000000000000000000000064);
 
   int256 private constant ANSWER_SEQ_OFFLINE = 1;
 
   /// @notice The address of Arbitrum's DelayedInbox
-  // solhint-disable-next-line chainlink-solidity/prefix-immutable-variables-with-i
   address public immutable CROSS_DOMAIN_MESSENGER;
-  // solhint-disable-next-line chainlink-solidity/prefix-immutable-variables-with-i
   address public immutable L2_SEQ_STATUS_RECORDER;
   // L2 xDomain alias address of this contract
-  // solhint-disable-next-line chainlink-solidity/prefix-immutable-variables-with-i
   address public immutable L2_ALIAS = AddressAliasHelper.applyL1ToL2Alias(address(this));
 
   PaymentStrategy private s_paymentStrategy;
@@ -86,7 +85,7 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
    * @param maxGas gas limit for immediate L2 execution attempt. A value around 1M should be sufficient
    * @param gasPriceBid maximum L2 gas price to pay
    * @param gasPriceL1FeedAddr address of the L1 gas price feed (used to approximate Arbitrum retryable ticket submission cost)
-   * @param _paymentStrategy strategy describing how the contract pays for xDomain calls
+   * @param paymentStrategy strategy describing how the contract pays for xDomain calls
    */
   constructor(
     address crossDomainMessengerAddr,
@@ -96,18 +95,16 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
     uint256 gasPriceBid,
     uint256 baseFee,
     address gasPriceL1FeedAddr,
-    PaymentStrategy _paymentStrategy
+    PaymentStrategy paymentStrategy
   ) {
-    // solhint-disable-next-line gas-custom-errors
     require(crossDomainMessengerAddr != address(0), "Invalid xDomain Messenger address");
-    // solhint-disable-next-line gas-custom-errors
     require(l2ArbitrumSequencerUptimeFeedAddr != address(0), "Invalid ArbitrumSequencerUptimeFeed contract address");
     CROSS_DOMAIN_MESSENGER = crossDomainMessengerAddr;
     L2_SEQ_STATUS_RECORDER = l2ArbitrumSequencerUptimeFeedAddr;
     // Additional L2 payment configuration
     _setConfigAC(configACAddr);
     _setGasConfig(maxGas, gasPriceBid, baseFee, gasPriceL1FeedAddr);
-    _setPaymentStrategy(_paymentStrategy);
+    _setPaymentStrategy(paymentStrategy);
   }
 
   /**
@@ -204,8 +201,6 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
       message
     );
     emit L2WithdrawalRequested(id, amount, refundAddr);
-
-    return id;
   }
 
   /**
@@ -236,10 +231,10 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
   /**
    * @notice sets the payment strategy
    * @dev access control provided by `configAC`
-   * @param _paymentStrategy strategy describing how the contract pays for xDomain calls
+   * @param paymentStrategy strategy describing how the contract pays for xDomain calls
    */
-  function setPaymentStrategy(PaymentStrategy _paymentStrategy) external onlyOwnerOrConfigAccess {
-    _setPaymentStrategy(_paymentStrategy);
+  function setPaymentStrategy(PaymentStrategy paymentStrategy) external onlyOwnerOrConfigAccess {
+    _setPaymentStrategy(paymentStrategy);
   }
 
   /**
@@ -294,18 +289,15 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
   }
 
   /// @notice internal method that stores the payment strategy
-  function _setPaymentStrategy(PaymentStrategy _paymentStrategy) internal {
-    s_paymentStrategy = _paymentStrategy;
-    emit PaymentStrategySet(_paymentStrategy);
+  function _setPaymentStrategy(PaymentStrategy paymentStrategy) internal {
+    s_paymentStrategy = paymentStrategy;
+    emit PaymentStrategySet(paymentStrategy);
   }
 
   /// @notice internal method that stores the gas configuration
   function _setGasConfig(uint256 maxGas, uint256 gasPriceBid, uint256 baseFee, address gasPriceL1FeedAddr) internal {
-    // solhint-disable-next-line gas-custom-errors
     require(maxGas > 0, "Max gas is zero");
-    // solhint-disable-next-line gas-custom-errors
     require(gasPriceBid > 0, "Gas price bid is zero");
-    // solhint-disable-next-line gas-custom-errors
     require(gasPriceL1FeedAddr != address(0), "Gas price Aggregator is zero address");
     s_gasConfig = GasConfig(maxGas, gasPriceBid, baseFee, gasPriceL1FeedAddr);
     emit GasConfigSet(maxGas, gasPriceBid, gasPriceL1FeedAddr);
@@ -345,7 +337,6 @@ contract ArbitrumValidator is TypeAndVersionInterface, AggregatorValidatorInterf
 
   /// @dev reverts if the caller does not have access to change the configuration
   modifier onlyOwnerOrConfigAccess() {
-    // solhint-disable-next-line gas-custom-errors
     require(
       msg.sender == owner() || (address(s_configAC) != address(0) && s_configAC.hasAccess(msg.sender, msg.data)),
       "No access"

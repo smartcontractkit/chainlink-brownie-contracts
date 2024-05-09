@@ -15,11 +15,6 @@
         "internalType": "address",
         "name": "_coordinator",
         "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_subId",
-        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -31,66 +26,8 @@
     "type": "error"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint16",
-        "name": "expectedMinimumLength",
-        "type": "uint16"
-      },
-      {
-        "internalType": "uint16",
-        "name": "actualLength",
-        "type": "uint16"
-      }
-    ],
-    "name": "IncorrectExtraArgsLength",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint8",
-        "name": "premiumPercentage",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint8",
-        "name": "max",
-        "type": "uint8"
-      }
-    ],
-    "name": "InvalidPremiumPercentage",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "LINKPaymentInRequestRandomWordsInNative",
-    "type": "error"
-  },
-  {
     "inputs": [],
     "name": "LinkAlreadySet",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint32",
-        "name": "flatFeeLinkDiscountPPM",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "flatFeeNativePPM",
-        "type": "uint32"
-      }
-    ],
-    "name": "LinkDiscountTooHigh",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "NativePaymentInOnTokenTransfer",
     "type": "error"
   },
   {
@@ -132,156 +69,8 @@
   },
   {
     "inputs": [],
-    "name": "SubscriptionIdMissing",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "ZeroAddress",
     "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "wrapperGasOverhead",
-        "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "coordinatorGasOverhead",
-        "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint8",
-        "name": "coordinatorNativePremiumPercentage",
-        "type": "uint8"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint8",
-        "name": "coordinatorLinkPremiumPercentage",
-        "type": "uint8"
-      },
-      {
-        "indexed": false,
-        "internalType": "bytes32",
-        "name": "keyHash",
-        "type": "bytes32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint8",
-        "name": "maxNumWords",
-        "type": "uint8"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "stalenessSeconds",
-        "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "int256",
-        "name": "fallbackWeiPerUnitLink",
-        "type": "int256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeNativePPM",
-        "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkDiscountPPM",
-        "type": "uint32"
-      }
-    ],
-    "name": "ConfigSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "vrfCoordinator",
-        "type": "address"
-      }
-    ],
-    "name": "CoordinatorSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [],
-    "name": "Disabled",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [],
-    "name": "Enabled",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "requestId",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "int256",
-        "name": "fallbackWeiPerUnitLink",
-        "type": "int256"
-      }
-    ],
-    "name": "FallbackWeiPerUnitLinkUsed",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "size",
-        "type": "uint32"
-      }
-    ],
-    "name": "FulfillmentTxSizeSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "NativeWithdrawn",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -326,25 +115,6 @@
     "inputs": [
       {
         "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "Withdrawn",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
         "internalType": "uint256",
         "name": "requestId",
         "type": "uint256"
@@ -358,6 +128,19 @@
     ],
     "name": "WrapperFulfillmentFailed",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "COORDINATOR",
+    "outputs": [
+      {
+        "internalType": "contract ExtendedVRFCoordinatorV2PlusInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -415,24 +198,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "extraArgs",
-        "type": "bytes"
-      },
-      {
-        "internalType": "bool",
-        "name": "isLinkMode",
-        "type": "bool"
-      }
-    ],
-    "name": "checkPaymentMode",
-    "outputs": [],
-    "stateMutability": "pure",
     "type": "function"
   },
   {
@@ -513,12 +278,7 @@
       },
       {
         "internalType": "uint32",
-        "name": "fulfillmentFlatFeeNativePPM",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "fulfillmentFlatFeeLinkDiscountPPM",
+        "name": "fulfillmentFlatFeeLinkPPM",
         "type": "uint32"
       },
       {
@@ -533,12 +293,7 @@
       },
       {
         "internalType": "uint8",
-        "name": "wrapperNativePremiumPercentage",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint8",
-        "name": "wrapperLinkPremiumPercentage",
+        "name": "wrapperPremiumPercentage",
         "type": "uint8"
       },
       {
@@ -563,32 +318,6 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "link",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "linkNativeFeed",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -664,11 +393,6 @@
         "internalType": "uint32",
         "name": "_numWords",
         "type": "uint32"
-      },
-      {
-        "internalType": "bytes",
-        "name": "extraArgs",
-        "type": "bytes"
       }
     ],
     "name": "requestRandomWordsInNative",
@@ -703,9 +427,9 @@
         "type": "uint32"
       },
       {
-        "internalType": "uint64",
+        "internalType": "uint256",
         "name": "requestGasPrice",
-        "type": "uint64"
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -752,6 +476,32 @@
   },
   {
     "inputs": [],
+    "name": "s_link",
+    "outputs": [
+      {
+        "internalType": "contract LinkTokenInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_linkNativeFeed",
+    "outputs": [
+      {
+        "internalType": "contract AggregatorV3Interface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "s_vrfCoordinator",
     "outputs": [
       {
@@ -777,12 +527,7 @@
       },
       {
         "internalType": "uint8",
-        "name": "_coordinatorNativePremiumPercentage",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint8",
-        "name": "_coordinatorLinkPremiumPercentage",
+        "name": "_wrapperPremiumPercentage",
         "type": "uint8"
       },
       {
@@ -794,26 +539,6 @@
         "internalType": "uint8",
         "name": "_maxNumWords",
         "type": "uint8"
-      },
-      {
-        "internalType": "uint32",
-        "name": "_stalenessSeconds",
-        "type": "uint32"
-      },
-      {
-        "internalType": "int256",
-        "name": "_fallbackWeiPerUnitLink",
-        "type": "int256"
-      },
-      {
-        "internalType": "uint32",
-        "name": "_fulfillmentFlatFeeNativePPM",
-        "type": "uint32"
-      },
-      {
-        "internalType": "uint32",
-        "name": "_fulfillmentFlatFeeLinkDiscountPPM",
-        "type": "uint32"
       }
     ],
     "name": "setConfig",
@@ -851,6 +576,32 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "link",
+        "type": "address"
+      }
+    ],
+    "name": "setLINK",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "linkNativeFeed",
+        "type": "address"
+      }
+    ],
+    "name": "setLinkNativeFeed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "to",
         "type": "address"
       }
@@ -879,6 +630,11 @@
         "internalType": "address",
         "name": "_recipient",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       }
     ],
     "name": "withdraw",
@@ -892,6 +648,11 @@
         "internalType": "address",
         "name": "_recipient",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       }
     ],
     "name": "withdrawNative",

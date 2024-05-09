@@ -14,28 +14,13 @@
             "type": "address"
           }
         ],
-        "internalType": "struct TermsOfServiceAllowListConfig",
+        "internalType": "struct TermsOfServiceAllowList.Config",
         "name": "config",
         "type": "tuple"
-      },
-      {
-        "internalType": "address[]",
-        "name": "initialAllowedSenders",
-        "type": "address[]"
-      },
-      {
-        "internalType": "address[]",
-        "name": "initialBlockedSenders",
-        "type": "address[]"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "inputs": [],
-    "name": "InvalidCalldata",
-    "type": "error"
   },
   {
     "inputs": [],
@@ -95,7 +80,7 @@
           }
         ],
         "indexed": false,
-        "internalType": "struct TermsOfServiceAllowListConfig",
+        "internalType": "struct TermsOfServiceAllowList.Config",
         "name": "config",
         "type": "tuple"
       }
@@ -222,80 +207,6 @@
   },
   {
     "inputs": [],
-    "name": "getAllowedSendersCount",
-    "outputs": [
-      {
-        "internalType": "uint64",
-        "name": "",
-        "type": "uint64"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint64",
-        "name": "allowedSenderIdxStart",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint64",
-        "name": "allowedSenderIdxEnd",
-        "type": "uint64"
-      }
-    ],
-    "name": "getAllowedSendersInRange",
-    "outputs": [
-      {
-        "internalType": "address[]",
-        "name": "allowedSenders",
-        "type": "address[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getBlockedSendersCount",
-    "outputs": [
-      {
-        "internalType": "uint64",
-        "name": "",
-        "type": "uint64"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint64",
-        "name": "blockedSenderIdxStart",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint64",
-        "name": "blockedSenderIdxEnd",
-        "type": "uint64"
-      }
-    ],
-    "name": "getBlockedSendersInRange",
-    "outputs": [
-      {
-        "internalType": "address[]",
-        "name": "blockedSenders",
-        "type": "address[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "getConfig",
     "outputs": [
       {
@@ -311,7 +222,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct TermsOfServiceAllowListConfig",
+        "internalType": "struct TermsOfServiceAllowList.Config",
         "name": "",
         "type": "tuple"
       }
@@ -453,7 +364,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct TermsOfServiceAllowListConfig",
+        "internalType": "struct TermsOfServiceAllowList.Config",
         "name": "config",
         "type": "tuple"
       }

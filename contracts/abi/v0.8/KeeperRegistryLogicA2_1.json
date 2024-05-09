@@ -920,7 +920,7 @@
     "type": "event"
   },
   {
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "fallback"
   },
   {

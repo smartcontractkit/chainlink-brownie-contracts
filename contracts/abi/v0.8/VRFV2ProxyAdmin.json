@@ -21,7 +21,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract ITransparentUpgradeableProxy",
+        "internalType": "contract TransparentUpgradeableProxy",
         "name": "proxy",
         "type": "address"
       },
@@ -39,7 +39,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract ITransparentUpgradeableProxy",
+        "internalType": "contract TransparentUpgradeableProxy",
         "name": "proxy",
         "type": "address"
       }
@@ -58,7 +58,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract ITransparentUpgradeableProxy",
+        "internalType": "contract TransparentUpgradeableProxy",
         "name": "proxy",
         "type": "address"
       }
@@ -110,7 +110,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract ITransparentUpgradeableProxy",
+        "internalType": "contract TransparentUpgradeableProxy",
         "name": "proxy",
         "type": "address"
       },
@@ -128,7 +128,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract ITransparentUpgradeableProxy",
+        "internalType": "contract TransparentUpgradeableProxy",
         "name": "proxy",
         "type": "address"
       },

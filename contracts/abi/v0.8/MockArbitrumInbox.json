@@ -96,7 +96,7 @@
         "type": "address"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -127,42 +127,42 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "arbTxCallValue",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxSubmissionCost",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "submissionRefundAddress",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "valueRefundAddress",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "gasPriceBid",
         "type": "uint256"
       },
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -235,7 +235,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       }
     ],
@@ -254,22 +254,22 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxSubmissionCost",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGasPrice",
         "type": "uint256"
       }
     ],
@@ -288,27 +288,27 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "gasPriceBid",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "amount",
         "type": "uint256"
       },
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -320,29 +320,29 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "gasPriceBid",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -361,27 +361,27 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "gasPriceBid",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "nonce",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -400,7 +400,7 @@
     "inputs": [
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "messageData",
         "type": "bytes"
       }
     ],
@@ -412,39 +412,39 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxGas",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "gasPriceBid",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "nonce",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "destAddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "amount",
         "type": "uint256"
       },
       {
         "internalType": "bytes",
-        "name": "",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -456,7 +456,7 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

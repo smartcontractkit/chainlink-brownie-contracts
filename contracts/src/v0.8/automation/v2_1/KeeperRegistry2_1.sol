@@ -3,12 +3,12 @@ pragma solidity 0.8.16;
 
 import {EnumerableSet} from "../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/structs/EnumerableSet.sol";
 import {Address} from "../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol";
+import {Proxy} from "../../vendor/openzeppelin-solidity/v4.7.3/contracts/proxy/Proxy.sol";
 import {KeeperRegistryBase2_1} from "./KeeperRegistryBase2_1.sol";
 import {KeeperRegistryLogicB2_1} from "./KeeperRegistryLogicB2_1.sol";
 import {Chainable} from "../Chainable.sol";
 import {IERC677Receiver} from "../../shared/interfaces/IERC677Receiver.sol";
 import {OCR2Abstract} from "../../shared/ocr2/OCR2Abstract.sol";
-import {IAutomationV21PlusCommon} from "../interfaces/IAutomationV21PlusCommon.sol";
 
 /**
  * @notice Registry for adding work for Chainlink Keepers to perform on client
@@ -237,7 +237,7 @@ contract KeeperRegistry2_1 is KeeperRegistryBase2_1, OCR2Abstract, Chainable, IE
       signers,
       transmitters,
       f,
-      abi.decode(onchainConfigBytes, (IAutomationV21PlusCommon.OnchainConfigLegacy)),
+      abi.decode(onchainConfigBytes, (OnchainConfig)),
       offchainConfigVersion,
       offchainConfig
     );
@@ -247,11 +247,11 @@ contract KeeperRegistry2_1 is KeeperRegistryBase2_1, OCR2Abstract, Chainable, IE
     address[] memory signers,
     address[] memory transmitters,
     uint8 f,
-    IAutomationV21PlusCommon.OnchainConfigLegacy memory onchainConfig,
+    OnchainConfig memory onchainConfig,
     uint64 offchainConfigVersion,
     bytes memory offchainConfig
   ) public onlyOwner {
-    if (signers.length > MAX_NUM_ORACLES) revert TooManyOracles();
+    if (signers.length > maxNumOracles) revert TooManyOracles();
     if (f == 0) revert IncorrectNumberOfFaultyOracles();
     if (signers.length != transmitters.length || signers.length <= 3 * f) revert IncorrectNumberOfSigners();
 

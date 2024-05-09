@@ -2,9 +2,8 @@
 
 pragma solidity ^0.8.0;
 
-import {UpkeepTranscoderInterface} from "./interfaces/UpkeepTranscoderInterface.sol";
-import {TypeAndVersionInterface} from "../interfaces/TypeAndVersionInterface.sol";
-import {UpkeepFormat} from "./UpkeepFormat.sol";
+import "./interfaces/UpkeepTranscoderInterface.sol";
+import "../interfaces/TypeAndVersionInterface.sol";
 
 /**
  * @notice Transcoder for converting upkeep data from one keeper

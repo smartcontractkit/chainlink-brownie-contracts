@@ -493,35 +493,6 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "errCode",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "extraData",
-        "type": "bytes"
-      }
-    ],
-    "name": "checkErrorHandler",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
         "name": "",
         "type": "uint256"
       }
@@ -1137,7 +1108,7 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct IAutomationV21PlusCommon.UpkeepInfoLegacy",
+        "internalType": "struct KeeperRegistryBase2_1.UpkeepInfo",
         "name": "",
         "type": "tuple"
       }

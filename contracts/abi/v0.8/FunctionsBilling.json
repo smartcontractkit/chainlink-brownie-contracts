@@ -28,17 +28,6 @@
   {
     "inputs": [
       {
-        "internalType": "int256",
-        "name": "usdLink",
-        "type": "int256"
-      }
-    ],
-    "name": "InvalidUsdLinkPrice",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "owner",
         "type": "address"
@@ -121,9 +110,14 @@
             "type": "uint32"
           },
           {
-            "internalType": "uint40",
-            "name": "minimumEstimateGasPriceWei",
-            "type": "uint40"
+            "internalType": "uint32",
+            "name": "requestTimeoutSeconds",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint72",
+            "name": "donFee",
+            "type": "uint72"
           },
           {
             "internalType": "uint16",
@@ -131,92 +125,18 @@
             "type": "uint16"
           },
           {
-            "internalType": "uint64",
-            "name": "fallbackUsdPerUnitLink",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint8",
-            "name": "fallbackUsdPerUnitLinkDecimals",
-            "type": "uint8"
-          },
-          {
             "internalType": "uint224",
             "name": "fallbackNativePerUnitLink",
             "type": "uint224"
-          },
-          {
-            "internalType": "uint32",
-            "name": "requestTimeoutSeconds",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint16",
-            "name": "donFeeCentsUsd",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint16",
-            "name": "operationFeeCentsUsd",
-            "type": "uint16"
           }
         ],
         "indexed": false,
-        "internalType": "struct FunctionsBillingConfig",
+        "internalType": "struct FunctionsBilling.Config",
         "name": "config",
         "type": "tuple"
       }
     ],
     "name": "ConfigUpdated",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint96",
-        "name": "juelsPerGas",
-        "type": "uint96"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "l1FeeShareWei",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint96",
-        "name": "callbackCostJuels",
-        "type": "uint96"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint72",
-        "name": "donFeeJuels",
-        "type": "uint72"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint72",
-        "name": "adminFeeJuels",
-        "type": "uint72"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint72",
-        "name": "operationFeeJuels",
-        "type": "uint72"
-      }
-    ],
-    "name": "RequestBilled",
     "type": "event"
   },
   {
@@ -268,7 +188,7 @@
   },
   {
     "inputs": [],
-    "name": "getAdminFeeJuels",
+    "name": "getAdminFee",
     "outputs": [
       {
         "internalType": "uint72",
@@ -306,9 +226,14 @@
             "type": "uint32"
           },
           {
-            "internalType": "uint40",
-            "name": "minimumEstimateGasPriceWei",
-            "type": "uint40"
+            "internalType": "uint32",
+            "name": "requestTimeoutSeconds",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint72",
+            "name": "donFee",
+            "type": "uint72"
           },
           {
             "internalType": "uint16",
@@ -316,37 +241,12 @@
             "type": "uint16"
           },
           {
-            "internalType": "uint64",
-            "name": "fallbackUsdPerUnitLink",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint8",
-            "name": "fallbackUsdPerUnitLinkDecimals",
-            "type": "uint8"
-          },
-          {
             "internalType": "uint224",
             "name": "fallbackNativePerUnitLink",
             "type": "uint224"
-          },
-          {
-            "internalType": "uint32",
-            "name": "requestTimeoutSeconds",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint16",
-            "name": "donFeeCentsUsd",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint16",
-            "name": "operationFeeCentsUsd",
-            "type": "uint16"
           }
         ],
-        "internalType": "struct FunctionsBillingConfig",
+        "internalType": "struct FunctionsBilling.Config",
         "name": "",
         "type": "tuple"
       }
@@ -362,43 +262,12 @@
         "type": "bytes"
       }
     ],
-    "name": "getDONFeeJuels",
+    "name": "getDONFee",
     "outputs": [
       {
         "internalType": "uint72",
         "name": "",
         "type": "uint72"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getOperationFeeJuels",
-    "outputs": [
-      {
-        "internalType": "uint72",
-        "name": "",
-        "type": "uint72"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getUsdPerUnitLink",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
       }
     ],
     "stateMutability": "view",
@@ -480,9 +349,14 @@
             "type": "uint32"
           },
           {
-            "internalType": "uint40",
-            "name": "minimumEstimateGasPriceWei",
-            "type": "uint40"
+            "internalType": "uint32",
+            "name": "requestTimeoutSeconds",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint72",
+            "name": "donFee",
+            "type": "uint72"
           },
           {
             "internalType": "uint16",
@@ -490,37 +364,12 @@
             "type": "uint16"
           },
           {
-            "internalType": "uint64",
-            "name": "fallbackUsdPerUnitLink",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint8",
-            "name": "fallbackUsdPerUnitLinkDecimals",
-            "type": "uint8"
-          },
-          {
             "internalType": "uint224",
             "name": "fallbackNativePerUnitLink",
             "type": "uint224"
-          },
-          {
-            "internalType": "uint32",
-            "name": "requestTimeoutSeconds",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint16",
-            "name": "donFeeCentsUsd",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint16",
-            "name": "operationFeeCentsUsd",
-            "type": "uint16"
           }
         ],
-        "internalType": "struct FunctionsBillingConfig",
+        "internalType": "struct FunctionsBilling.Config",
         "name": "config",
         "type": "tuple"
       }

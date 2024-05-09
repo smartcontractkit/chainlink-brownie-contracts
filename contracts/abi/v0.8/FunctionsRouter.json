@@ -827,7 +827,7 @@
       },
       {
         "internalType": "uint96",
-        "name": "costWithoutFulfillment",
+        "name": "costWithoutCallback",
         "type": "uint96"
       },
       {

@@ -38,7 +38,7 @@
       },
       {
         "internalType": "enum ArbitrumValidator.PaymentStrategy",
-        "name": "_paymentStrategy",
+        "name": "paymentStrategy",
         "type": "uint8"
       }
     ],
@@ -445,7 +445,7 @@
     "inputs": [
       {
         "internalType": "enum ArbitrumValidator.PaymentStrategy",
-        "name": "_paymentStrategy",
+        "name": "paymentStrategy",
         "type": "uint8"
       }
     ],

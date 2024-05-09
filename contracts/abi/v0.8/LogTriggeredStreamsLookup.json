@@ -10,11 +10,6 @@
         "internalType": "bool",
         "name": "_verify",
         "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "_checkErrReturnBool",
-        "type": "bool"
       }
     ],
     "stateMutability": "nonpayable",
@@ -50,37 +45,6 @@
     ],
     "name": "StreamsLookup",
     "type": "error"
-  },
-  {
-    "anonymous": false,
-    "inputs": [],
-    "name": "IgnoringErrorHandlerData",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "orderId",
-        "type": "uint256"
-      },
-      {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "exchange",
-        "type": "address"
-      }
-    ],
-    "name": "LimitOrderExecuted",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -161,48 +125,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "checkErrReturnBool",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "errCode",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "extraData",
-        "type": "bytes"
-      }
-    ],
-    "name": "checkErrorHandler",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "components": [
@@ -271,19 +193,6 @@
       }
     ],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "counter",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -366,13 +275,6 @@
       }
     ],
     "name": "setTimeParamKey",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "start",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

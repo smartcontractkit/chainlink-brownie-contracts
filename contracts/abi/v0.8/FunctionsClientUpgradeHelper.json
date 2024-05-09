@@ -219,40 +219,6 @@
   {
     "inputs": [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "callbackGasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "donId",
-        "type": "bytes32"
-      }
-    ],
-    "name": "sendRequestBytes",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "bytes32",
         "name": "donId",
         "type": "bytes32"

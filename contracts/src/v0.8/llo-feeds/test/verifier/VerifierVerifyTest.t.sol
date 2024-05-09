@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.19;
+pragma solidity 0.8.16;
 
 import {BaseTestWithConfiguredVerifierAndFeeManager} from "./BaseVerifierTest.t.sol";
 import {Verifier} from "../../Verifier.sol";
 import {VerifierProxy} from "../../VerifierProxy.sol";
 import {AccessControllerInterface} from "../../../shared/interfaces/AccessControllerInterface.sol";
-import {Common} from "../../libraries/Common.sol";
+import {Common} from "../../../libraries/Common.sol";
 
 contract VerifierVerifyTest is BaseTestWithConfiguredVerifierAndFeeManager {
   bytes32[3] internal s_reportContext;

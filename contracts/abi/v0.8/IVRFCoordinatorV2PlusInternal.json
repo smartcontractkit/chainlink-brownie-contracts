@@ -31,12 +31,6 @@
         "internalType": "bool",
         "name": "success",
         "type": "bool"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "onlyPremium",
-        "type": "bool"
       }
     ],
     "name": "RandomWordsFulfilled",
@@ -268,11 +262,6 @@
         "internalType": "struct IVRFCoordinatorV2PlusInternal.RequestCommitment",
         "name": "rc",
         "type": "tuple"
-      },
-      {
-        "internalType": "bool",
-        "name": "onlyPremium",
-        "type": "bool"
       }
     ],
     "name": "fulfillRandomWords",
