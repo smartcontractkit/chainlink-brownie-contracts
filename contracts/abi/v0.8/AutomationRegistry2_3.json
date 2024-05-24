@@ -380,7 +380,7 @@
     "inputs": [
       {
         "indexed": true,
-        "internalType": "contract IERC20",
+        "internalType": "contract IERC20Metadata",
         "name": "token",
         "type": "address"
       },
@@ -400,6 +400,11 @@
             "internalType": "contract AggregatorV3Interface",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint8",
+            "name": "decimals",
+            "type": "uint8"
           },
           {
             "internalType": "uint256",
@@ -940,6 +945,67 @@
         "type": "uint256"
       },
       {
+        "components": [
+          {
+            "internalType": "uint96",
+            "name": "gasChargeInBillingToken",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "premiumInBillingToken",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "gasReimbursementInJuels",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "premiumInJuels",
+            "type": "uint96"
+          },
+          {
+            "internalType": "contract IERC20Metadata",
+            "name": "billingToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "linkUSD",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "nativeUSD",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint96",
+            "name": "billingUSD",
+            "type": "uint96"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct AutomationRegistryBase2_3.PaymentReceipt",
+        "name": "receipt",
+        "type": "tuple"
+      }
+    ],
+    "name": "UpkeepCharged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
         "indexed": false,
         "internalType": "bytes",
         "name": "newCheckData",
@@ -1181,24 +1247,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      }
-    ],
-    "name": "addFunds",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "fallbackTo",
     "outputs": [
@@ -1255,29 +1303,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      }
-    ],
-    "name": "onTokenTransfer",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1446,7 +1471,7 @@
         "type": "bytes"
       },
       {
-        "internalType": "contract IERC20[]",
+        "internalType": "contract IERC20Metadata[]",
         "name": "billingTokens",
         "type": "address[]"
       },
@@ -1466,6 +1491,11 @@
             "internalType": "contract AggregatorV3Interface",
             "name": "priceFeed",
             "type": "address"
+          },
+          {
+            "internalType": "uint8",
+            "name": "decimals",
+            "type": "uint8"
           },
           {
             "internalType": "uint256",

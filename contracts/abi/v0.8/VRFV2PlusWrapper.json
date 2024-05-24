@@ -152,8 +152,20 @@
       {
         "indexed": false,
         "internalType": "uint32",
-        "name": "coordinatorGasOverhead",
+        "name": "coordinatorGasOverheadNative",
         "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "coordinatorGasOverheadLink",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint16",
+        "name": "coordinatorGasOverheadPerWord",
+        "type": "uint16"
       },
       {
         "indexed": false,
@@ -385,6 +397,11 @@
         "internalType": "uint32",
         "name": "_callbackGasLimit",
         "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_numWords",
+        "type": "uint32"
       }
     ],
     "name": "calculateRequestPrice",
@@ -403,6 +420,11 @@
       {
         "internalType": "uint32",
         "name": "_callbackGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_numWords",
         "type": "uint32"
       }
     ],
@@ -457,6 +479,11 @@
         "type": "uint32"
       },
       {
+        "internalType": "uint32",
+        "name": "_numWords",
+        "type": "uint32"
+      },
+      {
         "internalType": "uint256",
         "name": "_requestGasPriceWei",
         "type": "uint256"
@@ -478,6 +505,11 @@
       {
         "internalType": "uint32",
         "name": "_callbackGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_numWords",
         "type": "uint32"
       },
       {
@@ -528,8 +560,18 @@
       },
       {
         "internalType": "uint32",
-        "name": "coordinatorGasOverhead",
+        "name": "coordinatorGasOverheadNative",
         "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "coordinatorGasOverheadLink",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint16",
+        "name": "coordinatorGasOverheadPerWord",
+        "type": "uint16"
       },
       {
         "internalType": "uint8",
@@ -772,8 +814,18 @@
       },
       {
         "internalType": "uint32",
-        "name": "_coordinatorGasOverhead",
+        "name": "_coordinatorGasOverheadNative",
         "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_coordinatorGasOverheadLink",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_coordinatorGasOverheadPerWord",
+        "type": "uint16"
       },
       {
         "internalType": "uint8",

@@ -193,38 +193,12 @@
   },
   {
     "inputs": [],
-    "name": "currentPrice",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "eur",
     "outputs": [
       {
         "internalType": "bytes32",
-        "name": "",
+        "name": "_value",
         "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "eurInt",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -306,12 +280,12 @@
   },
   {
     "inputs": [],
-    "name": "jpy",
+    "name": "getCurrentPrice",
     "outputs": [
       {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
+        "internalType": "bytes",
+        "name": "_value",
+        "type": "bytes"
       }
     ],
     "stateMutability": "view",
@@ -319,12 +293,12 @@
   },
   {
     "inputs": [],
-    "name": "jpyInt",
+    "name": "jpy",
     "outputs": [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "_value",
+        "type": "bytes32"
       }
     ],
     "stateMutability": "view",
@@ -441,21 +415,8 @@
     "outputs": [
       {
         "internalType": "bytes32",
-        "name": "",
+        "name": "_value",
         "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "usdInt",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",

@@ -1,0 +1,25 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "workflowId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "workflowOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "report",
+        "type": "bytes"
+      }
+    ],
+    "name": "onReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

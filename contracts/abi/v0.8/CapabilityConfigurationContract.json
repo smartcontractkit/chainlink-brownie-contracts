@@ -1,0 +1,46 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "CapabilityConfigurationSet",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "donId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getCapabilityConfiguration",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "configuration",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

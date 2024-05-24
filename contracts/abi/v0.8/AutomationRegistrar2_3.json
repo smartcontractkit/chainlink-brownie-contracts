@@ -34,7 +34,7 @@
         "type": "tuple[]"
       },
       {
-        "internalType": "contract IERC20[]",
+        "internalType": "contract IERC20Metadata[]",
         "name": "billingTokens",
         "type": "address[]"
       },
@@ -51,6 +51,11 @@
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "DuplicateEntry",
+    "type": "error"
   },
   {
     "inputs": [],
@@ -339,7 +344,7 @@
             "type": "uint8"
           },
           {
-            "internalType": "contract IERC20",
+            "internalType": "contract IERC20Metadata",
             "name": "billingToken",
             "type": "address"
           },
@@ -372,11 +377,6 @@
         "internalType": "struct AutomationRegistrar2_3.RegistrationParams",
         "name": "requestParams",
         "type": "tuple"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "hash",
-        "type": "bytes32"
       }
     ],
     "name": "approve",
@@ -419,7 +419,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract IERC20",
+        "internalType": "contract IERC20Metadata",
         "name": "billingToken",
         "type": "address"
       }
@@ -600,7 +600,7 @@
             "type": "uint8"
           },
           {
-            "internalType": "contract IERC20",
+            "internalType": "contract IERC20Metadata",
             "name": "billingToken",
             "type": "address"
           },
@@ -672,7 +672,7 @@
         "type": "address"
       },
       {
-        "internalType": "contract IERC20[]",
+        "internalType": "contract IERC20Metadata[]",
         "name": "billingTokens",
         "type": "address[]"
       },

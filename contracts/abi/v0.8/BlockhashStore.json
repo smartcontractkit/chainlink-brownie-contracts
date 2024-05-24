@@ -32,13 +32,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "storeEarliest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",

@@ -86,6 +86,22 @@
     "type": "error"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "gasPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxGas",
+        "type": "uint256"
+      }
+    ],
+    "name": "GasPriceExceeded",
+    "type": "error"
+  },
+  {
     "inputs": [],
     "name": "IncorrectCommitment",
     "type": "error"
@@ -156,6 +172,22 @@
   {
     "inputs": [
       {
+        "internalType": "uint8",
+        "name": "premiumPercentage",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "max",
+        "type": "uint8"
+      }
+    ],
+    "name": "InvalidPremiumPercentage",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint16",
         "name": "have",
         "type": "uint16"
@@ -201,8 +233,40 @@
     "type": "error"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "flatFeeLinkDiscountPPM",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "flatFeeNativePPM",
+        "type": "uint32"
+      }
+    ],
+    "name": "LinkDiscountTooHigh",
+    "type": "error"
+  },
+  {
     "inputs": [],
     "name": "LinkNotSet",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "have",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "max",
+        "type": "uint32"
+      }
+    ],
+    "name": "MsgDataTooBig",
     "type": "error"
   },
   {
@@ -335,6 +399,18 @@
       },
       {
         "indexed": false,
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeNativePPM",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "fulfillmentFlatFeeLinkDiscountPPM",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
         "internalType": "uint8",
         "name": "nativePremiumPercentage",
         "type": "uint8"
@@ -360,6 +436,25 @@
       }
     ],
     "name": "CoordinatorRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "requestId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "fallbackWeiPerUnitLink",
+        "type": "int256"
+      }
+    ],
+    "name": "FallbackWeiPerUnitLinkUsed",
     "type": "event"
   },
   {
@@ -465,6 +560,12 @@
         "internalType": "bytes32",
         "name": "keyHash",
         "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "maxGas",
+        "type": "uint64"
       }
     ],
     "name": "ProvingKeyRegistered",
@@ -488,7 +589,7 @@
       {
         "indexed": true,
         "internalType": "uint256",
-        "name": "subID",
+        "name": "subId",
         "type": "uint256"
       },
       {
@@ -500,7 +601,19 @@
       {
         "indexed": false,
         "internalType": "bool",
+        "name": "nativePayment",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
         "name": "success",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "onlyPremium",
         "type": "bool"
       }
     ],
@@ -990,13 +1103,13 @@
             "type": "bytes"
           }
         ],
-        "internalType": "struct VRFCoordinatorV2PlusUpgradedVersion.RequestCommitment",
+        "internalType": "struct VRFTypes.RequestCommitmentV2Plus",
         "name": "rc",
         "type": "tuple"
       },
       {
         "internalType": "bool",
-        "name": "",
+        "name": "onlyPremium",
         "type": "bool"
       }
     ],
@@ -1004,7 +1117,7 @@
     "outputs": [
       {
         "internalType": "uint96",
-        "name": "",
+        "name": "payment",
         "type": "uint96"
       }
     ],
@@ -1286,6 +1399,11 @@
         "internalType": "uint256[2]",
         "name": "publicProvingKey",
         "type": "uint256[2]"
+      },
+      {
+        "internalType": "uint64",
+        "name": "maxGas",
+        "type": "uint64"
       }
     ],
     "name": "registerProvingKey",
@@ -1355,7 +1473,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "requestId",
         "type": "uint256"
       }
     ],
@@ -1447,6 +1565,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "s_fallbackWeiPerUnitLink",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -1460,6 +1591,30 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "s_provingKeys",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint64",
+        "name": "maxGas",
+        "type": "uint64"
       }
     ],
     "stateMutability": "view",

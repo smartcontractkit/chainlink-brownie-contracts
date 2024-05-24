@@ -1,0 +1,55 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "workflowId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "workflowOwner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes[]",
+        "name": "mercuryReports",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "MessageReceived",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "workflowId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "workflowOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "rawReport",
+        "type": "bytes"
+      }
+    ],
+    "name": "onReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

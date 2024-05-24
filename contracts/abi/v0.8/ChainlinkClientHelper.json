@@ -51,7 +51,7 @@
   },
   {
     "inputs": [],
-    "name": "FULFILSELECTOR",
+    "name": "FULFILL_SELECTOR",
     "outputs": [
       {
         "internalType": "bytes4",
