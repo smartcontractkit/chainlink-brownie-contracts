@@ -8,9 +8,37 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "bytes32[]",
+        "name": "",
+        "type": "bytes32[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "config",
+        "type": "bytes"
+      },
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint32",
         "name": "donId",
-        "type": "uint256"
+        "type": "uint32"
+      }
+    ],
+    "name": "beforeCapabilityConfigSet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "donId",
+        "type": "uint32"
       }
     ],
     "name": "getCapabilityConfiguration",

@@ -5,19 +5,6 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
-      }
-    ],
-    "name": "acceptUpkeepAdmin",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
       },
       {
         "internalType": "uint96",
@@ -49,38 +36,38 @@
         "internalType": "uint256",
         "name": "upkeepId",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       }
     ],
     "name": "checkUpkeep",
     "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
       {
         "internalType": "bytes",
         "name": "performData",
         "type": "bytes"
       },
       {
-        "internalType": "enum UpkeepFailureReason",
-        "name": "upkeepFailureReason",
-        "type": "uint8"
-      },
-      {
         "internalType": "uint256",
-        "name": "gasUsed",
+        "name": "maxLinkPayment",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "fastGasWei",
+        "name": "gasLimit",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "linkNative",
+        "name": "adjustedGasWei",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "linkEth",
         "type": "uint256"
       }
     ],
@@ -112,6 +99,35 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "query",
+        "type": "address"
+      }
+    ],
+    "name": "getKeeperInfo",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "payee",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "active",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint96",
+        "name": "balance",
+        "type": "uint96"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "getState",
     "outputs": [
@@ -133,43 +149,13 @@
             "type": "uint256"
           },
           {
-            "internalType": "uint96",
-            "name": "totalPremium",
-            "type": "uint96"
-          },
-          {
             "internalType": "uint256",
             "name": "numUpkeeps",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint32",
-            "name": "configCount",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "latestConfigBlockNumber",
-            "type": "uint32"
-          },
-          {
-            "internalType": "bytes32",
-            "name": "latestConfigDigest",
-            "type": "bytes32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "latestEpoch",
-            "type": "uint32"
-          },
-          {
-            "internalType": "bool",
-            "name": "paused",
-            "type": "bool"
           }
         ],
         "internalType": "struct State",
-        "name": "state",
+        "name": "",
         "type": "tuple"
       },
       {
@@ -183,6 +169,11 @@
             "internalType": "uint32",
             "name": "flatFeeMicroLink",
             "type": "uint32"
+          },
+          {
+            "internalType": "uint24",
+            "name": "blockCountPerTurn",
+            "type": "uint24"
           },
           {
             "internalType": "uint32",
@@ -210,16 +201,6 @@
             "type": "uint32"
           },
           {
-            "internalType": "uint32",
-            "name": "maxCheckDataSize",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint32",
-            "name": "maxPerformDataSize",
-            "type": "uint32"
-          },
-          {
             "internalType": "uint256",
             "name": "fallbackGasPrice",
             "type": "uint256"
@@ -240,63 +221,14 @@
             "type": "address"
           }
         ],
-        "internalType": "struct OnchainConfig",
-        "name": "config",
+        "internalType": "struct Config",
+        "name": "",
         "type": "tuple"
       },
       {
         "internalType": "address[]",
-        "name": "signers",
+        "name": "",
         "type": "address[]"
-      },
-      {
-        "internalType": "address[]",
-        "name": "transmitters",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint8",
-        "name": "f",
-        "type": "uint8"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "query",
-        "type": "address"
-      }
-    ],
-    "name": "getTransmitterInfo",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "active",
-        "type": "bool"
-      },
-      {
-        "internalType": "uint8",
-        "name": "index",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint96",
-        "name": "balance",
-        "type": "uint96"
-      },
-      {
-        "internalType": "uint96",
-        "name": "lastCollected",
-        "type": "uint96"
-      },
-      {
-        "internalType": "address",
-        "name": "payee",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -313,61 +245,44 @@
     "name": "getUpkeep",
     "outputs": [
       {
-        "components": [
-          {
-            "internalType": "address",
-            "name": "target",
-            "type": "address"
-          },
-          {
-            "internalType": "uint32",
-            "name": "executeGas",
-            "type": "uint32"
-          },
-          {
-            "internalType": "bytes",
-            "name": "checkData",
-            "type": "bytes"
-          },
-          {
-            "internalType": "uint96",
-            "name": "balance",
-            "type": "uint96"
-          },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "uint64",
-            "name": "maxValidBlocknumber",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint32",
-            "name": "lastPerformBlockNumber",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint96",
-            "name": "amountSpent",
-            "type": "uint96"
-          },
-          {
-            "internalType": "bool",
-            "name": "paused",
-            "type": "bool"
-          },
-          {
-            "internalType": "bytes",
-            "name": "offchainConfig",
-            "type": "bytes"
-          }
-        ],
-        "internalType": "struct UpkeepInfo",
-        "name": "upkeepInfo",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "target",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "executeGas",
+        "type": "uint32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "checkData",
+        "type": "bytes"
+      },
+      {
+        "internalType": "uint96",
+        "name": "balance",
+        "type": "uint96"
+      },
+      {
+        "internalType": "address",
+        "name": "lastKeeper",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "internalType": "uint64",
+        "name": "maxValidBlocknumber",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint96",
+        "name": "amountSpent",
+        "type": "uint96"
       }
     ],
     "stateMutability": "view",
@@ -379,10 +294,21 @@
         "internalType": "uint256",
         "name": "id",
         "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "performData",
+        "type": "bytes"
       }
     ],
-    "name": "pauseUpkeep",
-    "outputs": [],
+    "name": "performUpkeep",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -406,11 +332,6 @@
       {
         "internalType": "bytes",
         "name": "checkData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "bytes",
-        "name": "offchainConfig",
         "type": "bytes"
       }
     ],
@@ -439,73 +360,6 @@
       }
     ],
     "name": "setUpkeepGasLimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "config",
-        "type": "bytes"
-      }
-    ],
-    "name": "setUpkeepOffchainConfig",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "proposed",
-        "type": "address"
-      }
-    ],
-    "name": "transferUpkeepAdmin",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      }
-    ],
-    "name": "unpauseUpkeep",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "newCheckData",
-        "type": "bytes"
-      }
-    ],
-    "name": "updateCheckData",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -7,6 +7,17 @@
   {
     "inputs": [
       {
+        "internalType": "bytes32",
+        "name": "transmissionId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "AlreadyAttempted",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "signer",
         "type": "address"
@@ -55,12 +66,12 @@
   {
     "inputs": [
       {
-        "internalType": "uint32",
-        "name": "donId",
-        "type": "uint32"
+        "internalType": "uint64",
+        "name": "configId",
+        "type": "uint64"
       }
     ],
-    "name": "InvalidDonId",
+    "name": "InvalidConfig",
     "type": "error"
   },
   {
@@ -108,19 +119,65 @@
   },
   {
     "inputs": [],
-    "name": "ReentrantCall",
+    "name": "UnauthorizedForwarder",
     "type": "error"
   },
   {
+    "anonymous": false,
     "inputs": [
       {
-        "internalType": "bytes32",
-        "name": "reportId",
-        "type": "bytes32"
+        "indexed": true,
+        "internalType": "uint32",
+        "name": "donId",
+        "type": "uint32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint32",
+        "name": "configVersion",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "f",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "signers",
+        "type": "address[]"
       }
     ],
-    "name": "ReportAlreadyProcessed",
-    "type": "error"
+    "name": "ConfigSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "forwarder",
+        "type": "address"
+      }
+    ],
+    "name": "ForwarderAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "forwarder",
+        "type": "address"
+      }
+    ],
+    "name": "ForwarderRemoved",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -171,15 +228,15 @@
       },
       {
         "indexed": true,
-        "internalType": "address",
-        "name": "workflowOwner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
         "internalType": "bytes32",
         "name": "workflowExecutionId",
         "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes2",
+        "name": "reportId",
+        "type": "bytes2"
       },
       {
         "indexed": false,
@@ -202,6 +259,37 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "forwarder",
+        "type": "address"
+      }
+    ],
+    "name": "addForwarder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "donId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "configVersion",
+        "type": "uint32"
+      }
+    ],
+    "name": "clearConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "receiver",
         "type": "address"
       },
@@ -209,6 +297,69 @@
         "internalType": "bytes32",
         "name": "workflowExecutionId",
         "type": "bytes32"
+      },
+      {
+        "internalType": "bytes2",
+        "name": "reportId",
+        "type": "bytes2"
+      }
+    ],
+    "name": "getTransmissionId",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "workflowExecutionId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes2",
+        "name": "reportId",
+        "type": "bytes2"
+      }
+    ],
+    "name": "getTransmissionState",
+    "outputs": [
+      {
+        "internalType": "enum IRouter.TransmissionState",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "workflowExecutionId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes2",
+        "name": "reportId",
+        "type": "bytes2"
       }
     ],
     "name": "getTransmitter",
@@ -217,6 +368,25 @@
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "forwarder",
+        "type": "address"
+      }
+    ],
+    "name": "isForwarder",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -239,12 +409,30 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "receiverAddress",
+        "name": "forwarder",
+        "type": "address"
+      }
+    ],
+    "name": "removeForwarder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiver",
         "type": "address"
       },
       {
         "internalType": "bytes",
         "name": "rawReport",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "reportContext",
         "type": "bytes"
       },
       {
@@ -261,8 +449,52 @@
   {
     "inputs": [
       {
+        "internalType": "bytes32",
+        "name": "transmissionId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "transmitter",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "metadata",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "validatedReport",
+        "type": "bytes"
+      }
+    ],
+    "name": "route",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint32",
         "name": "donId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "configVersion",
         "type": "uint32"
       },
       {
@@ -304,7 +536,7 @@
         "type": "string"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   }
 ]

@@ -277,6 +277,12 @@
         "internalType": "uint96",
         "name": "amount",
         "type": "uint96"
+      },
+      {
+        "indexed": false,
+        "internalType": "contract IERC20Metadata",
+        "name": "billingToken",
+        "type": "address"
       }
     ],
     "name": "RegistrationRequested",

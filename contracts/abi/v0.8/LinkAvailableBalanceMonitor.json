@@ -356,6 +356,12 @@
         "internalType": "address",
         "name": "topUpAddress",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
     "name": "TopUpSucceeded",
@@ -450,7 +456,7 @@
         "type": "uint64"
       }
     ],
-    "name": "addToWatchListOrDecomission",
+    "name": "addToWatchListOrDecommission",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

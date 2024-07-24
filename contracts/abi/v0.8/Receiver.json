@@ -8,16 +8,10 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "workflowId",
-        "type": "bytes32"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "workflowOwner",
-        "type": "address"
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "metadata",
+        "type": "bytes"
       },
       {
         "indexed": false,
@@ -32,14 +26,9 @@
   {
     "inputs": [
       {
-        "internalType": "bytes32",
-        "name": "workflowId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "workflowOwner",
-        "type": "address"
+        "internalType": "bytes",
+        "name": "metadata",
+        "type": "bytes"
       },
       {
         "internalType": "bytes",

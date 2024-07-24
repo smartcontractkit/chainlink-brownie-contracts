@@ -201,6 +201,19 @@
   },
   {
     "inputs": [],
+    "name": "getAlterablePrimitiveValue",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getDifferentPrimitiveValue",
     "outputs": [
       {
@@ -465,6 +478,19 @@
       }
     ],
     "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "value",
+        "type": "uint64"
+      }
+    ],
+    "name": "setAlterablePrimitiveValue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

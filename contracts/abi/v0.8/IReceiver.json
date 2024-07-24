@@ -2,14 +2,9 @@
   {
     "inputs": [
       {
-        "internalType": "bytes32",
-        "name": "workflowId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "workflowOwner",
-        "type": "address"
+        "internalType": "bytes",
+        "name": "metadata",
+        "type": "bytes"
       },
       {
         "internalType": "bytes",

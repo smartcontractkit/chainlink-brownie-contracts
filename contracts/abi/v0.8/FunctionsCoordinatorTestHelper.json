@@ -67,6 +67,11 @@
             "internalType": "uint16",
             "name": "operationFeeCentsUsd",
             "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "transmitTxSizeBytes",
+            "type": "uint16"
           }
         ],
         "internalType": "struct FunctionsBillingConfig",
@@ -344,6 +349,11 @@
           {
             "internalType": "uint16",
             "name": "operationFeeCentsUsd",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "transmitTxSizeBytes",
             "type": "uint16"
           }
         ],
@@ -767,6 +777,11 @@
           {
             "internalType": "uint16",
             "name": "operationFeeCentsUsd",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "transmitTxSizeBytes",
             "type": "uint16"
           }
         ],
@@ -1282,6 +1297,11 @@
           {
             "internalType": "uint16",
             "name": "operationFeeCentsUsd",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "transmitTxSizeBytes",
             "type": "uint16"
           }
         ],
