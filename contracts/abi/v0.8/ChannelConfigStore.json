@@ -5,79 +5,31 @@
     "type": "constructor"
   },
   {
-    "inputs": [],
-    "name": "ChannelDefinitionNotFound",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "EmptyStreamIDs",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "OnlyCallableByEOA",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "StagingConfigAlreadyPromoted",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "ZeroChainSelector",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "ZeroReportFormat",
-    "type": "error"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "channelId",
-        "type": "uint32"
-      }
-    ],
-    "name": "ChannelDefinitionRemoved",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "donId",
+        "type": "uint256"
+      },
       {
         "indexed": false,
         "internalType": "uint32",
-        "name": "channelId",
+        "name": "version",
         "type": "uint32"
       },
       {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "reportFormat",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint64",
-            "name": "chainSelector",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint32[]",
-            "name": "streamIDs",
-            "type": "uint32[]"
-          }
-        ],
         "indexed": false,
-        "internalType": "struct IChannelConfigStore.ChannelDefinition",
-        "name": "channelDefinition",
-        "type": "tuple"
+        "internalType": "string",
+        "name": "url",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "sha",
+        "type": "bytes32"
       }
     ],
     "name": "NewChannelDefinition",
@@ -122,94 +74,10 @@
     "type": "event"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "channelId",
-        "type": "uint32"
-      }
-    ],
-    "name": "PromoteStagingConfig",
-    "type": "event"
-  },
-  {
     "inputs": [],
     "name": "acceptOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint32",
-        "name": "channelId",
-        "type": "uint32"
-      },
-      {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "reportFormat",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint64",
-            "name": "chainSelector",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint32[]",
-            "name": "streamIDs",
-            "type": "uint32[]"
-          }
-        ],
-        "internalType": "struct IChannelConfigStore.ChannelDefinition",
-        "name": "channelDefinition",
-        "type": "tuple"
-      }
-    ],
-    "name": "addChannel",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint32",
-        "name": "channelId",
-        "type": "uint32"
-      }
-    ],
-    "name": "getChannelDefinitions",
-    "outputs": [
-      {
-        "components": [
-          {
-            "internalType": "uint32",
-            "name": "reportFormat",
-            "type": "uint32"
-          },
-          {
-            "internalType": "uint64",
-            "name": "chainSelector",
-            "type": "uint64"
-          },
-          {
-            "internalType": "uint32[]",
-            "name": "streamIDs",
-            "type": "uint32[]"
-          }
-        ],
-        "internalType": "struct IChannelConfigStore.ChannelDefinition",
-        "name": "",
-        "type": "tuple"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -229,11 +97,21 @@
     "inputs": [
       {
         "internalType": "uint32",
-        "name": "channelId",
+        "name": "donId",
         "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "url",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "sha",
+        "type": "bytes32"
       }
     ],
-    "name": "removeChannel",
+    "name": "setChannelDefinitions",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

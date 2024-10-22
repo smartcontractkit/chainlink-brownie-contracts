@@ -21,6 +21,16 @@
     "type": "constructor"
   },
   {
+    "inputs": [],
+    "name": "L1CrossDomainMessengerAddressZero",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "L2UptimeFeedAddrZero",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -281,7 +291,7 @@
         "type": "string"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -317,5 +327,9 @@
     ],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
   }
 ]

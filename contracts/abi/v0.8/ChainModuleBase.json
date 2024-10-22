@@ -32,12 +32,18 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "getCurrentL1Fee",
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "l1Fee",
         "type": "uint256"
       }
     ],
@@ -74,7 +80,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "maxL1Fee",
         "type": "uint256"
       }
     ],

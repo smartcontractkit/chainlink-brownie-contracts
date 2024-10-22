@@ -141,6 +141,17 @@
     "type": "error"
   },
   {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "encryptionPublicKey",
+        "type": "bytes32"
+      }
+    ],
+    "name": "InvalidNodeEncryptionPublicKey",
+    "type": "error"
+  },
+  {
     "inputs": [],
     "name": "InvalidNodeOperatorAdmin",
     "type": "error"
@@ -288,7 +299,7 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint32",
         "name": "donId",
         "type": "uint32"
@@ -601,6 +612,11 @@
           {
             "internalType": "bytes32",
             "name": "p2pId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "encryptionPublicKey",
             "type": "bytes32"
           },
           {
@@ -959,6 +975,11 @@
             "type": "bytes32"
           },
           {
+            "internalType": "bytes32",
+            "name": "encryptionPublicKey",
+            "type": "bytes32"
+          },
+          {
             "internalType": "bytes32[]",
             "name": "hashedCapabilityIds",
             "type": "bytes32[]"
@@ -1062,6 +1083,11 @@
           {
             "internalType": "bytes32",
             "name": "p2pId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "encryptionPublicKey",
             "type": "bytes32"
           },
           {
@@ -1177,7 +1203,7 @@
         "type": "string"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -1212,11 +1238,6 @@
       {
         "internalType": "bool",
         "name": "isPublic",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "acceptsWorkflows",
         "type": "bool"
       },
       {
@@ -1277,6 +1298,11 @@
           {
             "internalType": "bytes32",
             "name": "p2pId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "encryptionPublicKey",
             "type": "bytes32"
           },
           {

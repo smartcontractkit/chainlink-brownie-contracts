@@ -26,6 +26,16 @@
     "type": "constructor"
   },
   {
+    "inputs": [],
+    "name": "L1CrossDomainMessengerAddressZero",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "L2UptimeFeedAddrZero",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {

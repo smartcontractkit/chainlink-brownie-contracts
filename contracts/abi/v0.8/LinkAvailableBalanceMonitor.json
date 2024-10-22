@@ -134,6 +134,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "ReentrantCall",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {

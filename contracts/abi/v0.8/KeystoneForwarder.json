@@ -50,6 +50,17 @@
   {
     "inputs": [
       {
+        "internalType": "bytes32",
+        "name": "transmissionId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "InsufficientGasForRouting",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "numSigners",
         "type": "uint256"
@@ -333,12 +344,44 @@
         "type": "bytes2"
       }
     ],
-    "name": "getTransmissionState",
+    "name": "getTransmissionInfo",
     "outputs": [
       {
-        "internalType": "enum IRouter.TransmissionState",
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "transmissionId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum IRouter.TransmissionState",
+            "name": "state",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "transmitter",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "invalidReceiver",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint80",
+            "name": "gasLimit",
+            "type": "uint80"
+          }
+        ],
+        "internalType": "struct IRouter.TransmissionInfo",
         "name": "",
-        "type": "uint8"
+        "type": "tuple"
       }
     ],
     "stateMutability": "view",

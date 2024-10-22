@@ -1,33 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.24;
 
-import {TypeAndVersionInterface} from "../interfaces/TypeAndVersionInterface.sol";
-import {OwnerIsCreator} from "../shared/access/OwnerIsCreator.sol";
-import {IERC165} from "../vendor/openzeppelin-solidity/v4.8.3/contracts/interfaces/IERC165.sol";
-import {EnumerableSet} from "../vendor/openzeppelin-solidity/v4.8.3/contracts/utils/structs/EnumerableSet.sol";
+import {ITypeAndVersion} from "../shared/interfaces/ITypeAndVersion.sol";
 import {ICapabilityConfiguration} from "./interfaces/ICapabilityConfiguration.sol";
 
-/// @notice CapabilitiesRegistry is used to manage Nodes (including their links to Node
-/// Operators), Capabilities, and DONs (Decentralized Oracle Networks) which are
-/// sets of nodes that support those Capabilities.
-/// @dev The contract currently stores the entire state of Node Operators, Nodes,
-/// Capabilities and DONs in the contract and requires a full state migration
-/// if an upgrade is ever required.  The team acknowledges this and is fine
-/// reconfiguring the upgraded contract in the future so as to not add extra
-/// complexity to this current version.
-contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
+import {OwnerIsCreator} from "../shared/access/OwnerIsCreator.sol";
+
+import {EnumerableSet} from "../vendor/openzeppelin-solidity/v4.8.3/contracts/utils/structs/EnumerableSet.sol";
+import {ERC165Checker} from "../vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/ERC165Checker.sol";
+
+/// @notice CapabilitiesRegistry is used to manage Nodes (including their links to Node Operators), Capabilities,
+/// and DONs (Decentralized Oracle Networks) which are sets of nodes that support those Capabilities.
+/// @dev The contract currently stores the entire state of Node Operators, Nodes, Capabilities and DONs in the
+/// contract and requires a full state migration if an upgrade is ever required. The team acknowledges this and is
+/// fine reconfiguring the upgraded contract in the future so as to not add extra complexity to this current version.
+contract CapabilitiesRegistry is OwnerIsCreator, ITypeAndVersion {
   // Add the library methods
   using EnumerableSet for EnumerableSet.Bytes32Set;
   using EnumerableSet for EnumerableSet.UintSet;
 
   struct NodeOperator {
-    /// @notice The address of the admin that can manage a node
-    /// operator
+    /// @notice The address of the admin that can manage a node operator
     address admin;
     /// @notice Human readable name of a Node Operator managing the node
-    /// @dev The contract does not validate the length or characters of the
-    /// node operator name because a trusted admin will supply these names.
-    /// We reduce gas costs by omitting these checks on-chain.
+    /// @dev The contract does not validate the length or characters of the node operator name because
+    /// a trusted admin will supply these names. We reduce gas costs by omitting these checks on-chain.
     string name;
   }
 
@@ -36,10 +33,11 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     uint32 nodeOperatorId;
     /// @notice The signer address for application-layer message verification.
     bytes32 signer;
-    /// @notice This is an Ed25519 public key that is used to identify a node.
-    /// This key is guaranteed to be unique in the CapabilitiesRegistry. It is
-    /// used to identify a node in the the P2P network.
+    /// @notice This is an Ed25519 public key that is used to identify a node. This key is guaranteed to
+    /// be unique in the CapabilitiesRegistry. It is used to identify a node in the the P2P network.
     bytes32 p2pId;
+    /// @notice Public key used to encrypt secrets for this node
+    bytes32 encryptionPublicKey;
     /// @notice The list of hashed capability IDs supported by the node
     bytes32[] hashedCapabilityIds;
   }
@@ -54,15 +52,15 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     uint32 workflowDONId;
     /// @notice The signer address for application-layer message verification.
     bytes32 signer;
-    /// @notice This is an Ed25519 public key that is used to identify a node.
-    /// This key is guaranteed to be unique in the CapabilitiesRegistry. It is
-    /// used to identify a node in the the P2P network.
+    /// @notice This is an Ed25519 public key that is used to identify a node. This key is guaranteed
+    /// to be unique in the CapabilitiesRegistry. It is used to identify a node in the the P2P network.
     bytes32 p2pId;
+    /// @notice Public key used to encrypt secrets for this node
+    bytes32 encryptionPublicKey;
     /// @notice The list of hashed capability IDs supported by the node
     bytes32[] hashedCapabilityIds;
-    /// @notice The list of capabilities DON Ids supported by the node. A node
-    /// can belong to multiple capabilities DONs. This list does not include a
-    /// Workflow DON id if the node belongs to one.
+    /// @notice The list of capabilities DON Ids supported by the node. A node can belong to multiple
+    /// capabilities DONs. This list does not include a Workflow DON id if the node belongs to one.
     uint256[] capabilitiesDONIds;
   }
 
@@ -76,35 +74,31 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     /// only belong to one DON that accepts Workflows.
     uint32 workflowDONId;
     /// @notice The signer address for application-layer message verification.
-    /// @dev This key is guaranteed to be unique in the CapabilitiesRegistry
-    /// as a signer address can only belong to one node.
-    /// @dev This should be the ABI encoded version of the node's address.
-    /// I.e 0x0000address.  The Capability Registry does not store it as an address so that
-    /// non EVM chains with addresses greater than 20 bytes can be supported
+    /// @dev This key is guaranteed to be unique in the CapabilitiesRegistry as a signer
+    /// address can only belong to one node.
+    /// @dev This should be the ABI encoded version of the node's address. I.e 0x0000address. The Capability Registry
+    /// does not store it as an address so that non EVM chains with addresses greater than 20 bytes can be supported
     /// in the future.
     bytes32 signer;
-    /// @notice This is an Ed25519 public key that is used to identify a node.
-    /// This key is guaranteed to be unique in the CapabilitiesRegistry. It is
-    /// used to identify a node in the the P2P network.
+    /// @notice This is an Ed25519 public key that is used to identify a node. This key is guaranteed
+    /// to be unique in the CapabilitiesRegistry. It is used to identify a node in the the P2P network.
     bytes32 p2pId;
+    /// @notice Public key used to encrypt secrets for this node
+    bytes32 encryptionPublicKey;
     /// @notice The node's supported capabilities
-    /// @dev This is stored as a map so that we can easily update to a set of
-    /// new capabilities by incrementing the configCount and creating a
-    /// new set of supported capability IDs
+    /// @dev This is stored as a map so that we can easily update to a set of new capabilities by
+    /// incrementing the configCount and creating a new set of supported capability IDs
     mapping(uint32 configCount => EnumerableSet.Bytes32Set capabilityId) supportedHashedCapabilityIds;
-    /// @notice The list of capabilities DON Ids supported by the node. A node
-    /// can belong to multiple capabilities DONs. This list does not include a
-    /// Workflow DON id if the node belongs to one.
+    /// @notice The list of capabilities DON Ids supported by the node. A node can belong to multiple
+    /// capabilities DONs. This list does not include a Workflow DON id if the node belongs to one.
     EnumerableSet.UintSet capabilitiesDONIds;
   }
 
-  /// @notice CapabilityResponseType indicates whether remote response requires
-  // aggregation or is an already aggregated report. There are multiple
-  // possible ways to aggregate.
-  /// @dev REPORT response type receives signatures together with the response that
-  /// is used to verify the data.  OBSERVATION_IDENTICAL just receives data without
-  /// signatures and waits for some number of observations before proceeeding to
-  /// the next step
+  /// @notice CapabilityResponseType indicates whether remote response requires aggregation or is
+  /// an already aggregated report. There are multiple possible ways to aggregate.
+  /// @dev REPORT response type receives signatures together with the response that is used to verify the data.
+  /// OBSERVATION_IDENTICAL just receives data without signatures and waits for some number of observations before
+  /// proceeding to the next step
   enum CapabilityResponseType {
     // No additional aggregation is needed on the remote response.
     REPORT,
@@ -124,7 +118,8 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   struct Capability {
     /// @notice The partially qualified ID for the capability.
     /// @dev Given the following capability ID: {name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}@{version}
-    // Then we denote the `labelledName` as the `{name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}` portion of the ID.
+    /// Then we denote the `labelledName` as the `{name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}`
+    /// portion of the ID.
     ///
     /// Ex. id = "data-streams-reports:chain:ethereum@1.0.0"
     ///     labelledName = "data-streams-reports:chain:ethereum"
@@ -135,22 +130,18 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     /// @notice CapabilityType indicates the type of capability which determines
     /// where the capability can be used in a Workflow Spec.
     CapabilityType capabilityType;
-    /// @notice CapabilityResponseType indicates whether remote response requires
-    // aggregation or is an already aggregated report. There are multiple
-    // possible ways to aggregate.
+    /// @notice CapabilityResponseType indicates whether remote response requires aggregation or is an
+    /// already aggregated report. There are multiple possible ways to aggregate.
     CapabilityResponseType responseType;
-    /// @notice An address to the capability configuration contract. Having this defined
-    // on a capability enforces consistent configuration across DON instances
-    // serving the same capability. Configuration contract MUST implement
-    // CapabilityConfigurationContractInterface.
-    //
+    /// @notice An address to the capability configuration contract. Having this defined on a capability enforces
+    /// consistent configuration across DON instances serving the same capability. Configuration contract MUST implement
+    /// CapabilityConfigurationContractInterface.
+    ///
     /// @dev The main use cases are:
-    // 1) Sharing capability configuration across DON instances
-    // 2) Inspect and modify on-chain configuration without off-chain
-    // capability code.
-    //
-    // It is not recommended to store configuration which requires knowledge of
-    // the DON membership.
+    /// 1) Sharing capability configuration across DON instances
+    /// 2) Inspect and modify on-chain configuration without off-chain capability code.
+    ///
+    /// It is not recommended to store configuration which requires knowledge of the DON membership.
     address configurationContract;
   }
 
@@ -159,7 +150,8 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     bytes32 hashedId;
     /// @notice The partially qualified ID for the capability.
     /// @dev Given the following capability ID: {name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}@{version}
-    // Then we denote the `labelledName` as the `{name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}` portion of the ID.
+    /// Then we denote the `labelledName` as the `{name}:{label1_key}_{label1_value}:{label2_key}_{label2_value}`
+    /// portion of the ID.
     ///
     /// Ex. id = "data-streams-reports:chain:ethereum@1.0.0"
     ///     labelledName = "data-streams-reports:chain:ethereum"
@@ -170,22 +162,18 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     /// @notice CapabilityType indicates the type of capability which determines
     /// where the capability can be used in a Workflow Spec.
     CapabilityType capabilityType;
-    /// @notice CapabilityResponseType indicates whether remote response requires
-    // aggregation or is an already aggregated report. There are multiple
-    // possible ways to aggregate.
+    /// @notice CapabilityResponseType indicates whether remote response requires aggregation
+    /// or is an already aggregated report. There are multiple possible ways to aggregate.
     CapabilityResponseType responseType;
-    /// @notice An address to the capability configuration contract. Having this defined
-    // on a capability enforces consistent configuration across DON instances
-    // serving the same capability. Configuration contract MUST implement
-    // CapabilityConfigurationContractInterface.
-    //
+    /// @notice An address to the capability configuration contract. Having this defined on a capability enforces
+    /// consistent configuration across DON instances serving the same capability. Configuration contract MUST implement
+    /// CapabilityConfigurationContractInterface.
+    ///
     /// @dev The main use cases are:
-    // 1) Sharing capability configuration across DON instances
-    // 2) Inspect and modify on-chain configuration without off-chain
-    // capability code.
-    //
-    // It is not recommended to store configuration which requires knowledge of
-    // the DON membership.
+    /// 1) Sharing capability configuration across DON instances
+    /// 2) Inspect and modify on-chain configuration without off-chain capability code.
+    ///
+    /// It is not recommended to store configuration which requires knowledge of the DON membership.
     address configurationContract;
     /// @notice True if the capability is deprecated
     bool isDeprecated;
@@ -196,14 +184,12 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   struct CapabilityConfiguration {
     /// @notice The capability Id
     bytes32 capabilityId;
-    /// @notice The capability config specific to a DON.  This will be decoded
-    /// offchain
+    /// @notice The capability config specific to a DON.  This will be decoded offchain
     bytes config;
   }
 
   struct DONCapabilityConfig {
-    /// @notice The set of p2pIds of nodes that belong to this DON. A node (the same
-    // p2pId) can belong to multiple DONs.
+    /// @notice The set of p2pIds of nodes that belong to this DON. A node (the same p2pId) can belong to multiple DONs.
     EnumerableSet.Bytes32Set nodes;
     /// @notice The set of capabilityIds
     bytes32[] capabilityIds;
@@ -284,6 +270,11 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   error InvalidNodeP2PId(bytes32 p2pId);
 
   /// @notice This error is thrown when trying to add a node without
+  /// including the encryption public key bytes.
+  /// @param encryptionPublicKey The encryption public key bytes
+  error InvalidNodeEncryptionPublicKey(bytes32 encryptionPublicKey);
+
+  /// @notice This error is thrown when trying to add a node without
   /// capabilities or with capabilities that do not exist.
   /// @param hashedCapabilityIds The IDs of the capabilities that are being added.
   error InvalidNodeCapabilities(bytes32[] hashedCapabilityIds);
@@ -351,7 +342,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   error NodeOperatorDoesNotExist(uint32 nodeOperatorId);
 
   /// @notice This error is thrown when trying to remove a node that is still
-  /// part of a capabitlities DON
+  /// part of a capabilities DON
   /// @param donId The Id of the DON the node belongs to
   /// @param nodeP2PId The P2P Id of the node being removed
   error NodePartOfCapabilitiesDON(uint32 donId, bytes32 nodeP2PId);
@@ -396,7 +387,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   /// @param donId The ID of the DON the config was set for
   /// @param configCount The number of times the DON has been
   /// configured
-  event ConfigSet(uint32 donId, uint32 configCount);
+  event ConfigSet(uint32 indexed donId, uint32 configCount);
 
   /// @notice This event is emitted when a new node operator is added
   /// @param nodeOperatorId The ID of the newly added node operator
@@ -422,6 +413,8 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   /// @notice This event is emitted when a capability is deprecated
   /// @param hashedCapabilityId The hashed ID of the deprecated capability
   event CapabilityDeprecated(bytes32 indexed hashedCapabilityId);
+
+  string public constant override typeAndVersion = "CapabilitiesRegistry 1.0.0";
 
   /// @notice Mapping of capabilities
   mapping(bytes32 hashedCapabilityId => Capability capability) private s_capabilities;
@@ -458,10 +451,6 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   /// @dev Starting with 1 to avoid confusion with the zero value
   /// @dev No getter for this as this is an implementation detail
   uint32 private s_nextDONId = 1;
-
-  function typeAndVersion() external pure override returns (string memory) {
-    return "CapabilitiesRegistry 1.0.0";
-  }
 
   /// @notice Adds a list of node operators
   /// @param nodeOperators List of node operators to add
@@ -502,7 +491,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
 
       NodeOperator memory nodeOperator = nodeOperators[i];
       if (nodeOperator.admin == address(0)) revert InvalidNodeOperatorAdmin();
-      if (msg.sender != nodeOperator.admin && msg.sender != owner) revert AccessForbidden(msg.sender);
+      if (msg.sender != currentNodeOperator.admin && msg.sender != owner) revert AccessForbidden(msg.sender);
 
       if (
         currentNodeOperator.admin != nodeOperator.admin ||
@@ -561,6 +550,8 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
 
       if (node.signer == bytes32("") || s_nodeSigners.contains(node.signer)) revert InvalidNodeSigner();
 
+      if (node.encryptionPublicKey == bytes32("")) revert InvalidNodeEncryptionPublicKey(node.encryptionPublicKey);
+
       bytes32[] memory capabilityIds = node.hashedCapabilityIds;
       if (capabilityIds.length == 0) revert InvalidNodeCapabilities(capabilityIds);
 
@@ -572,6 +563,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
         storedNode.supportedHashedCapabilityIds[capabilityConfigCount].add(capabilityIds[j]);
       }
 
+      storedNode.encryptionPublicKey = node.encryptionPublicKey;
       storedNode.nodeOperatorId = node.nodeOperatorId;
       storedNode.p2pId = node.p2pId;
       storedNode.signer = node.signer;
@@ -611,11 +603,12 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
     bool isOwner = msg.sender == owner();
     for (uint256 i; i < nodes.length; ++i) {
       NodeParams memory node = nodes[i];
-      NodeOperator memory nodeOperator = s_nodeOperators[node.nodeOperatorId];
+      Node storage storedNode = s_nodes[node.p2pId];
+      NodeOperator memory nodeOperator = s_nodeOperators[storedNode.nodeOperatorId];
+
+      if (storedNode.signer == bytes32("")) revert NodeDoesNotExist(node.p2pId);
       if (!isOwner && msg.sender != nodeOperator.admin) revert AccessForbidden(msg.sender);
 
-      Node storage storedNode = s_nodes[node.p2pId];
-      if (storedNode.signer == bytes32("")) revert NodeDoesNotExist(node.p2pId);
       if (node.signer == bytes32("")) revert InvalidNodeSigner();
 
       bytes32 previousSigner = storedNode.signer;
@@ -625,6 +618,8 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
         s_nodeSigners.remove(previousSigner);
         s_nodeSigners.add(node.signer);
       }
+
+      if (node.encryptionPublicKey == bytes32("")) revert InvalidNodeEncryptionPublicKey(node.encryptionPublicKey);
 
       bytes32[] memory supportedHashedCapabilityIds = node.hashedCapabilityIds;
       if (supportedHashedCapabilityIds.length == 0) revert InvalidNodeCapabilities(supportedHashedCapabilityIds);
@@ -663,6 +658,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
 
       storedNode.nodeOperatorId = node.nodeOperatorId;
       storedNode.p2pId = node.p2pId;
+      storedNode.encryptionPublicKey = node.encryptionPublicKey;
 
       emit NodeUpdated(node.p2pId, node.nodeOperatorId, node.signer);
     }
@@ -677,6 +673,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
         nodeOperatorId: s_nodes[p2pId].nodeOperatorId,
         p2pId: s_nodes[p2pId].p2pId,
         signer: s_nodes[p2pId].signer,
+        encryptionPublicKey: s_nodes[p2pId].encryptionPublicKey,
         hashedCapabilityIds: s_nodes[p2pId].supportedHashedCapabilityIds[s_nodes[p2pId].configCount].values(),
         configCount: s_nodes[p2pId].configCount,
         workflowDONId: s_nodes[p2pId].workflowDONId,
@@ -774,7 +771,9 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   /// @param nodes The nodes making up the DON
   /// @param capabilityConfigurations The list of configurations for the
   /// capabilities supported by the DON
-  /// @param isPublic True if the DON is public
+  /// @param isPublic True if the DON is can accept external capability requests
+  /// @param acceptsWorkflows True if the DON can accept workflows
+  /// @param f The maximum number of faulty nodes the DON can tolerate
   function addDON(
     bytes32[] calldata nodes,
     CapabilityConfiguration[] calldata capabilityConfigurations,
@@ -796,24 +795,32 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
   /// the admin to reconfigure the list of capabilities supported
   /// by the DON, the list of nodes that make up the DON as well
   /// as whether or not the DON can accept external workflows
+  /// @param donId The ID of the DON to update
   /// @param nodes The nodes making up the DON
   /// @param capabilityConfigurations The list of configurations for the
   /// capabilities supported by the DON
-  /// @param isPublic True if the DON is can accept external workflows
+  /// @param isPublic True if the DON is can accept external capability requests
+  /// @param f The maximum number of nodes that can fail
   function updateDON(
     uint32 donId,
     bytes32[] calldata nodes,
     CapabilityConfiguration[] calldata capabilityConfigurations,
     bool isPublic,
-    bool acceptsWorkflows,
     uint8 f
   ) external onlyOwner {
-    uint32 configCount = s_dons[donId].configCount;
+    DON storage don = s_dons[donId];
+    uint32 configCount = don.configCount;
     if (configCount == 0) revert DONDoesNotExist(donId);
     _setDONConfig(
       nodes,
       capabilityConfigurations,
-      DONParams({id: donId, configCount: ++configCount, isPublic: isPublic, acceptsWorkflows: acceptsWorkflows, f: f})
+      DONParams({
+        id: donId,
+        configCount: ++configCount,
+        isPublic: isPublic,
+        acceptsWorkflows: don.acceptsWorkflows,
+        f: f
+      })
     );
   }
 
@@ -893,8 +900,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
 
   /// @notice Sets the configuration for a DON
   /// @param nodes The nodes making up the DON
-  /// @param capabilityConfigurations The list of configurations for the
-  /// capabilities supported by the DON
+  /// @param capabilityConfigurations The list of configurations for the capabilities supported by the DON
   /// @param donParams The DON's parameters
   function _setDONConfig(
     bytes32[] calldata nodes,
@@ -960,6 +966,11 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
       donCapabilityConfig.capabilityIds.push(configuration.capabilityId);
       donCapabilityConfig.capabilityConfigs[configuration.capabilityId] = configuration.config;
 
+      s_dons[donParams.id].isPublic = donParams.isPublic;
+      s_dons[donParams.id].acceptsWorkflows = donParams.acceptsWorkflows;
+      s_dons[donParams.id].f = donParams.f;
+      s_dons[donParams.id].configCount = donParams.configCount;
+
       _setDONCapabilityConfig(
         donParams.id,
         donParams.configCount,
@@ -968,10 +979,6 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
         configuration.config
       );
     }
-    s_dons[donParams.id].isPublic = donParams.isPublic;
-    s_dons[donParams.id].acceptsWorkflows = donParams.acceptsWorkflows;
-    s_dons[donParams.id].f = donParams.f;
-    s_dons[donParams.id].configCount = donParams.configCount;
     emit ConfigSet(donParams.id, donParams.configCount);
   }
 
@@ -1009,8 +1016,7 @@ contract CapabilitiesRegistry is OwnerIsCreator, TypeAndVersionInterface {
       /// by implementing both getCapabilityConfiguration and
       /// beforeCapabilityConfigSet
       if (
-        capability.configurationContract.code.length == 0 ||
-        !IERC165(capability.configurationContract).supportsInterface(type(ICapabilityConfiguration).interfaceId)
+        !ERC165Checker.supportsInterface(capability.configurationContract, type(ICapabilityConfiguration).interfaceId)
       ) revert InvalidCapabilityConfigurationContractInterface(capability.configurationContract);
     }
     s_capabilities[hashedCapabilityId] = capability;

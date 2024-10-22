@@ -111,6 +111,19 @@
     "type": "event"
   },
   {
+    "inputs": [],
+    "name": "autoExecution",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "components": [
@@ -257,6 +270,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_auto",
+        "type": "bool"
+      }
+    ],
+    "name": "setAuto",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

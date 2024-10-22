@@ -1,5 +1,45 @@
 [
   {
+    "inputs": [],
+    "name": "FailedToActivateConfig",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToActivateFeed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToDeactivateConfig",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToDeactivateFeed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToGetLatestConfigDetails",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToGetLatestConfigDigestAndEpoch",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToSetConfig",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedToVerify",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes32",

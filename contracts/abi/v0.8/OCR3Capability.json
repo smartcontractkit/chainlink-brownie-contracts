@@ -1,10 +1,5 @@
 [
   {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
     "inputs": [
       {
         "internalType": "string",
@@ -13,17 +8,6 @@
       }
     ],
     "name": "InvalidConfig",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
-    ],
-    "name": "ReportInvalid",
     "type": "error"
   },
   {
@@ -54,9 +38,9 @@
       },
       {
         "indexed": false,
-        "internalType": "address[]",
+        "internalType": "bytes[]",
         "name": "signers",
-        "type": "address[]"
+        "type": "bytes[]"
       },
       {
         "indexed": false,
@@ -218,9 +202,9 @@
   {
     "inputs": [
       {
-        "internalType": "address[]",
+        "internalType": "bytes[]",
         "name": "_signers",
-        "type": "address[]"
+        "type": "bytes[]"
       },
       {
         "internalType": "address[]",
@@ -270,46 +254,33 @@
     "inputs": [
       {
         "internalType": "bytes32[3]",
-        "name": "reportContext",
+        "name": "",
         "type": "bytes32[3]"
       },
       {
         "internalType": "bytes",
-        "name": "report",
+        "name": "",
         "type": "bytes"
       },
       {
         "internalType": "bytes32[]",
-        "name": "rs",
+        "name": "",
         "type": "bytes32[]"
       },
       {
         "internalType": "bytes32[]",
-        "name": "ss",
+        "name": "",
         "type": "bytes32[]"
       },
       {
         "internalType": "bytes32",
-        "name": "rawVs",
+        "name": "",
         "type": "bytes32"
       }
     ],
     "name": "transmit",
     "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "transmitters",
-    "outputs": [
-      {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
-    ],
-    "stateMutability": "view",
+    "stateMutability": "pure",
     "type": "function"
   },
   {
@@ -322,7 +293,7 @@
         "type": "string"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   }
 ]

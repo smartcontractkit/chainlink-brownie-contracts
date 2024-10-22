@@ -5,6 +5,11 @@
         "internalType": "address",
         "name": "racAddress",
         "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "lacAddress",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
@@ -59,6 +64,25 @@
       }
     ],
     "name": "FlagRaised",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previous",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "current",
+        "type": "address"
+      }
+    ],
+    "name": "LoweringAccessControllerUpdated",
     "type": "event"
   },
   {
@@ -243,6 +267,19 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "subject",
+        "type": "address"
+      }
+    ],
+    "name": "lowerFlag",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address[]",
         "name": "subjects",
         "type": "address[]"
@@ -251,6 +288,19 @@
     "name": "lowerFlags",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "loweringAccessController",
+    "outputs": [
+      {
+        "internalType": "contract AccessControllerInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -322,6 +372,19 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "lacAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setLoweringAccessController",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "racAddress",
         "type": "address"
       }
@@ -342,6 +405,19 @@
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "typeAndVersion",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
     "type": "function"
   }
 ]

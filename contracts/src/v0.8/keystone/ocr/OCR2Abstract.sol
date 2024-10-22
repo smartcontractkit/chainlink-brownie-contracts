@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity 0.8.24;
 
 import {ITypeAndVersion} from "../../shared/interfaces/ITypeAndVersion.sol";
 
@@ -23,7 +23,7 @@ abstract contract OCR2Abstract is ITypeAndVersion {
     uint32 previousConfigBlockNumber,
     bytes32 configDigest,
     uint64 configCount,
-    address[] signers,
+    bytes[] signers,
     address[] transmitters,
     uint8 f,
     bytes onchainConfig,
@@ -41,7 +41,7 @@ abstract contract OCR2Abstract is ITypeAndVersion {
    * @param offchainConfig serialized configuration used by the oracles exclusively and only passed through the contract
    */
   function setConfig(
-    address[] memory signers,
+    bytes[] memory signers,
     address[] memory transmitters,
     uint8 f,
     bytes memory onchainConfig,
@@ -62,8 +62,8 @@ abstract contract OCR2Abstract is ITypeAndVersion {
     returns (uint32 configCount, uint32 blockNumber, bytes32 configDigest);
 
   /**
-    * @notice optionally emited to indicate the latest configDigest and epoch for
-     which a report was successfully transmited. Alternatively, the contract may
+    * @notice optionally emitted to indicate the latest configDigest and epoch for
+     which a report was successfully transmitted. Alternatively, the contract may
      use latestConfigDigestAndEpoch with scanLogs set to false.
   */
   event Transmitted(bytes32 configDigest, uint32 epoch);

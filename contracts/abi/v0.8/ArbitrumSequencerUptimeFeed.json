@@ -222,7 +222,7 @@
     "name": "FLAGS",
     "outputs": [
       {
-        "internalType": "contract FlagsInterface",
+        "internalType": "contract IFlags",
         "name": "",
         "type": "address"
       }
