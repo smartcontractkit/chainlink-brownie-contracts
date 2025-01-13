@@ -21,12 +21,10 @@ Everyday at 3AM, the latest version of the package is updated here, this way, yo
 forge install smartcontractkit/chainlink-brownie-contracts --no-commit
 ```
 
-2. Then, update your `foundry.toml` to include the following in the `remappings`.
+2. Then, in your root directory create remappings.txt file and copy-past:
 
 ```
-remappings = [
-  '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/src/',
-]
+  @chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/src/,
 ```
 
 >! IMPORTANT
