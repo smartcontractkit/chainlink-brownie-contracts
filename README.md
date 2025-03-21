@@ -1,6 +1,6 @@
 
 # Overview
-This repository is a slimmed down version of Chainlink's official repo. It clones *only* the Chainlink `contracts` folder and the repo automatically updates every time there is a new NPM release. 
+This repository is a slimmed down version of Chainlink's official repo! It clones *only* the Chainlink `contracts` folder and the repo automatically updates every time there is a new NPM release. 
 
 - NPM's latest release can be found here: https://www.npmjs.com/package/@chainlink/contracts
 - Chainlink's official repo: https://github.com/smartcontractkit/chainlink
