@@ -25,7 +25,7 @@ forge install smartcontractkit/chainlink-brownie-contracts --no-commit
 
 ```
 remappings = [
-  '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/src/',
+  '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/',
 ]
 ```
 
