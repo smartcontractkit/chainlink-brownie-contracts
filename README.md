@@ -18,7 +18,7 @@ Everyday at 3AM, the latest version of the package is updated here, this way, yo
 1. Run this in your projects root directory.
 
 ```bash
-forge install smartcontractkit/chainlink-brownie-contracts --no-commit
+forge install smartcontractkit/chainlink-brownie-contracts
 ```
 
 2. Then, update your `foundry.toml` to include the following in the `remappings`.
