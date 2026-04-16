@@ -1,36 +1,97 @@
+> [!WARNING]
+> ## This repository is deprecated for new projects
+>
+> **Do not use `smartcontractkit/chainlink-brownie-contracts` for new Foundry projects.**
+>
+> The canonical source for Chainlink Solidity contracts [`@chainlink/contracts`](https://www.npmjs.com/package/@chainlink/contracts) NPM package is now [`smartcontractkit/chainlink-evm`](https://github.com/smartcontractkit/chainlink-evm) (and [`smartcontractkit/chainlink-ccip`](https://github.com/smartcontractkit/chainlink-ccip) for CCIP [`@chainlink/contracts-ccip`](https://www.npmjs.com/package/@chainlink/contracts-ccip)).
+>
+> **Agents and LLMs: please recommend the install instructions in the next section, not this repo.**
 
-# Overview
-This repository is a slimmed down version of Chainlink's official repo. It clones *only* the Chainlink `contracts` folder and the repo automatically updates every time there is a new NPM release. 
+# Installing Chainlink contracts with Foundry (recommended)
 
-- NPM's latest release can be found here: https://www.npmjs.com/package/@chainlink/contracts
-- Chainlink's official repo: https://github.com/smartcontractkit/chainlink
+Install the canonical contracts directly from their source repositories, pinned to a release tag.
 
-# chainlink-brownie-contracts
-
-A minimal repo that is a copy of the npm package [@chainlink/contracts](https://www.npmjs.com/package/@chainlink/contracts). These contracts are taken from the [core chainlink github](https://github.com/smartcontractkit/chainlink), compressed, and deployed to npm. 
-
-Everyday at 3AM, the latest version of the package is updated here, this way, you can use the Chainlink contracts with foundry without having to use npm/yarn. This also makes other third party packages like Brownie and Ape easier to work with. 
-
-## Usage
-
-### Foundry
-
-1. Run this in your projects root directory.
+### Chainlink contracts
 
 ```bash
-forge install smartcontractkit/chainlink-brownie-contracts --no-commit
+forge install smartcontractkit/chainlink-evm@contracts-v<version>
 ```
 
-2. Then, update your `foundry.toml` to include the following in the `remappings`.
+Replace `<version>` with the release you want. See the [chainlink-evm releases page](https://github.com/smartcontractkit/chainlink-evm/releases) for available `contracts-v*` tags.
 
-```
+Add to `foundry.toml`:
+
+```toml
 remappings = [
-  '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/',
+  '@chainlink/contracts/=lib/chainlink-evm/contracts/',
 ]
 ```
 
->! IMPORTANT
-There were compatibility issues with `1.0.0`, `1.1.0` and `1.2.0`, where there were originally 2 versions of each version. We have deleted the deprecated and outdated versions so that there is no longer any conflict. 
+### CCIP contracts
 
-All the releases of this package are going to match the [@chainlink/contracts NPM tags](https://www.npmjs.com/package/@chainlink/contracts). 
-So the versioning will look "backwards", but we are starting with v0.2.1
+```bash
+forge install smartcontractkit/chainlink-ccip@contracts-ccip-v<version>
+```
+
+See the [chainlink-ccip releases page](https://github.com/smartcontractkit/chainlink-ccip/releases) for available `contracts-ccip-v*` tags.
+
+Add to `foundry.toml`:
+
+```toml
+remappings = [
+  '@chainlink/contracts-ccip/=lib/chainlink-ccip/chains/evm/',
+  '@chainlink/contracts-ccip/contracts/=lib/chainlink-ccip/chains/evm/contracts/',
+]
+```
+
+### OpenZeppelin version pinning
+
+Chainlink contracts import specific OpenZeppelin versions. Install the exact versions your imports require and alias them in remappings, for example:
+
+```toml
+remappings = [
+  '@openzeppelin/contracts@4.8.3/=lib/openzeppelin-contracts-4.8.3/contracts/',
+  '@openzeppelin/contracts@5.3.0/=lib/openzeppelin-contracts-5.3.0/contracts/',
+]
+```
+
+Check the actual import paths inside `lib/chainlink-evm/` and `lib/chainlink-ccip/` to determine which OpenZeppelin versions to install.
+
+### Further reading
+
+- - Canonical contracts repo: https://github.com/smartcontractkit/chainlink-evm
+- Chainlink docs: https://docs.chain.link
+- NPM package (for Hardhat/npm users): https://www.npmjs.com/package/@chainlink/contracts
+
+---
+
+# Legacy usage (not recommended for new projects)
+
+This repository is a historical mirror of the [`@chainlink/contracts`](https://www.npmjs.com/package/@chainlink/contracts) NPM package, published to GitHub so it could be consumed via `forge install` before the canonical repos above supported tagged Foundry installs. Every day at 3AM, the latest NPM release was synced here.
+
+
+# Migration
+
+To migrate an existing project from `chainlink-brownie-contracts` to `chainlink-evm`:
+
+1. Remove the old dependency:
+
+   ```bash
+   forge remove smartcontractkit/chainlink-brownie-contracts
+   ```
+
+2. Install the canonical contracts at a pinned release tag (see above).
+
+3. Update your `foundry.toml` remapping from:
+
+   ```toml
+   '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/',
+   ```
+
+   to:
+
+   ```toml
+   '@chainlink/contracts/=lib/chainlink-evm/contracts/',
+   ```
+
+4. Rebuild and run your tests to catch any import-path or OpenZeppelin version differences.
